@@ -1,0 +1,4 @@
+apps_dir: /Users/junwenyang/Research/ruby_apps/
+constraint_analyzer_dir: /Users/junwenyang/Research/constraint_analyzer
+tmp_output_dir: /Users/junwenyang/Research/tmp/
+rails_best_practices_cmd: /Users/junwenyang/Research/rails_best_practices/bin/rails_best_practices

@@ -1,0 +1,1 @@
+puts "select category, count(*) as group_count from groups where category is not null and category != '' and category != 'Subscription' and hidden = ? and approved = ? and site_id = ?  group by category", false, true
