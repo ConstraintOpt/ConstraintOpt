@@ -1,0 +1,4354 @@
+{
+  "Draft": {
+    "fields": {
+      "user_id": "integer",
+      "draftable_id": "integer",
+      "draftable_type": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Draft",
+        "rel": "belongs_to",
+        "field": "draftable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "drafts",
+      "draft"
+    ]
+  },
+  "PermittedParams": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "",
+    "table_name": [
+      "permitted_params",
+      "permitted_param"
+    ]
+  },
+  "EventCollection": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "event_collections",
+      "event_collection"
+    ]
+  },
+  "ContactMessage": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "contact_messages",
+      "contact_message"
+    ]
+  },
+  "ContactRequest": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "contact_requests",
+      "contact_request"
+    ]
+  },
+  "Membership": {
+    "fields": {
+      "group_id": "integer",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "inviter_id": "integer",
+      "archived_at": "datetime",
+      "inbox_position": "integer",
+      "admin": "boolean",
+      "volume": "integer",
+      "invitation_id": "integer",
+      "token": "string",
+      "accepted_at": "datetime",
+      "title": "string",
+      "saml_session_expires_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "memberships",
+      "membership"
+    ]
+  },
+  "InvitationAlreadyUsed": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "invitation_already_useds",
+      "invitation_already_used"
+    ]
+  },
+  "DiscussionReader": {
+    "fields": {
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "discussion_id": "integer",
+      "last_read_at": "datetime",
+      "last_read_sequence_id": "integer",
+      "volume": "integer",
+      "participating": "boolean",
+      "dismissed_at": "datetime",
+      "read_ranges_string": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "discussion_readers",
+      "discussion_reader"
+    ]
+  },
+  "GlobalMessageChannel": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "global_message_channels",
+      "global_message_channel"
+    ]
+  },
+  "StanceChoice": {
+    "fields": {
+      "stance_id": "integer",
+      "poll_option_id": "integer",
+      "score": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "PollOption",
+        "rel": "belongs_to",
+        "field": "poll_option"
+      },
+      {
+        "class_name": "Stance",
+        "rel": "belongs_to",
+        "field": "stance"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_one",
+        "field": "poll"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "stance_choices",
+      "stance_choice"
+    ]
+  },
+  "Reaction": {
+    "fields": {
+      "reactable_id": "integer",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "reaction": "string",
+      "reactable_type": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Reaction",
+        "rel": "belongs_to",
+        "field": "reactable"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "reactions",
+      "reaction"
+    ]
+  },
+  "AhoyEvent": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "Visit",
+        "rel": "belongs_to",
+        "field": "visit"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "AhoyApplicationRecord",
+    "table_name": [
+      "ahoy/events",
+      "ahoy/event"
+    ]
+  },
+  "OrganisationVisit": {
+    "fields": {
+      "organisation_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "user_id": "integer",
+      "member": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "organisation"
+      },
+      {
+        "class_name": "Visit",
+        "rel": "belongs_to",
+        "field": "visit"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "organisation_visits",
+      "organisation_visit"
+    ]
+  },
+  "Tag": {
+    "fields": {
+      "group_id": "integer",
+      "name": "string",
+      "color": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "discussion_tags_count": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "DiscussionTag",
+        "rel": "has_many",
+        "field": "discussion_tags"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "discussions"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "tags",
+      "tag"
+    ]
+  },
+  "SearchVector": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "search_vectors",
+      "search_vector"
+    ]
+  },
+  "Contact": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "contacts",
+      "contact"
+    ]
+  },
+  "Poll": {
+    "fields": {
+      "author_id": "integer",
+      "title": "string",
+      "details": "text",
+      "closing_at": "datetime",
+      "closed_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "discussion_id": "integer",
+      "key": "string",
+      "poll_type": "string",
+      "stances_count": "integer",
+      "multiple_choice": "boolean",
+      "group_id": "integer",
+      "notify_on_participate": "boolean",
+      "example": "boolean",
+      "undecided_count": "integer",
+      "voter_can_add_options": "boolean",
+      "guest_group_id": "integer",
+      "anonymous": "boolean",
+      "versions_count": "integer",
+      "details_format": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      },
+      {
+        "class_name": "Outcome",
+        "rel": "has_many",
+        "field": "outcomes"
+      },
+      {
+        "class_name": "Outcome",
+        "rel": "has_one",
+        "field": "current_outcome"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "Stance",
+        "rel": "has_many",
+        "field": "stances"
+      },
+      {
+        "class_name": "StanceChoice",
+        "rel": "has_many",
+        "field": "stance_choices"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_many",
+        "field": "participants"
+      },
+      {
+        "class_name": "PollUnsubscription",
+        "rel": "has_many",
+        "field": "poll_unsubscriptions"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_many",
+        "field": "unsubscribers"
+      },
+      {
+        "class_name": "PollOption",
+        "rel": "has_many",
+        "field": "poll_options"
+      },
+      {
+        "class_name": "PollDidNotVote",
+        "rel": "has_many",
+        "field": "poll_did_not_votes"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_many",
+        "field": "poll_did_not_voters"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "polls",
+      "poll"
+    ]
+  },
+  "PollPollOption": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "PollOption",
+        "rel": "belongs_to",
+        "field": "poll_option"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "poll_poll_options",
+      "poll_poll_option"
+    ]
+  },
+  "MemosReactionDestroyed": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Memo",
+    "table_name": [
+      "memos/reaction_destroyeds",
+      "memos/reaction_destroyed"
+    ]
+  },
+  "MemosCommentDestroyed": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Memo",
+    "table_name": [
+      "memos/comment_destroyeds",
+      "memos/comment_destroyed"
+    ]
+  },
+  "NullFormalGroup": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "null_formal_groups",
+      "null_formal_group"
+    ]
+  },
+  "Discussion": {
+    "fields": {
+      "group_id": "integer",
+      "author_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "title": "string",
+      "last_comment_at": "datetime",
+      "description": "text",
+      "uses_markdown": "boolean",
+      "items_count": "integer",
+      "closed_at": "datetime",
+      "private": "boolean",
+      "key": "string",
+      "iframe_src": "string",
+      "last_activity_at": "datetime",
+      "last_sequence_id": "integer",
+      "first_sequence_id": "integer",
+      "versions_count": "integer",
+      "closed_polls_count": "integer",
+      "pinned": "boolean",
+      "importance": "integer",
+      "seen_by_count": "integer",
+      "ranges_string": "string",
+      "guest_group_id": "integer",
+      "description_format": "string",
+      "max_depth": "integer",
+      "newest_first": "boolean",
+      "discarded_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "FormalGroup",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_many",
+        "field": "polls"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_many",
+        "field": "active_polls"
+      },
+      {
+        "class_name": "SearchVector",
+        "rel": "has_one",
+        "field": "search_vector"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "commenters"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "poll_documents"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "comment_documents"
+      },
+      {
+        "class_name": "DiscussionTag",
+        "rel": "has_many",
+        "field": "discussion_tags"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "has_many",
+        "field": "tags"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "items"
+      },
+      {
+        "class_name": "DiscussionReader",
+        "rel": "has_many",
+        "field": "discussion_readers"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "discussions",
+      "discussion"
+    ]
+  },
+  "BootSite": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "boot/sites",
+      "boot/site"
+    ]
+  },
+  "BootUser": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "boot/users",
+      "boot/user"
+    ]
+  },
+  "PollUnsubscription": {
+    "fields": {
+      "poll_id": "integer",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "poll_unsubscriptions",
+      "poll_unsubscription"
+    ]
+  },
+  "NotificationCollection": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "notification_collections",
+      "notification_collection"
+    ]
+  },
+  "DefaultGroupCover": {
+    "fields": {
+      "cover_photo_file_name": "string",
+      "cover_photo_content_type": "string",
+      "cover_photo_file_size": "integer",
+      "cover_photo_updated_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "default_group_covers",
+      "default_group_cover"
+    ]
+  },
+  "PollOption": {
+    "fields": {
+      "name": "string",
+      "poll_id": "integer",
+      "priority": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "StanceChoice",
+        "rel": "has_many",
+        "field": "stance_choices"
+      },
+      {
+        "class_name": "Stance",
+        "rel": "has_many",
+        "field": "stances"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "poll_options",
+      "poll_option"
+    ]
+  },
+  "Document": {
+    "fields": {
+      "model_id": "integer",
+      "model_type": "string",
+      "title": "string",
+      "url": "string",
+      "doctype": "string",
+      "color": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "icon": "string",
+      "author_id": "integer",
+      "web_url": "string",
+      "thumb_url": "string",
+      "file_file_name": "string",
+      "file_content_type": "string",
+      "group_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Document",
+        "rel": "belongs_to",
+        "field": "model"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "documents",
+      "document"
+    ]
+  },
+  "SiteSettings": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "site_settings",
+      "site_setting"
+    ]
+  },
+  "SamlProvider": {
+    "fields": {
+      "group_id": "integer",
+      "idp_metadata_url": "string",
+      "authentication_duration": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "saml_providers",
+      "saml_provider"
+    ]
+  },
+  "Translation": {
+    "fields": {
+      "translatable_id": "integer",
+      "translatable_type": "string",
+      "language": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Translation",
+        "rel": "belongs_to",
+        "field": "translatable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "translations",
+      "translation"
+    ]
+  },
+  "UsageReport": {
+    "fields": {
+      "groups_count": "integer",
+      "users_count": "integer",
+      "discussions_count": "integer",
+      "polls_count": "integer",
+      "comments_count": "integer",
+      "stances_count": "integer",
+      "visits_count": "integer",
+      "canonical_host": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "version": "string",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "usage_reports",
+      "usage_report"
+    ]
+  },
+  "GroupVisit": {
+    "fields": {
+      "group_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "user_id": "integer",
+      "member": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Visit",
+        "rel": "belongs_to",
+        "field": "visit"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "group_visits",
+      "group_visit"
+    ]
+  },
+  "Group": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "parent_id": "integer",
+      "description": "text",
+      "memberships_count": "integer",
+      "archived_at": "datetime",
+      "discussions_count": "integer",
+      "full_name": "string",
+      "parent_members_can_see_discussions": "boolean",
+      "key": "string",
+      "category_id": "integer",
+      "theme_id": "integer",
+      "is_visible_to_public": "boolean",
+      "is_visible_to_parent_members": "boolean",
+      "discussion_privacy_options": "string",
+      "members_can_add_members": "boolean",
+      "membership_granted_upon": "string",
+      "members_can_edit_discussions": "boolean",
+      "motions_can_be_edited": "boolean",
+      "cover_photo_file_name": "string",
+      "cover_photo_content_type": "string",
+      "cover_photo_file_size": "integer",
+      "cover_photo_updated_at": "datetime",
+      "logo_file_name": "string",
+      "logo_content_type": "string",
+      "logo_file_size": "integer",
+      "logo_updated_at": "datetime",
+      "members_can_edit_comments": "boolean",
+      "members_can_raise_motions": "boolean",
+      "members_can_vote": "boolean",
+      "members_can_start_discussions": "boolean",
+      "members_can_create_subgroups": "boolean",
+      "creator_id": "integer",
+      "is_referral": "boolean",
+      "cohort_id": "integer",
+      "default_group_cover_id": "integer",
+      "subscription_id": "integer",
+      "invitations_count": "integer",
+      "admin_memberships_count": "integer",
+      "public_discussions_count": "integer",
+      "country": "string",
+      "region": "string",
+      "city": "string",
+      "closed_motions_count": "integer",
+      "enable_experiments": "boolean",
+      "analytics_enabled": "boolean",
+      "proposal_outcomes_count": "integer",
+      "pending_memberships_count": "integer",
+      "recent_activity_count": "integer",
+      "closed_polls_count": "integer",
+      "polls_count": "integer",
+      "subgroups_count": "integer",
+      "type": "string",
+      "open_discussions_count": "integer",
+      "closed_discussions_count": "integer",
+      "token": "string",
+      "admin_tags": "string",
+      "members_can_announce": "boolean",
+      "description_format": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "creator"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "discussions"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "public_discussions"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "all_memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "all_members"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "accepted_memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "accepted_members"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "admin_memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "admins"
+      },
+      {
+        "class_name": "MembershipRequest",
+        "rel": "has_many",
+        "field": "membership_requests"
+      },
+      {
+        "class_name": "MembershipRequest",
+        "rel": "has_many",
+        "field": "pending_membership_requests"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_many",
+        "field": "polls"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "public_polls"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "groups",
+      "group"
+    ]
+  },
+  "MembershipRequest": {
+    "fields": {
+      "name": "string",
+      "email": "string",
+      "introduction": "text",
+      "group_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "requestor_id": "integer",
+      "responder_id": "integer",
+      "response": "string",
+      "responded_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "requestor"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "responder"
+      },
+      {
+        "class_name": "MembershipRequest",
+        "rel": "has_many",
+        "field": "admins"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "membership_requests",
+      "membership_request"
+    ]
+  },
+  "BlacklistedPassword": {
+    "fields": {
+      "string": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "blacklisted_passwords",
+      "blacklisted_password"
+    ]
+  },
+  "LoginToken": {
+    "fields": {
+      "user_id": "integer",
+      "token": "string",
+      "used": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "redirect": "string",
+      "code": "integer",
+      "is_reactivation": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "login_tokens",
+      "login_token"
+    ]
+  },
+  "PollReference": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "PollReference",
+        "rel": "belongs_to",
+        "field": "reference"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "poll_references",
+      "poll_reference"
+    ]
+  },
+  "Attachment": {
+    "fields": {
+      "user_id": "integer",
+      "filename": "string",
+      "location": "text",
+      "comment_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "filesize": "integer",
+      "file_file_name": "string",
+      "file_content_type": "string",
+      "file_file_size": "integer",
+      "file_updated_at": "datetime",
+      "attachable_id": "integer",
+      "attachable_type": "string",
+      "migrated_to_document": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Attachment",
+        "rel": "belongs_to",
+        "field": "attachable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "attachments",
+      "attachment"
+    ]
+  },
+  "Outcome": {
+    "fields": {
+      "poll_id": "integer",
+      "statement": "text",
+      "author_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "latest": "boolean",
+      "poll_option_id": "integer",
+      "statement_format": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "PollOption",
+        "rel": "belongs_to",
+        "field": "poll_option"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      },
+      {
+        "class_name": "Stance",
+        "rel": "has_many",
+        "field": "stances"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "outcomes",
+      "outcome"
+    ]
+  },
+  "FormalGroup": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "parent_id": "integer",
+      "description": "text",
+      "memberships_count": "integer",
+      "archived_at": "datetime",
+      "discussions_count": "integer",
+      "full_name": "string",
+      "parent_members_can_see_discussions": "boolean",
+      "key": "string",
+      "category_id": "integer",
+      "theme_id": "integer",
+      "is_visible_to_public": "boolean",
+      "is_visible_to_parent_members": "boolean",
+      "discussion_privacy_options": "string",
+      "members_can_add_members": "boolean",
+      "membership_granted_upon": "string",
+      "members_can_edit_discussions": "boolean",
+      "motions_can_be_edited": "boolean",
+      "cover_photo_file_name": "string",
+      "cover_photo_content_type": "string",
+      "cover_photo_file_size": "integer",
+      "cover_photo_updated_at": "datetime",
+      "logo_file_name": "string",
+      "logo_content_type": "string",
+      "logo_file_size": "integer",
+      "logo_updated_at": "datetime",
+      "members_can_edit_comments": "boolean",
+      "members_can_raise_motions": "boolean",
+      "members_can_vote": "boolean",
+      "members_can_start_discussions": "boolean",
+      "members_can_create_subgroups": "boolean",
+      "creator_id": "integer",
+      "is_referral": "boolean",
+      "cohort_id": "integer",
+      "default_group_cover_id": "integer",
+      "subscription_id": "integer",
+      "invitations_count": "integer",
+      "admin_memberships_count": "integer",
+      "public_discussions_count": "integer",
+      "country": "string",
+      "region": "string",
+      "city": "string",
+      "closed_motions_count": "integer",
+      "enable_experiments": "boolean",
+      "analytics_enabled": "boolean",
+      "proposal_outcomes_count": "integer",
+      "pending_memberships_count": "integer",
+      "recent_activity_count": "integer",
+      "closed_polls_count": "integer",
+      "polls_count": "integer",
+      "subgroups_count": "integer",
+      "type": "string",
+      "open_discussions_count": "integer",
+      "closed_discussions_count": "integer",
+      "token": "string",
+      "admin_tags": "string",
+      "members_can_announce": "boolean",
+      "description_format": "string"
+    },
+    "associations": [
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "requested_users"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "public_comments"
+      },
+      {
+        "class_name": "GroupIdentity",
+        "rel": "has_many",
+        "field": "group_identities"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "identities"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "discussion_documents"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "poll_documents"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "comment_documents"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "public_discussion_documents"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "public_poll_documents"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "public_comment_documents"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "has_many",
+        "field": "tags"
+      },
+      {
+        "class_name": "SamlProvider",
+        "rel": "has_one",
+        "field": "saml_provider"
+      },
+      {
+        "class_name": "GroupSurvey",
+        "rel": "has_one",
+        "field": "group_survey"
+      },
+      {
+        "class_name": "DefaultGroupCover",
+        "rel": "belongs_to",
+        "field": "default_group_cover"
+      },
+      {
+        "class_name": "Subscription",
+        "rel": "belongs_to",
+        "field": "subscription"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "subgroups"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "all_subgroups"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "creator"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "discussions"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "public_discussions"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "all_memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "all_members"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "accepted_memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "accepted_members"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "admin_memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "admins"
+      },
+      {
+        "class_name": "MembershipRequest",
+        "rel": "has_many",
+        "field": "membership_requests"
+      },
+      {
+        "class_name": "MembershipRequest",
+        "rel": "has_many",
+        "field": "pending_membership_requests"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_many",
+        "field": "polls"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "public_polls"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      }
+    ],
+    "extend_class_name": "Group",
+    "table_name": [
+      "formal_groups",
+      "formal_group"
+    ]
+  },
+  "LoggedOutUser": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "logged_out_users",
+      "logged_out_user"
+    ]
+  },
+  "Notification": {
+    "fields": {
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "event_id": "integer",
+      "viewed": "boolean",
+      "url": "string",
+      "actor_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "actor"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "event"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "notifications",
+      "notification"
+    ]
+  },
+  "Stance": {
+    "fields": {
+      "poll_id": "integer",
+      "participant_id": "integer",
+      "reason": "string",
+      "latest": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "versions_count": "integer",
+      "reason_format": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "StanceChoice",
+        "rel": "has_many",
+        "field": "stance_choices"
+      },
+      {
+        "class_name": "PollOption",
+        "rel": "has_many",
+        "field": "poll_options"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "participant"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "stances",
+      "stance"
+    ]
+  },
+  "Memo": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "memos",
+      "memo"
+    ]
+  },
+  "AbilityBase": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "ability/bases",
+      "ability/basis"
+    ]
+  },
+  "CalendarInvite": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "calendar_invites",
+      "calendar_invite"
+    ]
+  },
+  "GuestGroup": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "parent_id": "integer",
+      "description": "text",
+      "memberships_count": "integer",
+      "archived_at": "datetime",
+      "discussions_count": "integer",
+      "full_name": "string",
+      "parent_members_can_see_discussions": "boolean",
+      "key": "string",
+      "category_id": "integer",
+      "theme_id": "integer",
+      "is_visible_to_public": "boolean",
+      "is_visible_to_parent_members": "boolean",
+      "discussion_privacy_options": "string",
+      "members_can_add_members": "boolean",
+      "membership_granted_upon": "string",
+      "members_can_edit_discussions": "boolean",
+      "motions_can_be_edited": "boolean",
+      "cover_photo_file_name": "string",
+      "cover_photo_content_type": "string",
+      "cover_photo_file_size": "integer",
+      "cover_photo_updated_at": "datetime",
+      "logo_file_name": "string",
+      "logo_content_type": "string",
+      "logo_file_size": "integer",
+      "logo_updated_at": "datetime",
+      "members_can_edit_comments": "boolean",
+      "members_can_raise_motions": "boolean",
+      "members_can_vote": "boolean",
+      "members_can_start_discussions": "boolean",
+      "members_can_create_subgroups": "boolean",
+      "creator_id": "integer",
+      "is_referral": "boolean",
+      "cohort_id": "integer",
+      "default_group_cover_id": "integer",
+      "subscription_id": "integer",
+      "invitations_count": "integer",
+      "admin_memberships_count": "integer",
+      "public_discussions_count": "integer",
+      "country": "string",
+      "region": "string",
+      "city": "string",
+      "closed_motions_count": "integer",
+      "enable_experiments": "boolean",
+      "analytics_enabled": "boolean",
+      "proposal_outcomes_count": "integer",
+      "pending_memberships_count": "integer",
+      "recent_activity_count": "integer",
+      "closed_polls_count": "integer",
+      "polls_count": "integer",
+      "subgroups_count": "integer",
+      "type": "string",
+      "open_discussions_count": "integer",
+      "closed_discussions_count": "integer",
+      "token": "string",
+      "admin_tags": "string",
+      "members_can_announce": "boolean",
+      "description_format": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "creator"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "discussions"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "public_discussions"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "all_memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "all_members"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "accepted_memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "accepted_members"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "admin_memberships"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "admins"
+      },
+      {
+        "class_name": "MembershipRequest",
+        "rel": "has_many",
+        "field": "membership_requests"
+      },
+      {
+        "class_name": "MembershipRequest",
+        "rel": "has_many",
+        "field": "pending_membership_requests"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_many",
+        "field": "polls"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "public_polls"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      }
+    ],
+    "extend_class_name": "Group",
+    "table_name": [
+      "guest_groups",
+      "guest_group"
+    ]
+  },
+  "UserDeactivationResponse": {
+    "fields": {
+      "user_id": "integer",
+      "body": "text",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "user_deactivation_responses",
+      "user_deactivation_response"
+    ]
+  },
+  "IdentitiesBase": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "identities/bases",
+      "identities/basis"
+    ]
+  },
+  "IdentitiesSlack": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "IdentitiesBase",
+    "table_name": [
+      "identities/slacks",
+      "identities/slack"
+    ]
+  },
+  "IdentitiesFacebook": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "IdentitiesBase",
+    "table_name": [
+      "identities/facebooks",
+      "identities/facebook"
+    ]
+  },
+  "IdentitiesGoogle": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "IdentitiesBase",
+    "table_name": [
+      "identities/googles",
+      "identities/google"
+    ]
+  },
+  "IdentitiesSaml": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "IdentitiesBase",
+    "table_name": [
+      "identities/samls",
+      "identities/saml"
+    ]
+  },
+  "IdentitiesMicrosoft": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "IdentitiesBase",
+    "table_name": [
+      "identities/microsofts",
+      "identities/microsoft"
+    ]
+  },
+  "ReceivedEmail": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "received_emails",
+      "received_email"
+    ]
+  },
+  "Comment": {
+    "fields": {
+      "discussion_id": "integer",
+      "body": "text",
+      "user_id": "integer",
+      "parent_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "uses_markdown": "boolean",
+      "comment_votes_count": "integer",
+      "attachments_count": "integer",
+      "edited_at": "datetime",
+      "versions_count": "integer",
+      "body_format": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_one",
+        "field": "group"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "comments",
+      "comment"
+    ]
+  },
+  "Visit": {
+    "fields": {
+      "ip": "string",
+      "user_agent": "text",
+      "referrer": "text",
+      "landing_page": "text",
+      "user_id": "integer",
+      "referring_domain": "string",
+      "search_keyword": "string",
+      "browser": "string",
+      "os": "string",
+      "device_type": "string",
+      "screen_height": "integer",
+      "screen_width": "integer",
+      "country": "string",
+      "region": "string",
+      "city": "string",
+      "utm_source": "string",
+      "utm_medium": "string",
+      "utm_term": "string",
+      "utm_content": "string",
+      "utm_campaign": "string",
+      "started_at": "datetime",
+      "gclid": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "AhoyEvent",
+        "rel": "has_many",
+        "field": "ahoy_events"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "visits",
+      "visit"
+    ]
+  },
+  "EventsPollExpired": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/poll_expireds",
+      "events/poll_expired"
+    ]
+  },
+  "EventsDiscussionForked": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/discussion_forkeds",
+      "events/discussion_forked"
+    ]
+  },
+  "EventsNewCoordinator": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/new_coordinators",
+      "events/new_coordinator"
+    ]
+  },
+  "EventsPollCreated": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/poll_createds",
+      "events/poll_created"
+    ]
+  },
+  "EventsNewDiscussion": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/new_discussions",
+      "events/new_discussion"
+    ]
+  },
+  "EventsPollClosingSoon": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/poll_closing_soons",
+      "events/poll_closing_soon"
+    ]
+  },
+  "EventsPollClosedByUser": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/poll_closed_by_users",
+      "events/poll_closed_by_user"
+    ]
+  },
+  "EventsNewComment": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/new_comments",
+      "events/new_comment"
+    ]
+  },
+  "EventsInvitationCreated": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/invitation_createds",
+      "events/invitation_created"
+    ]
+  },
+  "EventsPollEdited": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/poll_editeds",
+      "events/poll_edited"
+    ]
+  },
+  "EventsUserAddedToGroup": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/user_added_to_groups",
+      "events/user_added_to_group"
+    ]
+  },
+  "EventsDiscussionClosed": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/discussion_closeds",
+      "events/discussion_closed"
+    ]
+  },
+  "EventsStanceCreated": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/stance_createds",
+      "events/stance_created"
+    ]
+  },
+  "EventsUserReactivated": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/user_reactivateds",
+      "events/user_reactivated"
+    ]
+  },
+  "EventsPollOptionAdded": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/poll_option_addeds",
+      "events/poll_option_added"
+    ]
+  },
+  "EventsUserJoinedGroup": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/user_joined_groups",
+      "events/user_joined_group"
+    ]
+  },
+  "EventsDiscussionDescriptionEdited": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/discussion_description_editeds",
+      "events/discussion_description_edited"
+    ]
+  },
+  "EventsAnnouncementResend": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/announcement_resends",
+      "events/announcement_resend"
+    ]
+  },
+  "EventsReactionCreated": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/reaction_createds",
+      "events/reaction_created"
+    ]
+  },
+  "EventsCommentRepliedTo": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/comment_replied_tos",
+      "events/comment_replied_to"
+    ]
+  },
+  "EventsUserMentioned": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/user_mentioneds",
+      "events/user_mentioned"
+    ]
+  },
+  "EventsCommentEdited": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/comment_editeds",
+      "events/comment_edited"
+    ]
+  },
+  "EventsDiscussionMoved": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/discussion_moveds",
+      "events/discussion_moved"
+    ]
+  },
+  "EventsMembershipResent": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/membership_resents",
+      "events/membership_resent"
+    ]
+  },
+  "EventsMembershipRequested": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/membership_requesteds",
+      "events/membership_requested"
+    ]
+  },
+  "EventsOutcomeCreated": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/outcome_createds",
+      "events/outcome_created"
+    ]
+  },
+  "EventsAnnouncementCreated": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/announcement_createds",
+      "events/announcement_created"
+    ]
+  },
+  "EventsDiscussionTitleEdited": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/discussion_title_editeds",
+      "events/discussion_title_edited"
+    ]
+  },
+  "EventsDiscussionEdited": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/discussion_editeds",
+      "events/discussion_edited"
+    ]
+  },
+  "EventsInvitationAccepted": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/invitation_accepteds",
+      "events/invitation_accepted"
+    ]
+  },
+  "EventsDiscussionReopened": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/discussion_reopeneds",
+      "events/discussion_reopened"
+    ]
+  },
+  "EventsMembershipRequestApproved": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/membership_request_approveds",
+      "events/membership_request_approved"
+    ]
+  },
+  "EventsGroupIdentityCreated": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/group_identity_createds",
+      "events/group_identity_created"
+    ]
+  },
+  "EventsPollReopened": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/poll_reopeneds",
+      "events/poll_reopened"
+    ]
+  },
+  "EventsUserReminded": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "Event",
+    "table_name": [
+      "events/user_remindeds",
+      "events/user_reminded"
+    ]
+  },
+  "Subscription": {
+    "fields": {
+      "expires_at": "datetime",
+      "chargify_subscription_id": "integer",
+      "plan": "string",
+      "payment_method": "string",
+      "owner_id": "integer",
+      "max_threads": "integer",
+      "max_members": "integer",
+      "max_orgs": "integer",
+      "state": "string",
+      "members_count": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "groups"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "owner"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "subscriptions",
+      "subscription"
+    ]
+  },
+  "Theme": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "themes",
+      "theme"
+    ]
+  },
+  "ApplicationRecord": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecordBase",
+    "table_name": [
+      "application_records",
+      "application_record"
+    ]
+  },
+  "PollDidNotVote": {
+    "fields": {
+      "poll_id": "integer",
+      "user_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "poll_did_not_votes",
+      "poll_did_not_vote"
+    ]
+  },
+  "DiscussionTag": {
+    "fields": {
+      "tag_id": "integer",
+      "discussion_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "belongs_to",
+        "field": "tag"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_one",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ActiveRecordBase",
+    "table_name": [
+      "discussion_tags",
+      "discussion_tag"
+    ]
+  },
+  "GroupIdentity": {
+    "fields": {
+      "group_id": "integer",
+      "identity_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "FormalGroup",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "IdentitiesBase",
+        "rel": "belongs_to",
+        "field": "identity"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "group_identities",
+      "group_identity"
+    ]
+  },
+  "GroupSurvey": {
+    "fields": {
+      "group_id": "integer",
+      "category": "string",
+      "location": "string",
+      "size": "string",
+      "declaration": "string",
+      "purpose": "text",
+      "usage": "string",
+      "referrer": "string",
+      "role": "string",
+      "website": "string",
+      "misc": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "FormalGroup",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "Subscription",
+        "rel": "has_one",
+        "field": "subscription"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "group_surveys",
+      "group_survey"
+    ]
+  },
+  "Event": {
+    "fields": {
+      "kind": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "eventable_id": "integer",
+      "eventable_type": "string",
+      "user_id": "integer",
+      "discussion_id": "integer",
+      "sequence_id": "integer",
+      "announcement": "boolean",
+      "parent_id": "integer",
+      "position": "integer",
+      "child_count": "integer",
+      "depth": "integer",
+      "pinned": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "eventable"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "belongs_to",
+        "field": "discussion"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Event",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Event",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "events",
+      "event"
+    ]
+  },
+  "User": {
+    "fields": {
+      "email": "text",
+      "encrypted_password": "string",
+      "reset_password_token": "string",
+      "reset_password_sent_at": "datetime",
+      "remember_created_at": "datetime",
+      "sign_in_count": "integer",
+      "current_sign_in_at": "datetime",
+      "last_sign_in_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "name": "string",
+      "deactivated_at": "datetime",
+      "is_admin": "boolean",
+      "avatar_kind": "string",
+      "uploaded_avatar_file_name": "string",
+      "uploaded_avatar_content_type": "string",
+      "uploaded_avatar_file_size": "integer",
+      "uploaded_avatar_updated_at": "datetime",
+      "avatar_initials": "string",
+      "username": "string",
+      "email_when_proposal_closing_soon": "boolean",
+      "authentication_token": "string",
+      "unsubscribe_token": "string",
+      "memberships_count": "integer",
+      "uses_markdown": "boolean",
+      "selected_locale": "string",
+      "time_zone": "string",
+      "key": "string",
+      "detected_locale": "string",
+      "email_catch_up": "boolean",
+      "email_api_key": "string",
+      "email_when_mentioned": "boolean",
+      "email_on_participation": "boolean",
+      "default_membership_volume": "integer",
+      "country": "string",
+      "region": "string",
+      "city": "string",
+      "facebook_community_id": "integer",
+      "slack_community_id": "integer",
+      "remember_token": "string",
+      "short_bio": "string",
+      "email_verified": "boolean",
+      "location": "string",
+      "last_seen_at": "datetime",
+      "legal_accepted_at": "datetime",
+      "email_newsletter": "boolean",
+      "short_bio_format": "string",
+      "failed_attempts": "integer",
+      "unlock_token": "string",
+      "locked_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "admin_memberships"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "archived_memberships"
+      },
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "invited_memberships"
+      },
+      {
+        "class_name": "FormalGroup",
+        "rel": "has_many",
+        "field": "formal_groups"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "adminable_groups"
+      },
+      {
+        "class_name": "MembershipRequest",
+        "rel": "has_many",
+        "field": "membership_requests"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "groups"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "discussions"
+      },
+      {
+        "class_name": "Discussion",
+        "rel": "has_many",
+        "field": "authored_discussions"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_many",
+        "field": "polls"
+      },
+      {
+        "class_name": "IdentitiesBase",
+        "rel": "has_many",
+        "field": "identities"
+      },
+      {
+        "class_name": "Reaction",
+        "rel": "has_many",
+        "field": "reactions"
+      },
+      {
+        "class_name": "Stance",
+        "rel": "has_many",
+        "field": "stances"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "participated_polls"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "group_polls"
+      },
+      {
+        "class_name": "DiscussionReader",
+        "rel": "has_many",
+        "field": "discussion_readers"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      },
+      {
+        "class_name": "Draft",
+        "rel": "has_many",
+        "field": "drafts"
+      },
+      {
+        "class_name": "LoginToken",
+        "rel": "has_many",
+        "field": "login_tokens"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "has_many",
+        "field": "tags"
+      },
+      {
+        "class_name": "UserDeactivationResponse",
+        "rel": "has_one",
+        "field": "deactivation_response"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "users",
+      "user"
+    ]
+  }
+}

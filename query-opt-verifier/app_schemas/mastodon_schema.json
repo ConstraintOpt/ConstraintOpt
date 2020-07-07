@@ -1,0 +1,1861 @@
+{
+  "ConversationMute": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Conversation",
+        "rel": "belongs_to",
+        "field": "conversation"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "conversation_mutes",
+      "conversation_mute"
+    ]
+  },
+  "Report": {
+    "fields": {
+      "comment": "text",
+      "action_taken": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "uri": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "action_taken_by_account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "assigned_account"
+      },
+      {
+        "class_name": "ReportNote",
+        "rel": "has_many",
+        "field": "notes"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "target_account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "reports",
+      "report"
+    ]
+  },
+  "Identity": {
+    "fields": {
+      "provider": "string",
+      "uid": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "identities",
+      "identity"
+    ]
+  },
+  "AccountConversation": {
+    "fields": {
+      "lock_version": "integer",
+      "unread": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Conversation",
+        "rel": "belongs_to",
+        "field": "conversation"
+      },
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "last_status"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_conversations",
+      "account_conversation"
+    ]
+  },
+  "AccountIdentityProof": {
+    "fields": {
+      "provider": "string",
+      "provider_username": "string",
+      "token": "text",
+      "verified": "boolean",
+      "live": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_identity_proofs",
+      "account_identity_proof"
+    ]
+  },
+  "AccountAlias": {
+    "fields": {
+      "acct": "string",
+      "uri": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_aliases",
+      "account_alias"
+    ]
+  },
+  "Account": {
+    "fields": {
+      "username": "string",
+      "domain": "string",
+      "secret": "string",
+      "private_key": "text",
+      "public_key": "text",
+      "remote_url": "string",
+      "salmon_url": "string",
+      "hub_url": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "note": "text",
+      "display_name": "string",
+      "uri": "string",
+      "url": "string",
+      "avatar_file_name": "string",
+      "avatar_content_type": "string",
+      "avatar_file_size": "integer",
+      "avatar_updated_at": "datetime",
+      "header_file_name": "string",
+      "header_content_type": "string",
+      "header_file_size": "integer",
+      "header_updated_at": "datetime",
+      "avatar_remote_url": "string",
+      "subscription_expires_at": "datetime",
+      "locked": "boolean",
+      "header_remote_url": "string",
+      "last_webfingered_at": "datetime",
+      "inbox_url": "string",
+      "outbox_url": "string",
+      "shared_inbox_url": "string",
+      "followers_url": "string",
+      "protocol": "integer",
+      "memorial": "boolean",
+      "featured_collection_url": "string",
+      "actor_type": "string",
+      "discoverable": "boolean",
+      "also_known_as": "string",
+      "silenced_at": "datetime",
+      "suspended_at": "datetime",
+      "trust_level": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "MediaAttachment",
+        "rel": "has_many",
+        "field": "media_attachments"
+      },
+      {
+        "class_name": "Report",
+        "rel": "has_many",
+        "field": "reports"
+      },
+      {
+        "class_name": "ListAccount",
+        "rel": "has_many",
+        "field": "list_accounts"
+      },
+      {
+        "class_name": "Status",
+        "rel": "has_many",
+        "field": "statuses"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "accounts",
+      "account"
+    ]
+  },
+  "Field": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveModelSerializers::Model",
+    "table_name": [
+      "fields",
+      "field"
+    ]
+  },
+  "AccountFilter": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "account_filters",
+      "account_filter"
+    ]
+  },
+  "Tag": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "usable": "boolean",
+      "trendable": "boolean",
+      "listable": "boolean",
+      "reviewed_at": "datetime",
+      "requested_review_at": "datetime",
+      "last_status_at": "datetime",
+      "max_score": "float",
+      "max_score_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Status",
+        "rel": "has_and_belongs_to_many",
+        "field": "statuses"
+      },
+      {
+        "class_name": "Account",
+        "rel": "has_and_belongs_to_many",
+        "field": "sample_accounts"
+      },
+      {
+        "class_name": "FeaturedTag",
+        "rel": "has_many",
+        "field": "featured_tags"
+      },
+      {
+        "class_name": "AccountTagStat",
+        "rel": "has_one",
+        "field": "account_tag_stat"
+      },
+      {
+        "class_name": "Account",
+        "rel": "has_and_belongs_to_many",
+        "field": "accounts"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "tags",
+      "tag"
+    ]
+  },
+  "Status": {
+    "fields": {
+      "uri": "string",
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "url": "string",
+      "sensitive": "boolean",
+      "visibility": "integer",
+      "spoiler_text": "text",
+      "reply": "boolean",
+      "language": "string",
+      "local": "boolean",
+      "deleted_at": "datetime",
+      "type": "string",
+      "reblog_of_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "application"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "in_reply_to_account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Conversation",
+        "rel": "belongs_to",
+        "field": "conversation"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "preloadable_poll"
+      },
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "thread"
+      },
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "reblog"
+      },
+      {
+        "class_name": "Favourite",
+        "rel": "has_many",
+        "field": "favourites"
+      },
+      {
+        "class_name": "Status",
+        "rel": "has_many",
+        "field": "reblogs"
+      },
+      {
+        "class_name": "Status",
+        "rel": "has_many",
+        "field": "replies"
+      },
+      {
+        "class_name": "Mention",
+        "rel": "has_many",
+        "field": "active_mentions"
+      },
+      {
+        "class_name": "Mention",
+        "rel": "has_many",
+        "field": "mentions"
+      },
+      {
+        "class_name": "MediaAttachment",
+        "rel": "has_many",
+        "field": "media_attachments"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "has_and_belongs_to_many",
+        "field": "tags"
+      },
+      {
+        "class_name": "PreviewCard",
+        "rel": "has_and_belongs_to_many",
+        "field": "preview_cards"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_one",
+        "field": "notification"
+      },
+      {
+        "class_name": "StatusStat",
+        "rel": "has_one",
+        "field": "status_stat"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_one",
+        "field": "poll"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "statuses",
+      "status"
+    ]
+  },
+  "AccountMigration": {
+    "fields": {
+      "acct": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "target_account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_migrations",
+      "account_migration"
+    ]
+  },
+  "Block": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "uri": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "target_account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "blocks",
+      "block"
+    ]
+  },
+  "Poll": {
+    "fields": {
+      "expires_at": "datetime",
+      "options": "string",
+      "multiple": "boolean",
+      "hide_totals": "boolean",
+      "last_fetched_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "lock_version": "integer",
+      "type": "string",
+	  "status_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "status_id"
+      },
+      {
+        "class_name": "PollVote",
+        "rel": "has_many",
+        "field": "votes"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "polls",
+      "poll"
+    ]
+  },
+  "Option": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveModelSerializers::Model",
+    "table_name": [
+      "options",
+      "option"
+    ]
+  },
+  "AccountTagStat": {
+    "fields": {
+      "hidden": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Tag",
+        "rel": "belongs_to",
+        "field": "tag"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_tag_stats",
+      "account_tag_stat"
+    ]
+  },
+  "ListFeed": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Feed",
+    "table_name": [
+      "list_feeds",
+      "list_feed"
+    ]
+  },
+  "CustomEmojiCategory": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "CustomEmoji",
+        "rel": "has_many",
+        "field": "emojis"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "custom_emoji_categories",
+      "custom_emoji_category"
+    ]
+  },
+  "RemoteFollow": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "remote_follows",
+      "remote_follow"
+    ]
+  },
+  "FeaturedTag": {
+    "fields": {
+      "last_status_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "belongs_to",
+        "field": "tag"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "featured_tags",
+      "featured_tag"
+    ]
+  },
+  "TagFilter": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "tag_filters",
+      "tag_filter"
+    ]
+  },
+  "ReportFilter": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "report_filters",
+      "report_filter"
+    ]
+  },
+  "Mention": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "silent": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "status"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_one",
+        "field": "notification"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "mentions",
+      "mention"
+    ]
+  },
+  "ListAccount": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "List",
+        "rel": "belongs_to",
+        "field": "list"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Follow",
+        "rel": "belongs_to",
+        "field": "follow"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "list_accounts",
+      "list_account"
+    ]
+  },
+  "AccountWarningPreset": {
+    "fields": {
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_warning_presets",
+      "account_warning_preset"
+    ]
+  },
+  "WebPushSubscription": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "SessionActivation",
+        "rel": "has_one",
+        "field": "session_activation"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "web_push_subscriptions",
+      "web_push_subscription"
+    ]
+  },
+  "WebSetting": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "web_settings",
+      "web_setting"
+    ]
+  },
+  "StatusPin": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "status"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "status_pins",
+      "status_pin"
+    ]
+  },
+  "Search": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveModelSerializers::Model",
+    "table_name": [
+      "searches",
+      "search"
+    ]
+  },
+  "InviteFilter": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "invite_filters",
+      "invite_filter"
+    ]
+  },
+  "StatusStat": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "status"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "status_stats",
+      "status_stat"
+    ]
+  },
+  "AdminActionLog": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "admin_action_logs",
+      "admin_action_log"
+    ]
+  },
+  "HomeFeed": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Feed",
+    "table_name": [
+      "home_feeds",
+      "home_feed"
+    ]
+  },
+  "CustomEmoji": {
+    "fields": {
+      "shortcode": "string",
+      "domain": "string",
+      "image_file_name": "string",
+      "image_content_type": "string",
+      "image_file_size": "integer",
+      "image_updated_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "disabled": "boolean",
+      "uri": "string",
+      "image_remote_url": "string",
+      "visible_in_picker": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "CustomEmojiCategory",
+        "rel": "belongs_to",
+        "field": "category"
+      },
+      {
+        "class_name": "CustomEmoji",
+        "rel": "has_one",
+        "field": "local_counterpart"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "custom_emojis",
+      "custom_emoji"
+    ]
+  },
+  "AccountDomainBlock": {
+    "fields": {
+      "domain": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_domain_blocks",
+      "account_domain_block"
+    ]
+  },
+  "Marker": {
+    "fields": {
+      "timeline": "string",
+      "lock_version": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "markers",
+      "marker"
+    ]
+  },
+  "Context": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveModelSerializers::Model",
+    "table_name": [
+      "contexts",
+      "context"
+    ]
+  },
+  "Relay": {
+    "fields": {
+      "inbox_url": "string",
+      "follow_activity_id": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "state": "integer",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "relays",
+      "relay"
+    ]
+  },
+  "MediaAttachment": {
+    "fields": {
+      "file_file_name": "string",
+      "file_content_type": "string",
+      "file_file_size": "integer",
+      "file_updated_at": "datetime",
+      "remote_url": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "shortcode": "string",
+      "type": "integer",
+      "description": "text",
+      "blurhash": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "status"
+      },
+      {
+        "class_name": "ScheduledStatus",
+        "rel": "belongs_to",
+        "field": "scheduled_status"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "media_attachments",
+      "media_attachment"
+    ]
+  },
+  "Favourite": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "status"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_one",
+        "field": "notification"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "favourites",
+      "favourite"
+    ]
+  },
+  "EmailDomainBlock": {
+    "fields": {
+      "domain": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "email_domain_blocks",
+      "email_domain_block"
+    ]
+  },
+  "DomainAllow": {
+    "fields": {
+      "domain": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "domain_allows",
+      "domain_allow"
+    ]
+  },
+  "PollVote": {
+    "fields": {
+      "choice": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "uri": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "poll_votes",
+      "poll_vote"
+    ]
+  },
+  "TrendingTags": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "trending_tags",
+      "trending_tag"
+    ]
+  },
+  "PreviewCard": {
+    "fields": {
+      "url": "string",
+      "title": "string",
+      "description": "string",
+      "image_file_name": "string",
+      "image_content_type": "string",
+      "image_file_size": "integer",
+      "image_updated_at": "datetime",
+      "type": "integer",
+      "html": "text",
+      "author_name": "string",
+      "author_url": "string",
+      "provider_name": "string",
+      "provider_url": "string",
+      "width": "integer",
+      "height": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "embed_url": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Status",
+        "rel": "has_and_belongs_to_many",
+        "field": "statuses"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "preview_cards",
+      "preview_card"
+    ]
+  },
+  "InstanceFilter": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "instance_filters",
+      "instance_filter"
+    ]
+  },
+  "Setting": {
+    "fields": {
+      "var": "string",
+      "value": "text",
+      "thing_type": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "thing_id": "integer"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "RailsSettings::Base",
+    "table_name": [
+      "settings",
+      "setting"
+    ]
+  },
+  "CustomEmojiFilter": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "custom_emoji_filters",
+      "custom_emoji_filter"
+    ]
+  },
+  "Feed": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "feeds",
+      "feed"
+    ]
+  },
+  "Export": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "exports",
+      "export"
+    ]
+  },
+  "Notification": {
+    "fields": {
+      "activity_type": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "from_account"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "belongs_to",
+        "field": "activity"
+      },
+      {
+        "class_name": "Mention",
+        "rel": "belongs_to",
+        "field": "mention"
+      },
+      {
+        "class_name": "Status",
+        "rel": "belongs_to",
+        "field": "status"
+      },
+      {
+        "class_name": "Follow",
+        "rel": "belongs_to",
+        "field": "follow"
+      },
+      {
+        "class_name": "FollowRequest",
+        "rel": "belongs_to",
+        "field": "follow_request"
+      },
+      {
+        "class_name": "Favourite",
+        "rel": "belongs_to",
+        "field": "favourite"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "notifications",
+      "notification"
+    ]
+  },
+  "FollowRequest": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "show_reblogs": "boolean",
+      "uri": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "target_account"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_one",
+        "field": "notification"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "follow_requests",
+      "follow_request"
+    ]
+  },
+  "ReportNote": {
+    "fields": {
+      "content": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Report",
+        "rel": "belongs_to",
+        "field": "report"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "report_notes",
+      "report_note"
+    ]
+  },
+  "CustomFilter": {
+    "fields": {
+      "expires_at": "datetime",
+      "phrase": "text",
+      "context": "string",
+      "irreversible": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "whole_word": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "custom_filters",
+      "custom_filter"
+    ]
+  },
+  "ScheduledStatus": {
+    "fields": {
+      "scheduled_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "MediaAttachment",
+        "rel": "has_many",
+        "field": "media_attachments"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "scheduled_statuses",
+      "scheduled_status"
+    ]
+  },
+  "SessionActivation": {
+    "fields": {
+      "session_id": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "user_agent": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "SessionActivation",
+        "rel": "belongs_to",
+        "field": "access_token"
+      },
+      {
+        "class_name": "WebPushSubscription",
+        "rel": "belongs_to",
+        "field": "web_push_subscription"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "session_activations",
+      "session_activation"
+    ]
+  },
+  "SiteUpload": {
+    "fields": {
+      "var": "string",
+      "file_file_name": "string",
+      "file_content_type": "string",
+      "file_file_size": "integer",
+      "file_updated_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "site_uploads",
+      "site_upload"
+    ]
+  },
+  "Mute": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "hide_notifications": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "target_account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "mutes",
+      "mute"
+    ]
+  },
+  "Conversation": {
+    "fields": {
+      "uri": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Status",
+        "rel": "has_many",
+        "field": "statuses"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "conversations",
+      "conversation"
+    ]
+  },
+  "Invite": {
+    "fields": {
+      "code": "string",
+      "expires_at": "datetime",
+      "max_uses": "integer",
+      "uses": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "autofollow": "boolean",
+      "comment": "text",
+      "type": "string",
+	  "user_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "users"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user_id"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "invites",
+      "invite"
+    ]
+  },
+  "List": {
+    "fields": {
+      "title": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ListAccount",
+        "rel": "has_many",
+        "field": "list_accounts"
+      },
+      {
+        "class_name": "Account",
+        "rel": "has_many",
+        "field": "accounts"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "lists",
+      "list"
+    ]
+  },
+  "DomainBlock": {
+    "fields": {
+      "domain": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "severity": "integer",
+      "reject_media": "boolean",
+      "reject_reports": "boolean",
+      "private_comment": "text",
+      "public_comment": "text",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "has_many",
+        "field": "accounts"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "domain_blocks",
+      "domain_block"
+    ]
+  },
+  "AccountStat": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "last_status_at": "datetime",
+      "lock_version": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_stats",
+      "account_stat"
+    ]
+  },
+  "Follow": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "show_reblogs": "boolean",
+      "uri": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "target_account"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_one",
+        "field": "notification"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "follows",
+      "follow"
+    ]
+  },
+  "Import": {
+    "fields": {
+      "type": "integer",
+      "approved": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "data_file_name": "string",
+      "data_content_type": "string",
+      "data_file_size": "integer",
+      "data_updated_at": "datetime",
+      "overwrite": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "imports",
+      "import"
+    ]
+  },
+  "ApplicationRecord": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "application_records",
+      "application_record"
+    ]
+  },
+  "Instance": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "instances",
+      "instance"
+    ]
+  },
+  "AccountModerationNote": {
+    "fields": {
+      "content": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "target_account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_moderation_notes",
+      "account_moderation_note"
+    ]
+  },
+  "Backup": {
+    "fields": {
+      "dump_file_name": "string",
+      "dump_content_type": "string",
+      "dump_file_size": "integer",
+      "dump_updated_at": "datetime",
+      "processed": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "backups",
+      "backup"
+    ]
+  },
+  "AccountWarning": {
+    "fields": {
+      "action": "integer",
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "target_account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_warnings",
+      "account_warning"
+    ]
+  },
+  "User": {
+    "fields": {
+      "email": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "encrypted_password": "string",
+      "reset_password_token": "string",
+      "reset_password_sent_at": "datetime",
+      "remember_created_at": "datetime",
+      "sign_in_count": "integer",
+      "current_sign_in_at": "datetime",
+      "last_sign_in_at": "datetime",
+      "admin": "boolean",
+      "confirmation_token": "string",
+      "confirmed_at": "datetime",
+      "confirmation_sent_at": "datetime",
+      "unconfirmed_email": "string",
+      "locale": "string",
+      "encrypted_otp_secret": "string",
+      "encrypted_otp_secret_iv": "string",
+      "encrypted_otp_secret_salt": "string",
+      "consumed_timestep": "integer",
+      "otp_required_for_login": "boolean",
+      "last_emailed_at": "datetime",
+      "otp_backup_codes": "string",
+      "filtered_languages": "string",
+      "disabled": "boolean",
+      "moderator": "boolean",
+      "remember_token": "string",
+      "chosen_languages": "string",
+      "approved": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "Invite",
+        "rel": "belongs_to",
+        "field": "invite"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "created_by_application"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "applications"
+      },
+      {
+        "class_name": "Backup",
+        "rel": "has_many",
+        "field": "backups"
+      },
+      {
+        "class_name": "Invite",
+        "rel": "has_many",
+        "field": "invites"
+      },
+      {
+        "class_name": "Marker",
+        "rel": "has_many",
+        "field": "markers"
+      },
+      {
+        "class_name": "UserInviteRequest",
+        "rel": "has_one",
+        "field": "invite_request"
+      },
+      {
+        "class_name": "SessionActivation",
+        "rel": "has_many",
+        "field": "session_activations"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "users",
+      "user"
+    ]
+  },
+  "Tombstone": {
+    "fields": {
+      "uri": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "by_moderator": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "tombstones",
+      "tombstone"
+    ]
+  },
+  "UserInviteRequest": {
+    "fields": {
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "user_invite_requests",
+      "user_invite_request"
+    ]
+  },
+  "AccountPin": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "target_account"
+      },
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_pins",
+      "account_pin"
+    ]
+  }
+}

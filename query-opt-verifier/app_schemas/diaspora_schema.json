@@ -1,0 +1,2184 @@
+{
+  "Report": {
+    "fields": {
+      "item_id": "integer",
+      "item_type": "string",
+      "reviewed": "boolean",
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "user_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "belongs_to",
+        "field": "comment"
+      },
+      {
+        "class_name": "Report",
+        "rel": "belongs_to",
+        "field": "item"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "reports",
+      "report"
+    ]
+  },
+  "SignatureOrder": {
+    "fields": {
+      "order": "string",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "signature_orders",
+      "signature_order"
+    ]
+  },
+  "Contact": {
+    "fields": {
+      "id": "integer",
+      "user_id": "integer",
+      "person_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "sharing": "boolean",
+      "receiving": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "AspectMembership",
+        "rel": "has_many",
+        "field": "aspect_memberships"
+      },
+      {
+        "class_name": "Aspect",
+        "rel": "has_many",
+        "field": "aspects"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "contacts",
+      "contact"
+    ]
+  },
+  "AccountMigration": {
+    "fields": {
+      "old_person_id": "integer",
+      "new_person_id": "integer",
+      "completed_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "old_person"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "new_person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_migrations",
+      "account_migration"
+    ]
+  },
+  "PollParticipation": {
+    "fields": {
+      "poll_answer_id": "integer",
+      "author_id": "integer",
+      "poll_id": "integer",
+      "guid": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "PollAnswer",
+        "rel": "belongs_to",
+        "field": "poll_answer"
+      },
+      {
+        "class_name": "StatusMessage",
+        "rel": "has_one",
+        "field": "status_message"
+      },
+      {
+        "class_name": "PollParticipationSignature",
+        "rel": "has_one",
+        "field": "signature"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "poll_participations",
+      "poll_participation"
+    ]
+  },
+  "Generator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "DiasporaFederatedGenerator",
+    "table_name": [
+      "generators",
+      "generator"
+    ]
+  },
+  "Block": {
+    "fields": {
+      "user_id": "integer",
+      "person_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "blocks",
+      "block"
+    ]
+  },
+  "Poll": {
+    "fields": {
+      "question": "string",
+      "status_message_id": "integer",
+      "status": "boolean",
+      "guid": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "StatusMessage",
+        "rel": "belongs_to",
+        "field": "status_message"
+      },
+      {
+        "class_name": "PollAnswer",
+        "rel": "has_many",
+        "field": "poll_answers"
+      },
+      {
+        "class_name": "PollParticipation",
+        "rel": "has_many",
+        "field": "poll_participations"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_one",
+        "field": "author"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "polls",
+      "poll"
+    ]
+  },
+  "CommentSignature": {
+    "fields": {
+      "comment_id": "integer",
+      "author_signature": "text",
+      "signature_order_id": "integer",
+      "additional_data": "text",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Comment",
+        "rel": "belongs_to",
+        "field": "comment"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "comment_signatures",
+      "comment_signature"
+    ]
+  },
+  "AspectMembership": {
+    "fields": {
+      "aspect_id": "integer",
+      "contact_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Aspect",
+        "rel": "belongs_to",
+        "field": "aspect"
+      },
+      {
+        "class_name": "Contact",
+        "rel": "belongs_to",
+        "field": "contact"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_one",
+        "field": "user"
+      },
+      {
+        "class_name": "Person",
+        "rel": "has_one",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "aspect_memberships",
+      "aspect_membership"
+    ]
+  },
+  "TagFollowing": {
+    "fields": {
+      "tag_id": "integer",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "ActsAsTaggableOnTag",
+        "rel": "belongs_to",
+        "field": "tag"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "tag_followings",
+      "tag_following"
+    ]
+  },
+  "OpenGraphCache": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "posts"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "open_graph_caches",
+      "open_graph_cach"
+    ]
+  },
+  "ActsAsTaggableOnTag": {
+    "fields": {
+      "name" : "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "acts_as_taggable_on/tags",
+      "acts_as_taggable_on/tag"
+    ]
+  },
+  "Mention": {
+    "fields": {
+      "mentions_container_id": "integer",
+      "person_id": "integer",
+      "mentions_container_type": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Mention",
+        "rel": "belongs_to",
+        "field": "mentions_container"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "mentions",
+      "mention"
+    ]
+  },
+  "Reference": {
+    "fields": {
+      "source_id": "integer",
+      "source_type": "string",
+      "target_id": "integer",
+      "target_type": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Reference",
+        "rel": "belongs_to",
+        "field": "source"
+      },
+      {
+        "class_name": "Reference",
+        "rel": "belongs_to",
+        "field": "target"
+      },
+      {
+        "class_name": "Reference",
+        "rel": "has_many",
+        "field": "references"
+      },
+      {
+        "class_name": "Reference",
+        "rel": "has_many",
+        "field": "referenced_by"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "references",
+      "reference"
+    ]
+  },
+  "PollAnswer": {
+    "fields": {
+      "answer": "string",
+      "poll_id": "integer",
+      "guid": "string",
+      "vote_count": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "PollParticipation",
+        "rel": "has_many",
+        "field": "poll_participations"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "poll_answers",
+      "poll_answer"
+    ]
+  },
+  "Photo": {
+    "fields": {
+      "author_id": "integer",
+      "public": "boolean",
+      "guid": "string",
+      "pending": "boolean",
+      "text": "text",
+      "remote_photo_path": "text",
+      "remote_photo_name": "string",
+      "random_string": "string",
+      "processed_image": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "unprocessed_image": "string",
+      "status_message_guid": "string",
+      "height": "integer",
+      "width": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "StatusMessage",
+        "rel": "belongs_to",
+        "field": "status_message"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "photos",
+      "photo"
+    ]
+  },
+  "Location": {
+    "fields": {
+      "address": "string",
+      "lat": "string",
+      "lng": "string",
+      "status_message_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "StatusMessage",
+        "rel": "belongs_to",
+        "field": "status_message"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "locations",
+      "location"
+    ]
+  },
+  "OEmbedCache": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "posts"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "o_embed_caches",
+      "o_embed_cach"
+    ]
+  },
+  "InvitationCode": {
+    "fields": {
+      "token": "string",
+      "user_id": "integer",
+      "count": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "invitation_codes",
+      "invitation_code"
+    ]
+  },
+  "User": {
+    "fields": {
+      "username": "string",
+      "serialized_private_key": "text",
+      "getting_started": "boolean",
+      "disable_mail": "boolean",
+      "language": "string",
+      "email": "string",
+      "encrypted_password": "string",
+      "reset_password_token": "string",
+      "remember_created_at": "datetime",
+      "sign_in_count": "integer",
+      "current_sign_in_at": "datetime",
+      "last_sign_in_at": "datetime",
+      "current_sign_in_ip": "string",
+      "last_sign_in_ip": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "invited_by_id": "integer",
+      "authentication_token": "string",
+      "unconfirmed_email": "string",
+      "confirm_email_token": "string",
+      "locked_at": "datetime",
+      "show_community_spotlight_in_stream": "boolean",
+      "auto_follow_back": "boolean",
+      "auto_follow_back_aspect_id": "integer",
+      "hidden_shareables": "text",
+      "reset_password_sent_at": "datetime",
+      "last_seen": "datetime",
+      "remove_after": "datetime",
+      "export": "string",
+      "exported_at": "datetime",
+      "exporting": "boolean",
+      "strip_exif": "boolean",
+      "exported_photos_file": "string",
+      "exported_photos_at": "datetime",
+      "exporting_photos": "boolean",
+      "color_theme": "string",
+      "post_default_public": "boolean",
+      "consumed_timestep": "integer",
+      "otp_required_for_login": "boolean",
+      "otp_backup_codes": "text",
+      "plain_otp_secret": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "has_one",
+        "field": "person"
+      },
+      {
+        "class_name": "Profile",
+        "rel": "has_one",
+        "field": "profile"
+      },
+      {
+        "class_name": "Aspect",
+        "rel": "has_many",
+        "field": "aspects"
+      },
+      {
+        "class_name": "Aspect",
+        "rel": "belongs_to",
+        "field": "auto_follow_back_aspect"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "invited_by"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "invited_users"
+      },
+      {
+        "class_name": "AspectMembership",
+        "rel": "has_many",
+        "field": "aspect_memberships"
+      },
+      {
+        "class_name": "Contact",
+        "rel": "has_many",
+        "field": "contacts"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "contact_people"
+      },
+      {
+        "class_name": "Service",
+        "rel": "has_many",
+        "field": "services"
+      },
+      {
+        "class_name": "UserPreference",
+        "rel": "has_many",
+        "field": "user_preferences"
+      },
+      {
+        "class_name": "TagFollowing",
+        "rel": "has_many",
+        "field": "tag_followings"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "followed_tags"
+      },
+      {
+        "class_name": "Block",
+        "rel": "has_many",
+        "field": "blocks"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "ignored_people"
+      },
+      {
+        "class_name": "ConversationVisibility",
+        "rel": "has_many",
+        "field": "conversation_visibilities"
+      },
+      {
+        "class_name": "Conversation",
+        "rel": "has_many",
+        "field": "conversations"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Report",
+        "rel": "has_many",
+        "field": "reports"
+      },
+      {
+        "class_name": "ApiOpenidConnectPairwisePseudonymousIdentifier",
+        "rel": "has_many",
+        "field": "pairwise_pseudonymous_identifiers"
+      },
+      {
+        "class_name": "ApiOpenidConnectAuthorization",
+        "rel": "has_many",
+        "field": "authorizations"
+      },
+      {
+        "class_name": "ApiOpenidConnectOAuthApplication",
+        "rel": "has_many",
+        "field": "o_auth_applications"
+      },
+      {
+        "class_name": "ShareVisibility",
+        "rel": "has_many",
+        "field": "share_visibilities"
+      }
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "users",
+      "user"
+    ]
+  },
+  "User": {
+    "fields": {
+      "username": "string",
+      "serialized_private_key": "text",
+      "getting_started": "boolean",
+      "disable_mail": "boolean",
+      "language": "string",
+      "email": "string",
+      "encrypted_password": "string",
+      "reset_password_token": "string",
+      "remember_created_at": "datetime",
+      "sign_in_count": "integer",
+      "current_sign_in_at": "datetime",
+      "last_sign_in_at": "datetime",
+      "current_sign_in_ip": "string",
+      "last_sign_in_ip": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "invited_by_id": "integer",
+      "authentication_token": "string",
+      "unconfirmed_email": "string",
+      "confirm_email_token": "string",
+      "locked_at": "datetime",
+      "show_community_spotlight_in_stream": "boolean",
+      "auto_follow_back": "boolean",
+      "auto_follow_back_aspect_id": "integer",
+      "hidden_shareables": "text",
+      "reset_password_sent_at": "datetime",
+      "last_seen": "datetime",
+      "remove_after": "datetime",
+      "export": "string",
+      "exported_at": "datetime",
+      "exporting": "boolean",
+      "strip_exif": "boolean",
+      "exported_photos_file": "string",
+      "exported_photos_at": "datetime",
+      "exporting_photos": "boolean",
+      "color_theme": "string",
+      "post_default_public": "boolean",
+      "consumed_timestep": "integer",
+      "otp_required_for_login": "boolean",
+      "otp_backup_codes": "text",
+      "plain_otp_secret": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "has_one",
+        "field": "person"
+      },
+      {
+        "class_name": "Profile",
+        "rel": "has_one",
+        "field": "profile"
+      },
+      {
+        "class_name": "Aspect",
+        "rel": "has_many",
+        "field": "aspects"
+      },
+      {
+        "class_name": "Aspect",
+        "rel": "belongs_to",
+        "field": "auto_follow_back_aspect"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "invited_by"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "invited_users"
+      },
+      {
+        "class_name": "AspectMembership",
+        "rel": "has_many",
+        "field": "aspect_memberships"
+      },
+      {
+        "class_name": "Contact",
+        "rel": "has_many",
+        "field": "contacts"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "contact_people"
+      },
+      {
+        "class_name": "Service",
+        "rel": "has_many",
+        "field": "services"
+      },
+      {
+        "class_name": "UserPreference",
+        "rel": "has_many",
+        "field": "user_preferences"
+      },
+      {
+        "class_name": "TagFollowing",
+        "rel": "has_many",
+        "field": "tag_followings"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "followed_tags"
+      },
+      {
+        "class_name": "Block",
+        "rel": "has_many",
+        "field": "blocks"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "ignored_people"
+      },
+      {
+        "class_name": "ConversationVisibility",
+        "rel": "has_many",
+        "field": "conversation_visibilities"
+      },
+      {
+        "class_name": "Conversation",
+        "rel": "has_many",
+        "field": "conversations"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Report",
+        "rel": "has_many",
+        "field": "reports"
+      },
+      {
+        "class_name": "ApiOpenidConnectPairwisePseudonymousIdentifier",
+        "rel": "has_many",
+        "field": "pairwise_pseudonymous_identifiers"
+      },
+      {
+        "class_name": "ApiOpenidConnectAuthorization",
+        "rel": "has_many",
+        "field": "authorizations"
+      },
+      {
+        "class_name": "ApiOpenidConnectOAuthApplication",
+        "rel": "has_many",
+        "field": "o_auth_applications"
+      },
+      {
+        "class_name": "ShareVisibility",
+        "rel": "has_many",
+        "field": "share_visibilities"
+      }
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "users",
+      "user"
+    ]
+  },
+  "Participation": {
+    "fields": {
+      "guid": "string",
+      "target_id": "integer",
+      "target_type": "string",
+      "author_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "count": "integer",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "participations",
+      "participation"
+    ]
+  },
+  "Generator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "DiasporaFederatedGenerator",
+    "table_name": [
+      "generators",
+      "generator"
+    ]
+  },
+  "AspectVisibility": {
+    "fields": {
+      "shareable_id": "integer",
+      "aspect_id": "integer",
+      "shareable_type": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Aspect",
+        "rel": "belongs_to",
+        "field": "aspect"
+      },
+      {
+        "class_name": "AspectVisibility",
+        "rel": "belongs_to",
+        "field": "shareable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "aspect_visibilities",
+      "aspect_visibility"
+    ]
+  },
+  "Message": {
+    "fields": {
+      "conversation_id": "integer",
+      "author_id": "integer",
+      "guid": "string",
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Conversation",
+        "rel": "belongs_to",
+        "field": "conversation"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "messages",
+      "message"
+    ]
+  },
+  "Pod": {
+    "fields": {
+      "host": "string",
+      "ssl": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "status": "integer",
+      "checked_at": "datetime",
+      "offline_since": "datetime",
+      "response_time": "integer",
+      "software": "string",
+      "error": "string",
+      "port": "integer",
+      "blocked": "boolean",
+      "scheduled_check": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "people"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "pods",
+      "pod"
+    ]
+  },
+  "Like": {
+    "fields": {
+      "positive": "boolean",
+      "target_id": "integer",
+      "author_id": "integer",
+      "guid": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "target_type": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "LikeSignature",
+        "rel": "has_one",
+        "field": "signature"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "likes",
+      "like"
+    ]
+  },
+  "Generator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "DiasporaFederatedGenerator",
+    "table_name": [
+      "generators",
+      "generator"
+    ]
+  },
+  "ConversationVisibility": {
+    "fields": {
+      "conversation_id": "integer",
+      "person_id": "integer",
+      "unread": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Conversation",
+        "rel": "belongs_to",
+        "field": "conversation"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "conversation_visibilities",
+      "conversation_visibility"
+    ]
+  },
+  "UserPreference": {
+    "fields": {
+      "email_type": "string",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "user_preferences",
+      "user_preference"
+    ]
+  },
+  "Role": {
+    "fields": {
+      "person_id": "integer",
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "roles",
+      "role"
+    ]
+  },
+  "Notification": {
+    "fields": {
+      "target_type": "string",
+      "target_id": "integer",
+      "recipient_id": "integer",
+      "unread": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string",
+      "guid": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "recipient"
+      },
+      {
+        "class_name": "NotificationActor",
+        "rel": "has_many",
+        "field": "notification_actors"
+      },
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "actors"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "belongs_to",
+        "field": "target"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "notifications",
+      "notification"
+    ]
+  },
+  "NotificationActor": {
+    "fields": {
+      "notification_id": "integer",
+      "person_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Notification",
+        "rel": "belongs_to",
+        "field": "notification"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "notification_actors",
+      "notification_actor"
+    ]
+  },
+  "Reshare": {
+    "fields": {
+      "author_id": "integer",
+      "public": "boolean",
+      "guid": "string",
+      "type": "string",
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "provider_display_name": "string",
+      "root_guid": "string",
+      "likes_count": "integer",
+      "comments_count": "integer",
+      "o_embed_cache_id": "integer",
+      "reshares_count": "integer",
+      "interacted_at": "datetime",
+      "tweet_id": "string",
+      "open_graph_cache_id": "integer",
+      "tumblr_ids": "text"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "root"
+      },
+      {
+        "class_name": "Participation",
+        "rel": "has_many",
+        "field": "participations"
+      },
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "participants"
+      },
+      {
+        "class_name": "Report",
+        "rel": "has_many",
+        "field": "reports"
+      },
+      {
+        "class_name": "Reshare",
+        "rel": "has_many",
+        "field": "reshares"
+      },
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "resharers"
+      },
+      {
+        "class_name": "OEmbedCache",
+        "rel": "belongs_to",
+        "field": "o_embed_cache"
+      },
+      {
+        "class_name": "OpenGraphCache",
+        "rel": "belongs_to",
+        "field": "open_graph_cache"
+      }
+    ],
+    "extend_class_name": "Post",
+    "table_name": [
+      "reshares",
+      "reshare"
+    ]
+  },
+  "Conversation": {
+    "fields": {
+      "subject": "string",
+      "guid": "string",
+      "author_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ConversationVisibility",
+        "rel": "has_many",
+        "field": "conversation_visibilities"
+      },
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "participants"
+      },
+      {
+        "class_name": "Message",
+        "rel": "has_many",
+        "field": "messages"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "conversations",
+      "conversation"
+    ]
+  },
+  "PollParticipationSignature": {
+    "fields": {
+      "poll_participation_id": "integer",
+      "author_signature": "text",
+      "signature_order_id": "integer",
+      "additional_data": "text",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "PollParticipation",
+        "rel": "belongs_to",
+        "field": "poll_participation"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "poll_participation_signatures",
+      "poll_participation_signature"
+    ]
+  },
+  "StatusMessage": {
+    "fields": {
+      "author_id": "integer",
+      "public": "boolean",
+      "guid": "string",
+      "type": "string",
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "provider_display_name": "string",
+      "root_guid": "string",
+      "likes_count": "integer",
+      "comments_count": "integer",
+      "o_embed_cache_id": "integer",
+      "reshares_count": "integer",
+      "interacted_at": "datetime",
+      "tweet_id": "string",
+      "open_graph_cache_id": "integer",
+      "tumblr_ids": "text"
+    },
+    "associations": [
+      {
+        "class_name": "Photo",
+        "rel": "has_many",
+        "field": "photos"
+      },
+      {
+        "class_name": "Location",
+        "rel": "has_one",
+        "field": "location"
+      },
+      {
+        "class_name": "Poll",
+        "rel": "has_one",
+        "field": "poll"
+      },
+      {
+        "class_name": "PollParticipation",
+        "rel": "has_many",
+        "field": "poll_participations"
+      },
+      {
+        "class_name": "Participation",
+        "rel": "has_many",
+        "field": "participations"
+      },
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "participants"
+      },
+      {
+        "class_name": "Report",
+        "rel": "has_many",
+        "field": "reports"
+      },
+      {
+        "class_name": "Reshare",
+        "rel": "has_many",
+        "field": "reshares"
+      },
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "resharers"
+      },
+      {
+        "class_name": "OEmbedCache",
+        "rel": "belongs_to",
+        "field": "o_embed_cache"
+      },
+      {
+        "class_name": "OpenGraphCache",
+        "rel": "belongs_to",
+        "field": "open_graph_cache"
+      }
+    ],
+    "extend_class_name": "Post",
+    "table_name": [
+      "status_messages",
+      "status_message"
+    ]
+  },
+  "ApiOpenidConnectPairwisePseudonymousIdentifier": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "ApiOpenidConnectOAuthApplication",
+        "rel": "belongs_to",
+        "field": "o_auth_application"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApiOpenidConnectApplicationRecord",
+    "table_name": [
+      "api/openid_connect/pairwise_pseudonymous_identifiers",
+      "api/openid_connect/pairwise_pseudonymous_identifier"
+    ]
+  },
+  "ApiOpenidConnectAuthorization": {
+    "fields": {
+      "code": "string",
+      "refresh_token": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "ApiOpenidConnectOAuthApplication",
+        "rel": "belongs_to",
+        "field": "o_auth_application"
+      },
+      {
+        "class_name": "ApiOpenidConnectOAuthAccessToken",
+        "rel": "has_many",
+        "field": "o_auth_access_tokens"
+      }
+    ],
+    "extend_class_name": "ApiOpenidConnectApplicationRecord",
+    "table_name": [
+      "api/openid_connect/authorizations",
+      "api/openid_connect/authorization"
+    ]
+  },
+  "ApiOpenidConnectOAuthAccessToken": {
+    "fields": {
+      "expires_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "ApiOpenidConnectAuthorization",
+        "rel": "belongs_to",
+        "field": "authorization"
+      }
+    ],
+    "extend_class_name": "ApiOpenidConnectApplicationRecord",
+    "table_name": [
+      "api/openid_connect/o_auth_access_tokens",
+      "api/openid_connect/o_auth_access_token"
+    ]
+  },
+  "ApiOpenidConnectOAuthApplication": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "ApiOpenidConnectAuthorization",
+        "rel": "has_many",
+        "field": "authorizations"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApiOpenidConnectApplicationRecord",
+    "table_name": [
+      "api/openid_connect/o_auth_applications",
+      "api/openid_connect/o_auth_application"
+    ]
+  },
+  "Profile": {
+    "fields": {
+      "diaspora_handle": "string",
+      "first_name": "string",
+      "last_name": "string",
+      "image_url": "string",
+      "image_url_small": "string",
+      "image_url_medium": "string",
+      "birthday": "date",
+      "gender": "string",
+      "bio": "text",
+      "searchable": "boolean",
+      "person_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "location": "string",
+      "full_name": "string",
+      "nsfw": "boolean",
+      "public_details": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "profiles",
+      "profile"
+    ]
+  },
+  "Comment": {
+    "fields": {
+      "text": "text",
+      "commentable_id": "integer",
+      "author_id": "integer",
+      "guid": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "likes_count": "integer",
+      "commentable_type": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Comment",
+        "rel": "belongs_to",
+        "field": "commentable"
+      },
+      {
+        "class_name": "Report",
+        "rel": "has_many",
+        "field": "reports"
+      },
+      {
+        "class_name": "CommentSignature",
+        "rel": "has_one",
+        "field": "signature"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "comments",
+      "comment"
+    ]
+  },
+  "Generator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "DiasporaFederatedGenerator",
+    "table_name": [
+      "generators",
+      "generator"
+    ]
+  },
+  "Person": {
+    "fields": {
+      "guid": "string",
+      "diaspora_handle": "string",
+      "serialized_public_key": "text",
+      "owner_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "closed_account": "boolean",
+      "fetch_status": "integer",
+      "pod_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Profile",
+        "rel": "has_one",
+        "field": "profile"
+      },
+      {
+        "class_name": "Contact",
+        "rel": "has_many",
+        "field": "contacts"
+      },
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "posts"
+      },
+      {
+        "class_name": "Photo",
+        "rel": "has_many",
+        "field": "photos"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "Like",
+        "rel": "has_many",
+        "field": "likes"
+      },
+      {
+        "class_name": "Participation",
+        "rel": "has_many",
+        "field": "participations"
+      },
+      {
+        "class_name": "PollParticipation",
+        "rel": "has_many",
+        "field": "poll_participations"
+      },
+      {
+        "class_name": "ConversationVisibility",
+        "rel": "has_many",
+        "field": "conversation_visibilities"
+      },
+      {
+        "class_name": "Message",
+        "rel": "has_many",
+        "field": "messages"
+      },
+      {
+        "class_name": "Conversation",
+        "rel": "has_many",
+        "field": "conversations"
+      },
+      {
+        "class_name": "Block",
+        "rel": "has_many",
+        "field": "blocks"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_many",
+        "field": "roles"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "owner"
+      },
+      {
+        "class_name": "Pod",
+        "rel": "belongs_to",
+        "field": "pod"
+      },
+      {
+        "class_name": "NotificationActor",
+        "rel": "has_many",
+        "field": "notification_actors"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Mention",
+        "rel": "has_many",
+        "field": "mentions"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "people",
+      "person"
+    ]
+  },
+  "ApplicationRecord": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecordBase",
+    "table_name": [
+      "application_records",
+      "application_record"
+    ]
+  },
+  "Post": {
+    "fields": {
+      "author_id": "integer",
+      "public": "boolean",
+      "guid": "string",
+      "type": "string",
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "provider_display_name": "string",
+      "root_guid": "string",
+      "likes_count": "integer",
+      "comments_count": "integer",
+      "o_embed_cache_id": "integer",
+      "reshares_count": "integer",
+      "interacted_at": "datetime",
+      "tweet_id": "string",
+      "open_graph_cache_id": "integer",
+      "tumblr_ids": "text"
+    },
+    "associations": [
+      {
+        "class_name": "Participation",
+        "rel": "has_many",
+        "field": "participations"
+      },
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "participants"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "Report",
+        "rel": "has_many",
+        "field": "reports"
+      },
+      {
+        "class_name": "Reshare",
+        "rel": "has_many",
+        "field": "reshares"
+      },
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "resharers"
+      },
+      {
+        "class_name": "OEmbedCache",
+        "rel": "belongs_to",
+        "field": "o_embed_cache"
+      },
+      {
+        "class_name": "OpenGraphCache",
+        "rel": "belongs_to",
+        "field": "open_graph_cache"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "posts",
+      "post"
+    ]
+  },
+  "AccountDeletion": {
+    "fields": {
+      "person_id": "integer",
+      "completed_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "account_deletions",
+      "account_deletion"
+    ]
+  },
+  "NotificationsStartedSharing": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "NotificationsNotification",
+    "table_name": [
+      "notifications/started_sharings",
+      "notifications/started_sharing"
+    ]
+  },
+  "NotificationsMentionedInPost": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "NotificationsNotification",
+    "table_name": [
+      "notifications/mentioned_in_posts",
+      "notifications/mentioned_in_post"
+    ]
+  },
+  "NotificationsCommentOnPost": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "NotificationsNotification",
+    "table_name": [
+      "notifications/comment_on_posts",
+      "notifications/comment_on_post"
+    ]
+  },
+  "NotificationsContactsBirthday": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "NotificationsNotification",
+    "table_name": [
+      "notifications/contacts_birthdays",
+      "notifications/contacts_birthday"
+    ]
+  },
+  "NotificationsLiked": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "NotificationsNotification",
+    "table_name": [
+      "notifications/likeds",
+      "notifications/liked"
+    ]
+  },
+  "NotificationsAlsoCommented": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "NotificationsNotification",
+    "table_name": [
+      "notifications/also_commenteds",
+      "notifications/also_commented"
+    ]
+  },
+  "NotificationsReshared": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "NotificationsNotification",
+    "table_name": [
+      "notifications/reshareds",
+      "notifications/reshared"
+    ]
+  },
+  "NotificationsMentionedInComment": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "NotificationsNotification",
+    "table_name": [
+      "notifications/mentioned_in_comments",
+      "notifications/mentioned_in_comment"
+    ]
+  },
+  "NotificationsPrivateMessage": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "NotificationsNotification",
+    "table_name": [
+      "notifications/private_messages",
+      "notifications/private_message"
+    ]
+  },
+  "Aspect": {
+    "fields": {
+      "name": "string",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "order_id": "integer",
+      "post_default": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "AspectMembership",
+        "rel": "has_many",
+        "field": "aspect_memberships"
+      },
+      {
+        "class_name": "Contact",
+        "rel": "has_many",
+        "field": "contacts"
+      },
+      {
+        "class_name": "AspectVisibility",
+        "rel": "has_many",
+        "field": "aspect_visibilities"
+      },
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "posts"
+      },
+      {
+        "class_name": "Aspect",
+        "rel": "has_many",
+        "field": "aspect"
+      },
+      {
+        "class_name": "Photo",
+        "rel": "has_many",
+        "field": "photos"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "aspects",
+      "aspect"
+    ]
+  },
+  "ServicesTwitter": {
+    "fields": {
+      "type": "string",
+      "user_id": "integer",
+      "uid": "string",
+      "access_token": "string",
+      "access_secret": "string",
+      "nickname": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "Service",
+    "table_name": [
+      "services/twitters",
+      "services/twitter"
+    ]
+  },
+  "ServicesTumblr": {
+    "fields": {
+      "type": "string",
+      "user_id": "integer",
+      "uid": "string",
+      "access_token": "string",
+      "access_secret": "string",
+      "nickname": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "Service",
+    "table_name": [
+      "services/tumblrs",
+      "services/tumblr"
+    ]
+  },
+  "ServicesWordpress": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ServicesService",
+    "table_name": [
+      "services/wordpresses",
+      "services/wordpress"
+    ]
+  },
+  "LikeSignature": {
+    "fields": {
+      "like_id": "integer",
+      "author_signature": "text",
+      "signature_order_id": "integer",
+      "additional_data": "text",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Like",
+        "rel": "belongs_to",
+        "field": "like"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "like_signatures",
+      "like_signature"
+    ]
+  },
+  "ShareVisibility": {
+    "fields": {
+      "shareable_id": "integer",
+      "hidden": "boolean",
+      "shareable_type": "string",
+      "user_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "ShareVisibility",
+        "rel": "belongs_to",
+        "field": "shareable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "share_visibilities",
+      "share_visibility"
+    ]
+  },
+  "Service": {
+    "fields": {
+      "type": "string",
+      "user_id": "integer",
+      "uid": "string",
+      "access_token": "string",
+      "access_secret": "string",
+      "nickname": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "services",
+      "service"
+    ]
+  },
+  "User": {
+    "fields": {
+      "username": "string",
+      "serialized_private_key": "text",
+      "getting_started": "boolean",
+      "disable_mail": "boolean",
+      "language": "string",
+      "email": "string",
+      "encrypted_password": "string",
+      "reset_password_token": "string",
+      "remember_created_at": "datetime",
+      "sign_in_count": "integer",
+      "current_sign_in_at": "datetime",
+      "last_sign_in_at": "datetime",
+      "current_sign_in_ip": "string",
+      "last_sign_in_ip": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "invited_by_id": "integer",
+      "authentication_token": "string",
+      "unconfirmed_email": "string",
+      "confirm_email_token": "string",
+      "locked_at": "datetime",
+      "show_community_spotlight_in_stream": "boolean",
+      "auto_follow_back": "boolean",
+      "auto_follow_back_aspect_id": "integer",
+      "hidden_shareables": "text",
+      "reset_password_sent_at": "datetime",
+      "last_seen": "datetime",
+      "remove_after": "datetime",
+      "export": "string",
+      "exported_at": "datetime",
+      "exporting": "boolean",
+      "strip_exif": "boolean",
+      "exported_photos_file": "string",
+      "exported_photos_at": "datetime",
+      "exporting_photos": "boolean",
+      "color_theme": "string",
+      "post_default_public": "boolean",
+      "consumed_timestep": "integer",
+      "otp_required_for_login": "boolean",
+      "otp_backup_codes": "text",
+      "plain_otp_secret": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "has_one",
+        "field": "person"
+      },
+      {
+        "class_name": "Profile",
+        "rel": "has_one",
+        "field": "profile"
+      },
+      {
+        "class_name": "Aspect",
+        "rel": "has_many",
+        "field": "aspects"
+      },
+      {
+        "class_name": "Aspect",
+        "rel": "belongs_to",
+        "field": "auto_follow_back_aspect"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "invited_by"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "invited_users"
+      },
+      {
+        "class_name": "AspectMembership",
+        "rel": "has_many",
+        "field": "aspect_memberships"
+      },
+      {
+        "class_name": "Contact",
+        "rel": "has_many",
+        "field": "contacts"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "contact_people"
+      },
+      {
+        "class_name": "Service",
+        "rel": "has_many",
+        "field": "services"
+      },
+      {
+        "class_name": "UserPreference",
+        "rel": "has_many",
+        "field": "user_preferences"
+      },
+      {
+        "class_name": "TagFollowing",
+        "rel": "has_many",
+        "field": "tag_followings"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "followed_tags"
+      },
+      {
+        "class_name": "Block",
+        "rel": "has_many",
+        "field": "blocks"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "ignored_people"
+      },
+      {
+        "class_name": "ConversationVisibility",
+        "rel": "has_many",
+        "field": "conversation_visibilities"
+      },
+      {
+        "class_name": "Conversation",
+        "rel": "has_many",
+        "field": "conversations"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "Report",
+        "rel": "has_many",
+        "field": "reports"
+      },
+      {
+        "class_name": "ApiOpenidConnectPairwisePseudonymousIdentifier",
+        "rel": "has_many",
+        "field": "pairwise_pseudonymous_identifiers"
+      },
+      {
+        "class_name": "ApiOpenidConnectAuthorization",
+        "rel": "has_many",
+        "field": "authorizations"
+      },
+      {
+        "class_name": "ApiOpenidConnectOAuthApplication",
+        "rel": "has_many",
+        "field": "o_auth_applications"
+      },
+      {
+        "class_name": "ShareVisibility",
+        "rel": "has_many",
+        "field": "share_visibilities"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "users",
+      "user"
+    ]
+  }
+}

@@ -1,0 +1,3879 @@
+{
+  "SpreeUser": {
+    "fields": {
+      "encrypted_password": "string",
+			"password_salt": "string",
+			"email": "string",
+			"remember_token": "string",
+			"persistence_token": "string",
+			"reset_password_token": "string",
+			"perishable_token": "string",
+			"sign_in_count": "integer",
+			"failed_attempts": "integer",
+			"last_request_at": "datetime",
+			"current_sign_in_at": "datetime",
+			"last_sign_in_at": "datetime",
+			"current_sign_in_ip": "string",
+			"last_sign_in_ip": "string",
+			"login": "string",
+			"ship_address_id": "integer",
+			"bill_address_id": "integer",
+			"authentication_token": "string",
+			"unlock_token": "string",
+			"locked_at": "datetime",
+			"reset_password_sent_at": "datetime",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"spree_api_key": "string",
+			"remember_created_at": "datetime",
+			"deleted_at": "datetime",
+			"confirmation_token": "string",
+			"confirmed_at": "datetime",
+			"confirmation_sent_at": "datetime"
+    },
+    "associations": [
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/users",
+      "spree/user"
+    ]
+  },
+  "SpreeStoreCreditCategory": {
+    "fields": {
+      "name": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeActionsSpreePromotionAction",
+    "table_name": [
+      "spree/stores/credit_categories",
+      "spree/stores/credit_category"
+    ]
+  },
+  "SpreeActionsFreeShipping": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeActionsSpreePromotionAction",
+    "table_name": [
+      "spree/actions/free_shippings",
+      "spree/actions/free_shipping"
+    ]
+  },
+
+  "SpreeActionsCreateLineItems": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "PromotionActionLineItem",
+        "rel": "has_many",
+        "field": "promotion_action_line_items"
+      }
+    ],
+    "extend_class_name": "SpreeActionsPromotionAction",
+    "table_name": [
+      "spree/actions/create_line_items",
+      "spree/actions/create_line_item"
+    ]
+  },
+
+  "SpreeActionsCreateAdjustment": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeActionsPromotionAction",
+    "table_name": [
+      "spree/actions/create_adjustments",
+      "spree/actions/create_adjustment"
+    ]
+  },
+  
+  "SpreeActionsCreateItemAdjustments": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeActionsPromotionAction",
+    "table_name": [
+      "spree/actions/create_item_adjustments",
+      "spree/actions/create_item_adjustment"
+    ]
+  },
+ 
+  "SpreeRulesOptionValue": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeRulesPromotionRule",
+    "table_name": [
+      "spree/rules/option_values",
+      "spree/rules/option_value"
+    ]
+  },
+  
+  "SpreeRulesUserLoggedIn": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeRulesPromotionRule",
+    "table_name": [
+      "spree/rules/user_logged_ins",
+      "spree/rules/user_logged_in"
+    ]
+  },
+  "SpreePromotion": {
+    "fields": {
+      "description": "string",
+			"expires_at": "datetime",
+			"starts_at": "datetime",
+			"name": "string",
+			"type": "string",
+			"usage_limit": "integer",
+			"match_policy": "string",
+			"code": "string",
+			"advertise": "boolean",
+			"path": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"promotion_category_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "PromotionCategory",
+        "rel": "belongs_to",
+        "field": "promotion_category"
+      },
+      {
+        "class_name": "SpreePromotionRule",
+        "rel": "has_many",
+        "field": "promotion_rules"
+      },
+      {
+        "class_name": "SpreePromotionAction",
+        "rel": "has_many",
+        "field": "promotion_actions"
+      },
+      {
+        "class_name": "SpreeOrderPromotion",
+        "rel": "has_many",
+        "field": "order_promotions"
+      },
+      {
+        "class_name": "SpreeOrder",
+        "rel": "has_many",
+        "field": "orders"
+      }
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/promotions",
+      "spree/promotion"
+    ]
+  },
+  "SpreeRulesOneUsePerUser": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeRulesPromotionRule",
+    "table_name": [
+      "spree/rules/one_use_per_users",
+      "spree/rules/one_use_per_user"
+    ]
+  },
+ 
+  "SpreeRulesProduct": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeProductPromotionRule",
+        "rel": "has_many",
+        "field": "product_promotion_rules"
+      },
+      {
+        "class_name": "SpreeProduct",
+        "rel": "has_many",
+        "field": "products"
+      }
+    ],
+    "extend_class_name": "SpreeRulesPromotionRule",
+    "table_name": [
+      "spree/rules/products",
+      "spree/rules/product"
+    ]
+  },
+
+  "SpreeRulesCountry": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeRulesPromotionRule",
+    "table_name": [
+      "spree/rules/countries",
+      "spree/rules/country"
+    ]
+  },
+
+  "SpreeRulesFirstOrder": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeRulesPromotionRule",
+    "table_name": [
+      "spree/rules/first_orders",
+      "spree/rules/first_order"
+    ]
+  },
+
+  "SpreeRulesTaxon": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreePromotionRuleTaxon",
+        "rel": "has_many",
+        "field": "promotion_rule_taxons"
+      },
+      {
+        "class_name": "SpreeTaxon",
+        "rel": "has_many",
+        "field": "taxons"
+      }
+    ],
+    "extend_class_name": "SpreeRulesPromotionRule",
+    "table_name": [
+      "spree/rules/taxons",
+      "spree/rules/taxon"
+    ]
+  },
+
+  "SpreeRulesItemTotal": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeRulesPromotionRule",
+    "table_name": [
+      "spree/rules/item_totals",
+      "spree/rules/item_total"
+    ]
+  },
+
+  "SpreeRulesUser": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "SpreePromotionRuleUser",
+        "rel": "has_many",
+        "field": "promotion_rule_users"
+      },
+      {
+        "class_name": "",
+        "rel": "has_many",
+        "field": "users"
+      }
+    ],
+    "extend_class_name": "SpreeRulesPromotionRule",
+    "table_name": [
+      "spree/rules/users",
+      "spree/rules/user"
+    ]
+  },
+  "SpreeVariant": {
+    "fields": {
+      "sku": "string",
+			"weight": "decimal",
+			"height": "decimal",
+			"width": "decimal",
+			"depth": "decimal",
+			"deleted_at": "datetime",
+			"is_master": "boolean",
+			"product_id": "integer",
+			"cost_price": "decimal",
+			"position": "integer",
+			"cost_currency": "string",
+			"track_inventory": "boolean",
+			"tax_category_id": "integer",
+			"updated_at": "datetime",
+			"discontinue_on": "datetime",
+			"created_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeProduct",
+        "rel": "belongs_to",
+        "field": "product"
+      },
+      {
+        "class_name": "SpreeTaxCategory",
+        "rel": "belongs_to",
+        "field": "tax_category"
+      },
+      {
+        "class_name": "SpreeInventoryUnit",
+        "rel": "has_many",
+        "field": "inventory_units"
+      },
+      {
+        "class_name": "SpreeLineItem",
+        "rel": "has_many",
+        "field": "line_items"
+      },
+      {
+        "class_name": "SpreeStockItem",
+        "rel": "has_many",
+        "field": "stock_items"
+      },
+      {
+        "class_name": "SpreeOrder",
+        "rel": "has_many",
+        "field": "orders"
+      },
+      {
+        "class_name": "SpreeStockLocation",
+        "rel": "has_many",
+        "field": "stock_locations"
+      },
+      {
+        "class_name": "SpreeStockMovement",
+        "rel": "has_many",
+        "field": "stock_movements"
+      },
+      {
+        "class_name": "SpreeOptionValueVariant",
+        "rel": "has_many",
+        "field": "option_value_variants"
+      },
+      {
+        "class_name": "SpreeOptionValue",
+        "rel": "has_many",
+        "field": "option_values"
+      },
+      {
+        "class_name": "SpreeImage",
+        "rel": "has_many",
+        "field": "images"
+      },
+      {
+        "class_name": "SpreePrice",
+        "rel": "has_many",
+        "field": "prices"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/variants",
+      "spree/variant"
+    ]
+  },
+  "SpreeBase": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "spree/bases",
+      "spree/basis"
+    ]
+  },
+ 
+  "SpreeRefund": {
+    "fields": {
+      "payment_id": "integer",
+			"amount": "decimal",
+			"transaction_id": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"refund_reason_id": "integer",
+			"reimbursement_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "SpreePayment",
+        "rel": "belongs_to",
+        "field": "payment"
+      },
+      {
+        "class_name": "SpreeReimbursement",
+        "rel": "belongs_to",
+        "field": "reimbursement"
+      },
+      {
+        "class_name": "SpreeRefundReason",
+        "rel": "belongs_to",
+        "field": "reason"
+      },
+      {
+        "class_name": "LogEntry",
+        "rel": "has_many",
+        "field": "log_entries"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/refunds",
+      "spree/refund"
+    ]
+  },
+  "SpreeOrderInventory": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/order_inventories",
+      "spree/order_inventory"
+    ]
+  },
+  "SpreeReturnItem": {
+    "fields": {
+      "return_authorization_id": "integer",
+			"inventory_unit_id": "integer",
+			"exchange_variant_id": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"pre_tax_amount": "decimal",
+			"included_tax_total": "decimal",
+			"additional_tax_total": "decimal",
+			"reception_status": "string",
+			"acceptance_status": "string",
+			"customer_return_id": "integer",
+			"reimbursement_id": "integer",
+			"acceptance_status_errors": "text",
+			"preferred_reimbursement_type_id": "integer",
+      "override_reimbursement_type_id": "integer",
+      "original_return_item_id": "integer",
+			"resellable": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeReturnAuthorization",
+        "rel": "belongs_to",
+        "field": "return_authorization"
+      },
+      {
+        "class_name": "SpreeInventoryUnit",
+        "rel": "belongs_to",
+        "field": "inventory_unit"
+      },
+      {
+        "class_name": "SpreeCustomerReturn",
+        "rel": "belongs_to",
+        "field": "customer_return"
+      },
+      {
+        "class_name": "SpreeReimbursement",
+        "rel": "belongs_to",
+        "field": "reimbursement"
+      },
+      {
+        "class_name": "SpreeInventoryUnit",
+        "rel": "has_many",
+        "field": "exchange_inventory_units"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "belongs_to",
+        "field": "exchange_variant"
+      },
+      {
+        "class_name": "SpreeReimbursementType",
+        "rel": "belongs_to",
+        "field": "preferred_reimbursement_type"
+      },
+      {
+        "class_name": "SpreeReimbursementType",
+        "rel": "belongs_to",
+        "field": "override_reimbursement_type"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/return_items",
+      "spree/return_item"
+    ]
+  },
+  "SpreeAppDependencies": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/app_dependencies",
+      "spree/app_dependency"
+    ]
+  },
+  "SpreeOptionValueVariant": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeOptionValue",
+        "rel": "belongs_to",
+        "field": "option_value"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "belongs_to",
+        "field": "variant"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/option_value_variants",
+      "spree/option_value_variant"
+    ]
+  },
+  "SpreeInventoryUnit": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeVariant",
+        "rel": "belongs_to",
+        "field": "variant"
+      },
+      {
+        "class_name": "SpreeOrder",
+        "rel": "belongs_to",
+        "field": "order"
+      },
+      {
+        "class_name": "SpreeShipment",
+        "rel": "belongs_to",
+        "field": "shipment"
+      },
+      {
+        "class_name": "SpreeReturnAuthorization",
+        "rel": "belongs_to",
+        "field": "return_authorization"
+      },
+      {
+        "class_name": "SpreeLineItem",
+        "rel": "belongs_to",
+        "field": "line_item"
+      },
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      },
+      {
+        "class_name": "SpreeReturnItem",
+        "rel": "belongs_to",
+        "field": "original_return_item"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/inventory_units",
+      "spree/inventory_unit"
+    ]
+  },
+  "SpreeAdjustment": {
+    "fields": {
+      "source_type": "string",
+			"source_id": "integer",
+			"adjustable_type": "string",
+			"adjustable_id": "integer",
+			"amount": "decimal",
+			"label": "string",
+			"mandatory": "boolean",
+			"eligible": "boolean",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"state": "string",
+			"order_id": "integer",
+			"included": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "Adjustable",
+        "rel": "belongs_to",
+        "field": "adjustable"
+      },
+      {
+        "class_name": "Source",
+        "rel": "belongs_to",
+        "field": "source"
+      },
+      {
+        "class_name": "SpreeOrder",
+        "rel": "belongs_to",
+        "field": "order"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/adjustments",
+      "spree/adjustment"
+    ]
+  },
+  "SpreeOptionValue": {
+    "fields": {
+      "position": "integer",
+			"name": "string",
+			"presentation": "string",
+			"option_type_id": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeOptionType",
+        "rel": "belongs_to",
+        "field": "option_type"
+      },
+      {
+        "class_name": "SpreeOptionValueVariant",
+        "rel": "has_many",
+        "field": "option_value_variants"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "has_many",
+        "field": "variants"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/option_values",
+      "spree/option_value"
+    ]
+  },
+  "SpreeStockMovement": {
+    "fields": {
+      "stock_item_id": "integer",
+			"quantity": "integer",
+			"action": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"originator_type": "string",
+			"originator_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeStockItem",
+        "rel": "belongs_to",
+        "field": "stock_item"
+      },
+      {
+        "class_name": "Originator",
+        "rel": "belongs_to",
+        "field": "originator"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/stock_movements",
+      "spree/stock_movement"
+    ]
+  },
+  "SpreeShipment": {
+    "fields": {
+      "tracking": "string",
+			"number": "string",
+      "cost": "decimal",
+      "user_id":"integer",
+			"shipped_at": "datetime",
+			"order_id": "integer",
+			"address_id": "integer",
+			"state": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"stock_location_id": "integer",
+			"adjustment_total": "decimal",
+			"additional_tax_total": "decimal",
+			"promo_total": "decimal",
+			"included_tax_total": "decimal",
+			"pre_tax_amount": "decimal",
+			"taxable_adjustment_total": "decimal",
+			"non_taxable_adjustment_total": "decimal"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeAddress",
+        "rel": "belongs_to",
+        "field": "address"
+      },
+      {
+        "class_name": "SpreeOrder",
+        "rel": "belongs_to",
+        "field": "order"
+      },
+      {
+        "class_name": "SpreeStockLocation",
+        "rel": "belongs_to",
+        "field": "stock_location"
+      },
+      {
+        "class_name": "SpreeAdjustment",
+        "rel": "has_many",
+        "field": "adjustments"
+      },
+      {
+        "class_name": "SpreeInventoryUnit",
+        "rel": "has_many",
+        "field": "inventory_units"
+      },
+      {
+        "class_name": "SpreeShippingRate",
+        "rel": "has_many",
+        "field": "shipping_rates"
+      },
+      {
+        "class_name": "SpreeStateChange",
+        "rel": "has_many",
+        "field": "state_changes"
+      },
+      {
+        "class_name": "SpreeShippingMethod",
+        "rel": "has_many",
+        "field": "shipping_methods"
+      },
+      {
+        "class_name": "SpreeShippingRate",
+        "rel": "has_one",
+        "field": "selected_shipping_rate"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/shipments",
+      "spree/shipment"
+    ]
+  },
+  "SpreeReturnAuthorization": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeOrder",
+        "rel": "belongs_to",
+        "field": "order"
+      },
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      },
+      {
+        "class_name": "InventoryUnit",
+        "rel": "has_many",
+        "field": "inventory_units"
+      },
+      {
+        "class_name": "CustomerReturn",
+        "rel": "has_many",
+        "field": "customer_returns"
+      },
+      {
+        "class_name": "StockLocation",
+        "rel": "belongs_to",
+        "field": "stock_location"
+      },
+      {
+        "class_name": "SpreeReturnAuthorizationReason",
+        "rel": "belongs_to",
+        "field": "reason"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/return_authorizations",
+      "spree/return_authorization"
+    ]
+  },
+  "SpreeProductProperty": {
+    "fields": {
+      "id" : "integer",
+      "value": "string",
+			"product_id": "integer",
+			"property_id": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"position": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeProduct",
+        "rel": "belongs_to",
+        "field": "product"
+      },
+      {
+        "class_name": "SpreeProperty",
+        "rel": "belongs_to",
+        "field": "property"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/product_properties",
+      "spree/product_property"
+    ]
+  },
+  "SpreeOrderMerger": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/order_mergers",
+      "spree/order_merger"
+    ]
+  },
+  "SpreePreferencesScopedStore": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/preferences/scoped_stores",
+      "spree/preferences/scoped_store"
+    ]
+  },
+  "SpreePreferencesConfiguration": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/preferences/configurations",
+      "spree/preferences/configuration"
+    ]
+  },
+  "SpreePreferencesStoreInstance": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/preferences/store_instances",
+      "spree/preferences/store_instance"
+    ]
+  },
+  "SpreePreferencesStore": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreePreferencesStoreInstance",
+    "table_name": [
+      "spree/preferences/stores",
+      "spree/preferences/store"
+    ]
+  },
+  "SpreeState": {
+    "fields": {
+      "name": "string",
+			"abbr": "string",
+			"country_id": "integer",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeCountry",
+        "rel": "belongs_to",
+        "field": "country"
+      },
+      {
+        "class_name": "Address",
+        "rel": "has_many",
+        "field": "addresses"
+      },
+      {
+        "class_name": "SpreeZoneMember",
+        "rel": "has_many",
+        "field": "zone_members"
+      },
+      {
+        "class_name": "SpreeZone",
+        "rel": "has_many",
+        "field": "zones"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/states",
+      "spree/state"
+    ]
+  },
+  "SpreePrice": {
+    "fields": {
+      "variant_id": "integer",
+			"amount": "decimal",
+			"currency": "string",
+			"deleted_at": "datetime",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeVariant",
+        "rel": "belongs_to",
+        "field": "variant"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/prices",
+      "spree/price"
+    ]
+  },
+  "SpreeShippingCalculator": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/shipping_calculators",
+      "spree/shipping_calculator"
+    ]
+  },
+  "SpreeOptionTypePrototype": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeOptionType",
+        "rel": "belongs_to",
+        "field": "option_type"
+      },
+      {
+        "class_name": "SpreePrototype",
+        "rel": "belongs_to",
+        "field": "prototype"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/option_type_prototypes",
+      "spree/option_type_prototype"
+    ]
+  },
+  "SpreeLegacyUser": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/legacy_users",
+      "spree/legacy_user"
+    ]
+  },
+  "SpreeReimbursementTaxCalculator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/reimbursement_tax_calculators",
+      "spree/reimbursement_tax_calculator"
+    ]
+  },
+  "SpreePaymentCaptureEvent": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreePayment",
+        "rel": "belongs_to",
+        "field": "payment"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/payment_capture_events",
+      "spree/payment_capture_event"
+    ]
+  },
+  "SpreePromotionRule": {
+    "fields": {
+      "promotion_id": "integer",
+			"user_id": "integer",
+			"product_group_id": "integer",
+			"type": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"code": "string",
+			"preferences": "text"
+    },
+    "associations": [
+      {
+        "class_name": "SpreePromotion",
+        "rel": "belongs_to",
+        "field": "promotion"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/promotion_rules",
+      "spree/promotion_rule"
+    ]
+  },
+  "SpreeShippingMethodZone": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "ShippingMethod",
+        "rel": "belongs_to",
+        "field": "shipping_method"
+      },
+      {
+        "class_name": "Zone",
+        "rel": "belongs_to",
+        "field": "zone"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/shipping_method_zones",
+      "spree/shipping_method_zone"
+    ]
+  },
+  "SpreePromotionRuleTaxon": {
+    "fields": {
+      
+    },
+    "associations": [
+      {
+        "class_name": "SpreePromotionRule",
+        "rel": "belongs_to",
+        "field": "promotion_rule"
+      },
+      {
+        "class_name": "SpreeTaxon",
+        "rel": "belongs_to",
+        "field": "taxon"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/promotion_rule_taxons",
+      "spree/promotion_rule_taxon"
+    ]
+  },
+  "SpreeCalculatorFlatPercentItemTotal": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/calculator/flat_percent_item_totals",
+      "spree/calculator/flat_percent_item_total"
+    ]
+  },
+  "SpreeCalculatorShippingFlatPercentItemTotal": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeCalculatorShippingShippingCalculator",
+    "table_name": [
+      "spree/calculator/shipping/flat_percent_item_totals",
+      "spree/calculator/shipping/flat_percent_item_total"
+    ]
+  },
+  "SpreeCalculatorShippingPriceSack": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeCalculatorShippingShippingCalculator",
+    "table_name": [
+      "spree/calculator/shipping/price_sacks",
+      "spree/calculator/shipping/price_sack"
+    ]
+  },
+  "SpreeCalculatorShippingPerItem": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeCalculatorShippingShippingCalculator",
+    "table_name": [
+      "spree/calculator/shipping/per_items",
+      "spree/calculator/shipping/per_item"
+    ]
+  },
+  "SpreeCalculatorShippingFlexiRate": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeCalculatorShippingShippingCalculator",
+    "table_name": [
+      "spree/calculator/shipping/flexi_rates",
+      "spree/calculator/shipping/flexi_rate"
+    ]
+  },
+  "SpreeCalculatorShippingFlatRate": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeCalculatorShippingShippingCalculator",
+    "table_name": [
+      "spree/calculator/shipping/flat_rates",
+      "spree/calculator/shipping/flat_rate"
+    ]
+  },
+  "SpreeCalculatorPriceSack": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/calculator/price_sacks",
+      "spree/calculator/price_sack"
+    ]
+  },
+  "SpreeCalculatorFlexiRate": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/calculator/flexi_rates",
+      "spree/calculator/flexi_rate"
+    ]
+  },
+  "SpreeCalculatorReturnsDefaultRefundAmount": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeCalculatorReturnsReturnsCalculator",
+    "table_name": [
+      "spree/calculator/returns/default_refund_amounts",
+      "spree/calculator/returns/default_refund_amount"
+    ]
+  },
+  "SpreeCalculatorTieredFlatRate": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/calculator/tiered_flat_rates",
+      "spree/calculator/tiered_flat_rate"
+    ]
+  },
+  "SpreeCalculatorFlatRate": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/calculator/flat_rates",
+      "spree/calculator/flat_rate"
+    ]
+  },
+  "SpreeCalculatorDefaultTax": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/calculator/default_taxes",
+      "spree/calculator/default_tax"
+    ]
+  },
+  "SpreeCalculator": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/calculators",
+      "spree/calculator"
+    ]
+  },
+  "SpreePercentOnLineItem": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/percent_on_line_items",
+      "spree/percent_on_line_item"
+    ]
+  },
+  "SpreeCalculatorTieredPercent": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/calculator/tiered_percents",
+      "spree/calculator/tiered_percent"
+    ]
+  },
+  "SpreeShippingRate": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeShipment",
+        "rel": "belongs_to",
+        "field": "shipment"
+      },
+      {
+        "class_name": "SpreeTaxRate",
+        "rel": "belongs_to",
+        "field": "tax_rate"
+      },
+      {
+        "class_name": "SpreeShippingMethod",
+        "rel": "belongs_to",
+        "field": "shipping_method"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/shipping_rates",
+      "spree/shipping_rate"
+    ]
+  },
+  "SpreePrototype": {
+    "fields": {
+      "name": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreePropertyPrototype",
+        "rel": "has_many",
+        "field": "property_prototypes"
+      },
+      {
+        "class_name": "SpreeProperty",
+        "rel": "has_many",
+        "field": "properties"
+      },
+      {
+        "class_name": "SpreeOptionTypePrototype",
+        "rel": "has_many",
+        "field": "option_type_prototypes"
+      },
+      {
+        "class_name": "SpreeOptionType",
+        "rel": "has_many",
+        "field": "option_types"
+      },
+      {
+        "class_name": "SpreePrototypeTaxon",
+        "rel": "has_many",
+        "field": "prototype_taxons"
+      },
+      {
+        "class_name": "SpreeTaxon",
+        "rel": "has_many",
+        "field": "taxons"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/prototypes",
+      "spree/prototype"
+    ]
+  },
+  "SpreeOptionType": {
+    "fields": {
+      "name": "string",
+			"presentation": "string",
+			"position": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeOptionValue",
+        "rel": "has_many",
+        "field": "option_values"
+      },
+      {
+        "class_name": "SpreeProductOptionType",
+        "rel": "has_many",
+        "field": "product_option_types"
+      },
+      {
+        "class_name": "SpreeProduct",
+        "rel": "has_many",
+        "field": "products"
+      },
+      {
+        "class_name": "SpreeOptionTypePrototype",
+        "rel": "has_many",
+        "field": "option_type_prototypes"
+      },
+      {
+        "class_name": "SpreePrototype",
+        "rel": "has_many",
+        "field": "prototypes"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/option_types",
+      "spree/option_type"
+    ]
+  },
+  "SpreePromotionRuleUser": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreePromotionRule",
+        "rel": "belongs_to",
+        "field": "promotion_rule"
+      },
+      {
+        "class_name": "Spree.user_class.to_s",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/promotion_rule_users",
+      "spree/promotion_rule_user"
+    ]
+  },
+  "SpreeReturnAuthorizationReason": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "ReturnAuthorization",
+        "rel": "has_many",
+        "field": "return_authorizations"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/return_authorization_reasons",
+      "spree/return_authorization_reason"
+    ]
+  },
+  "SpreeAsset": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Viewable",
+        "rel": "belongs_to",
+        "field": "viewable"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/assets",
+      "spree/asset"
+    ]
+  },
+  "SpreeTaxRate": {
+    "fields": {
+      "amount": "decimal",
+			"zone_id": "integer",
+			"tax_category_id": "integer",
+			"included_in_price": "boolean",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"name": "string",
+			"show_rate_in_label": "boolean",
+			"deleted_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeZone",
+        "rel": "belongs_to",
+        "field": "zone"
+      },
+      {
+        "class_name": "SpreeTaxCategory",
+        "rel": "belongs_to",
+        "field": "tax_category"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/tax_rates",
+      "spree/tax_rate"
+    ]
+  },
+  "SpreeRefundReason": {
+    "fields": {
+    	"name": "string",
+			"active": "boolean",
+			"mutable": "boolean",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Refund",
+        "rel": "has_many",
+        "field": "refunds"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/refund_reasons",
+      "spree/refund_reason"
+    ]
+  },
+  "SpreeStockItem": {
+    "fields": {
+      "stock_location_id": "integer",
+			"variant_id": "integer",
+			"count_on_hand": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"backorderable": "boolean",
+			"deleted_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeStockLocation",
+        "rel": "belongs_to",
+        "field": "stock_location"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "belongs_to",
+        "field": "variant"
+      },
+      {
+        "class_name": "StockMovement",
+        "rel": "has_many",
+        "field": "stock_movements"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/stock_items",
+      "spree/stock_item"
+    ]
+  },
+  "SpreePromotionCategory": {
+    "fields": {
+      "name": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"code": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Promotion",
+        "rel": "has_many",
+        "field": "promotions"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/promotion_categories",
+      "spree/promotion_category"
+    ]
+  },
+  "SpreeZone": {
+    "fields": {
+      "name": "string",
+			"description": "string",
+			"default_tax": "boolean",
+			"zone_members_count": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"kind": "string"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeZoneMember",
+        "rel": "has_many",
+        "field": "zone_members"
+      },
+      {
+        "class_name": "TaxRate",
+        "rel": "has_many",
+        "field": "tax_rates"
+      },
+      {
+        "class_name": "Country",
+        "rel": "has_many",
+        "field": "countries"
+      },
+      {
+        "class_name": "State",
+        "rel": "has_many",
+        "field": "states"
+      },
+      {
+        "class_name": "SpreeShippingMethodZone",
+        "rel": "has_many",
+        "field": "shipping_method_zones"
+      },
+      {
+        "class_name": "SpreeShippingMethod",
+        "rel": "has_many",
+        "field": "shipping_methods"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/zones",
+      "spree/zone"
+    ]
+  },
+  "SpreeCalculator": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/calculators",
+      "spree/calculator"
+    ]
+  },
+  "SpreeReimbursementPerformer": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/reimbursement_performers",
+      "spree/reimbursement_performer"
+    ]
+  },
+  "SpreePayment": {
+    "fields": {
+      "id": "integer",
+      "amount": "decimal",
+			"source_type": "string",
+			"source_id": "integer",
+			"payment_method_id": "integer",
+			"state": "string",
+			"response_code": "string",
+			"avs_response": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"number": "string",
+			"cvv_response_code": "string",
+			"cvv_response_message": "string"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeOrder",
+        "rel": "belongs_to",
+        "field": "order"
+      },
+      {
+        "class_name": "SpreePaymentMethod",
+        "rel": "belongs_to",
+        "field": "payment_method"
+      },
+      {
+        "class_name": "Source",
+        "rel": "belongs_to",
+        "field": "source"
+      },
+      {
+        "class_name": "SpreePayment",
+        "rel": "has_many",
+        "field": "offsets"
+      },
+      {
+        "class_name": "LogEntry",
+        "rel": "has_many",
+        "field": "log_entries"
+      },
+      {
+        "class_name": "StateChange",
+        "rel": "has_many",
+        "field": "state_changes"
+      },
+      {
+        "class_name": "SpreePaymentCaptureEvent",
+        "rel": "has_many",
+        "field": "capture_events"
+      },
+      {
+        "class_name": "Refund",
+        "rel": "has_many",
+        "field": "refunds"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/payments",
+      "spree/payment"
+    ]
+  },
+ 
+  "SpreePropertyPrototype": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreePrototype",
+        "rel": "belongs_to",
+        "field": "prototype"
+      },
+      {
+        "class_name": "SpreeProperty",
+        "rel": "belongs_to",
+        "field": "property"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/property_prototypes",
+      "spree/property_prototype"
+    ]
+  },
+  "SpreeProduct": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "ProductOptionType",
+        "rel": "has_many",
+        "field": "product_option_types"
+      },
+      {
+        "class_name": "OptionType",
+        "rel": "has_many",
+        "field": "option_types"
+      },
+      {
+        "class_name": "ProductProperty",
+        "rel": "has_many",
+        "field": "product_properties"
+      },
+      {
+        "class_name": "Property",
+        "rel": "has_many",
+        "field": "properties"
+      },
+      {
+        "class_name": "Classification",
+        "rel": "has_many",
+        "field": "classifications"
+      },
+      {
+        "class_name": "Taxon",
+        "rel": "has_many",
+        "field": "taxons"
+      },
+      {
+        "class_name": "SpreeProductPromotionRule",
+        "rel": "has_many",
+        "field": "product_promotion_rules"
+      },
+      {
+        "class_name": "SpreePromotionRule",
+        "rel": "has_many",
+        "field": "promotion_rules"
+      },
+      {
+        "class_name": "SpreePromotion",
+        "rel": "has_many",
+        "field": "promotions"
+      },
+      {
+        "class_name": "SpreePromotion",
+        "rel": "has_many",
+        "field": "possible_promotions"
+      },
+      {
+        "class_name": "SpreeTaxCategory",
+        "rel": "belongs_to",
+        "field": "tax_category"
+      },
+      {
+        "class_name": "SpreeShippingCategory",
+        "rel": "belongs_to",
+        "field": "shipping_category"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "has_one",
+        "field": "master"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "has_many",
+        "field": "variants"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "has_many",
+        "field": "variants_including_master"
+      },
+      {
+        "class_name": "SpreePrice",
+        "rel": "has_many",
+        "field": "prices"
+      },
+      {
+        "class_name": "StockItem",
+        "rel": "has_many",
+        "field": "stock_items"
+      },
+      {
+        "class_name": "LineItem",
+        "rel": "has_many",
+        "field": "line_items"
+      },
+      {
+        "class_name": "Order",
+        "rel": "has_many",
+        "field": "orders"
+      },
+      {
+        "class_name": "VariantImage",
+        "rel": "has_many",
+        "field": "variant_images"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/products",
+      "spree/product"
+    ]
+  },
+  "SpreePromotionHandlerPromotionDuplicator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/promotion_handler/promotion_duplicators",
+      "spree/promotion_handler/promotion_duplicator"
+    ]
+  },
+  "SpreePromotionHandlerFreeShipping": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/promotion_handler/free_shippings",
+      "spree/promotion_handler/free_shipping"
+    ]
+  },
+  "SpreePromotionHandlerPage": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/promotion_handler/pages",
+      "spree/promotion_handler/page"
+    ]
+  },
+  "SpreePromotionHandlerCoupon": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/promotion_handler/coupons",
+      "spree/promotion_handler/coupon"
+    ]
+  },
+  "SpreePromotionHandlerCart": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/promotion_handler/carts",
+      "spree/promotion_handler/cart"
+    ]
+  },
+  "SpreeShipmentHandler": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/shipment_handlers",
+      "spree/shipment_handler"
+    ]
+  },
+  "SpreeCustomerReturn": {
+    "fields": {
+      "number": "string",
+			"stock_location_id": "integer",
+			"created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeStockLocation",
+        "rel": "belongs_to",
+        "field": "stock_location"
+      },
+      {
+        "class_name": "SpreeReimbursement",
+        "rel": "has_many",
+        "field": "reimbursements"
+      },
+      {
+        "class_name": "SpreeReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      },
+      {
+        "class_name": "SpreeReturnAuthorization",
+        "rel": "has_many",
+        "field": "return_authorizations"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/customer_returns",
+      "spree/customer_return"
+    ]
+  },
+  "SpreeReturnItemExchangeVariantEligibilitySameProduct": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/return_item/exchange_variant_eligibility/same_products",
+      "spree/return_item/exchange_variant_eligibility/same_product"
+    ]
+  },
+  "SpreeReturnItemExchangeVariantEligibilitySameOptionValue": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/return_item/exchange_variant_eligibility/same_option_values",
+      "spree/return_item/exchange_variant_eligibility/same_option_value"
+    ]
+  },
+  "SpreeSpreeReturnItemEligibilityValidatorBaseValidator": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/spree/return_item/eligibility_validator/base_validators",
+      "spree/spree/return_item/eligibility_validator/base_validator"
+    ]
+  },
+  "SpreeReturnItemEligibilityValidatorTimeSincePurchase": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreeReturnItemEligibilityValidatorBaseValidator",
+    "table_name": [
+      "spree/return_item/eligibility_validator/time_since_purchases",
+      "spree/return_item/eligibility_validator/time_since_purchase"
+    ]
+  },
+  "SpreeReturnItemEligibilityValidatorDefault": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreeReturnItemEligibilityValidatorBaseValidator",
+    "table_name": [
+      "spree/return_item/eligibility_validator/defaults",
+      "spree/return_item/eligibility_validator/default"
+    ]
+  },
+  "SpreeReturnItemEligibilityValidatorRMARequired": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreeReturnItemEligibilityValidatorBaseValidator",
+    "table_name": [
+      "spree/return_item/eligibility_validator/rma_requireds",
+      "spree/return_item/eligibility_validator/rma_required"
+    ]
+  },
+  "SpreeReturnItemEligibilityValidatorInventoryShipped": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreeReturnItemEligibilityValidatorBaseValidator",
+    "table_name": [
+      "spree/return_item/eligibility_validator/inventory_shippeds",
+      "spree/return_item/eligibility_validator/inventory_shipped"
+    ]
+  },
+  "SpreeReturnItemEligibilityValidatorOrderCompleted": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreeReturnItemEligibilityValidatorBaseValidator",
+    "table_name": [
+      "spree/return_item/eligibility_validator/order_completeds",
+      "spree/return_item/eligibility_validator/order_completed"
+    ]
+  },
+  "SpreeReturnItemEligibilityValidatorNoReimbursements": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreeReturnItemEligibilityValidatorBaseValidator",
+    "table_name": [
+      "spree/return_item/eligibility_validator/no_reimbursements",
+      "spree/return_item/eligibility_validator/no_reimbursement"
+    ]
+  },
+  "SpreeCountry": {
+    "fields": {
+      "iso_name": "string",
+			"iso": "string",
+			"iso3": "string",
+			"name": "string",
+			"numcode": "integer",
+			"states_required": "boolean",
+			"updated_at": "datetime",
+			"zipcode_required": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "Address",
+        "rel": "has_many",
+        "field": "addresses"
+      },
+      {
+        "class_name": "State",
+        "rel": "has_many",
+        "field": "states"
+      },
+      {
+        "class_name": "SpreeZoneMember",
+        "rel": "has_many",
+        "field": "zone_members"
+      },
+      {
+        "class_name": "SpreeZone",
+        "rel": "has_many",
+        "field": "zones"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/countries",
+      "spree/country"
+    ]
+  },
+  "SpreePaymentMethodStoreCredit": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreePaymentMethod",
+    "table_name": [
+      "spree/payment_method/store_credits",
+      "spree/payment_method/store_credit"
+    ]
+  },
+  "SpreePaymentMethodCheck": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreePaymentMethod",
+    "table_name": [
+      "spree/payment_method/checks",
+      "spree/payment_method/check"
+    ]
+  },
+  "SpreeTaxonomy": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "Taxon",
+        "rel": "has_many",
+        "field": "taxons"
+      },
+      {
+        "class_name": "SpreeTaxon",
+        "rel": "has_one",
+        "field": "root"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/taxonomies",
+      "spree/taxonomy"
+    ]
+  },
+  "SpreeImage": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Viewable",
+        "rel": "belongs_to",
+        "field": "viewable"
+      }
+    ],
+    "extend_class_name": "SpreeAsset",
+    "table_name": [
+      "spree/images",
+      "spree/image"
+    ]
+  },
+  "SpreeValidationsDbMaximumLengthValidator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeValidationsActiveModelValidator",
+    "table_name": [
+      "spree/validations/db_maximum_length_validators",
+      "spree/validations/db_maximum_length_validator"
+    ]
+  },
+  "SpreeExchange": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/exchanges",
+      "spree/exchange"
+    ]
+  },
+  "SpreeUnableToCreateShipments": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeStandardError",
+    "table_name": [
+      "spree/unable_to_create_shipments",
+      "spree/unable_to_create_shipment"
+    ]
+  },
+  "SpreeProductPromotionRule": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeProduct",
+        "rel": "belongs_to",
+        "field": "product"
+      },
+      {
+        "class_name": "SpreePromotionRule",
+        "rel": "belongs_to",
+        "field": "promotion_rule"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/product_promotion_rules",
+      "spree/product_promotion_rule"
+    ]
+  },
+  "SpreePromotionAction": {
+    "fields": {
+      "promotion_id": "integer",
+			"position": "integer",
+			"type": "string",
+			"deleted_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreePromotion",
+        "rel": "belongs_to",
+        "field": "promotion"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/promotion_actions",
+      "spree/promotion_action"
+    ]
+  },
+  "SpreeReturnsCalculator": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Calculable",
+        "rel": "belongs_to",
+        "field": "calculable"
+      }
+    ],
+    "extend_class_name": "SpreeCalculator",
+    "table_name": [
+      "spree/returns_calculators",
+      "spree/returns_calculator"
+    ]
+  },
+  "SpreeReimbursement": {
+    "fields": {
+      "number": "string",
+			"reimbursement_status": "string",
+			"customer_return_id": "integer",
+			"order_id": "integer",
+			"total": "decimal",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/reimbursements",
+      "spree/reimbursement"
+    ]
+  },
+  "SpreeIncompleteReimbursementError": {
+    "fields": {
+      "reimbursement_status":"string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeStandardError",
+    "table_name": [
+      "spree/incomplete_reimbursement_errors",
+      "spree/incomplete_reimbursement_error"
+    ]
+  },
+  "SpreeAdjustablePromotionAccumulator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/adjustable/promotion_accumulators",
+      "spree/adjustable/promotion_accumulator"
+    ]
+  },
+  "SpreeAdjustableAdjustmentsUpdater": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/adjustable/adjustments_updaters",
+      "spree/adjustable/adjustments_updater"
+    ]
+  },
+  "SpreeAdjustableAdjusterBase": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/adjustable/adjuster/bases",
+      "spree/adjustable/adjuster/basis"
+    ]
+  },
+  "SpreeAdjustableAdjusterPromotion": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeAdjustableAdjusterSpreeAdjustableAdjusterBase",
+    "table_name": [
+      "spree/adjustable/adjuster/promotions",
+      "spree/adjustable/adjuster/promotion"
+    ]
+  },
+  "SpreeAdjustableAdjusterTax": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeAdjustableAdjusterSpreeAdjustableAdjusterBase",
+    "table_name": [
+      "spree/adjustable/adjuster/taxes",
+      "spree/adjustable/adjuster/tax"
+    ]
+  },
+  "SpreeTaxonImage": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Viewable",
+        "rel": "belongs_to",
+        "field": "viewable"
+      }
+    ],
+    "extend_class_name": "SpreeAsset",
+    "table_name": [
+      "spree/taxon_images",
+      "spree/taxon_image"
+    ]
+  },
+  "SpreeRoleUser": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeRole",
+        "rel": "belongs_to",
+        "field": "role"
+      },
+      {
+        "class_name": "Spree.user_class.to_s",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/role_users",
+      "spree/role_user"
+    ]
+  },
+  "SpreeZoneMember": {
+    "fields": {
+      "zoneable_type": "string",
+			"zoneable_id": "integer",
+			"zone_id": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeZone",
+        "rel": "belongs_to",
+        "field": "zone"
+      },
+      {
+        "class_name": "Zoneable",
+        "rel": "belongs_to",
+        "field": "zoneable"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/zone_members",
+      "spree/zone_member"
+    ]
+  },
+  "SpreeShippingMethodCategory": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeShippingMethod",
+        "rel": "belongs_to",
+        "field": "shipping_method"
+      },
+      {
+        "class_name": "SpreeShippingCategory",
+        "rel": "belongs_to",
+        "field": "shipping_category"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/shipping_method_categories",
+      "spree/shipping_method_category"
+    ]
+  },
+  "SpreeLogEntry": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "Source",
+        "rel": "belongs_to",
+        "field": "source"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/log_entries",
+      "spree/log_entry"
+    ]
+  },
+  "SpreePromotionActionLineItem": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreePromotionActionsCreateLineItems",
+        "rel": "belongs_to",
+        "field": "promotion_action"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "belongs_to",
+        "field": "variant"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/promotion_action_line_items",
+      "spree/promotion_action_line_item"
+    ]
+  },
+  "SpreeRole": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeRoleUser",
+        "rel": "has_many",
+        "field": "role_users"
+      },
+      {
+        "class_name": "Spree.user_class.to_s",
+        "rel": "has_many",
+        "field": "users"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/roles",
+      "spree/role"
+    ]
+  },
+  "SpreeStateChange": {
+    "fields": {
+      "name": "string",
+			"previous_state": "string",
+			"stateful_id": "integer",
+			"user_id": "integer",
+			"stateful_type": "string",
+			"next_state": "string",
+			"created_at": "datetime",
+      "updated_at": "datetime",
+      "order_id" : "integer"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeUser",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Stateful",
+        "rel": "belongs_to",
+        "field": "stateful"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/state_changes",
+      "spree/state_change"
+    ]
+  },
+  "SpreeStoreCredit": {
+    "fields": {
+      "user_id": "integer",
+			"category_id": "integer",
+			"created_by_id": "integer",
+			"amount": "decimal",
+			"amount_used": "decimal",
+			"memo": "text",
+			"deleted_at": "datetime",
+			"currency": "string",
+			"amount_authorized": "decimal",
+			"originator_id": "integer",
+			"originator_type": "string",
+			"type_id": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Spree.user_class.to_s",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "SpreeStoreCreditCategory",
+        "rel": "belongs_to",
+        "field": "category"
+      },
+      {
+        "class_name": "Spree.user_class.to_s",
+        "rel": "belongs_to",
+        "field": "created_by"
+      },
+      {
+        "class_name": "SpreeStoreCreditType",
+        "rel": "belongs_to",
+        "field": "credit_type"
+      },
+      {
+        "class_name": "StoreCreditEvent",
+        "rel": "has_many",
+        "field": "store_credit_events"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/store_credits",
+      "spree/store_credit"
+    ]
+  },
+  "SpreeTaxon": {
+    "fields": {
+      "parent_id": "integer",
+			"position": "integer",
+			"name": "string",
+			"permalink": "string",
+			"taxonomy_id": "integer",
+			"lft": "integer",
+			"rgt": "integer",
+			"description": "text",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"meta_title": "string",
+			"meta_description": "string",
+			"meta_keywords": "string",
+			"depth": "integer",
+			"hide_from_nav": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeTaxonomy",
+        "rel": "belongs_to",
+        "field": "taxonomy"
+      },
+      {
+        "class_name": "Classification",
+        "rel": "has_many",
+        "field": "classifications"
+      },
+      {
+        "class_name": "Product",
+        "rel": "has_many",
+        "field": "products"
+      },
+      {
+        "class_name": "SpreePrototypeTaxon",
+        "rel": "has_many",
+        "field": "prototype_taxons"
+      },
+      {
+        "class_name": "SpreePrototype",
+        "rel": "has_many",
+        "field": "prototypes"
+      },
+      {
+        "class_name": "SpreePromotionRuleTaxon",
+        "rel": "has_many",
+        "field": "promotion_rule_taxons"
+      },
+      {
+        "class_name": "SpreePromotionRule",
+        "rel": "has_many",
+        "field": "promotion_rules"
+      },
+      {
+        "class_name": "SpreeTaxonImage",
+        "rel": "has_one",
+        "field": "icon"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/taxons",
+      "spree/taxon"
+    ]
+  },
+  "SpreeTaxCategory": {
+    "fields": {
+      "name": "string",
+			"description": "string",
+			"is_default": "boolean",
+			"deleted_at": "datetime",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"tax_code": "string"
+    },
+    "associations": [
+      {
+        "class_name": "TaxRate",
+        "rel": "has_many",
+        "field": "tax_rates"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/tax_categories",
+      "spree/tax_category"
+    ]
+  },
+  "SpreeProductOptionType": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeProduct",
+        "rel": "belongs_to",
+        "field": "product"
+      },
+      {
+        "class_name": "SpreeOptionType",
+        "rel": "belongs_to",
+        "field": "option_type"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/product_option_types",
+      "spree/product_option_type"
+    ]
+  },
+  "SpreeShippingMethod": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "ShippingMethodCategory",
+        "rel": "has_many",
+        "field": "shipping_method_categories"
+      },
+      {
+        "class_name": "ShippingCategory",
+        "rel": "has_many",
+        "field": "shipping_categories"
+      },
+      {
+        "class_name": "ShippingRate",
+        "rel": "has_many",
+        "field": "shipping_rates"
+      },
+      {
+        "class_name": "Shipment",
+        "rel": "has_many",
+        "field": "shipments"
+      },
+      {
+        "class_name": "SpreeShippingMethodZone",
+        "rel": "has_many",
+        "field": "shipping_method_zones"
+      },
+      {
+        "class_name": "SpreeZone",
+        "rel": "has_many",
+        "field": "zones"
+      },
+      {
+        "class_name": "SpreeTaxCategory",
+        "rel": "belongs_to",
+        "field": "tax_category"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/shipping_methods",
+      "spree/shipping_method"
+    ]
+  },
+  "SpreePrototypeTaxon": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeTaxon",
+        "rel": "belongs_to",
+        "field": "taxon"
+      },
+      {
+        "class_name": "SpreePrototype",
+        "rel": "belongs_to",
+        "field": "prototype"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/prototype_taxons",
+      "spree/prototype_taxon"
+    ]
+  },
+  "SpreeReimbursementTypeCredit": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeSpreeReimbursementType",
+    "table_name": [
+      "spree/reimbursement_type/credits",
+      "spree/reimbursement_type/credit"
+    ]
+  },
+  "SpreeReimbursementTypeExchange": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      }
+    ],
+    "extend_class_name": "SpreeReimbursementType",
+    "table_name": [
+      "spree/reimbursement_type/exchanges",
+      "spree/reimbursement_type/exchange"
+    ]
+  },
+  "SpreeReimbursementTypeStoreCredit": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      }
+    ],
+    "extend_class_name": "SpreeReimbursementType",
+    "table_name": [
+      "spree/reimbursement_type/store_credits",
+      "spree/reimbursement_type/store_credit"
+    ]
+  },
+  "SpreeReimbursementTypeOriginalPayment": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      }
+    ],
+    "extend_class_name": "SpreeReimbursementType",
+    "table_name": [
+      "spree/reimbursement_type/original_payments",
+      "spree/reimbursement_type/original_payment"
+    ]
+  },
+  "SpreeOrder": {
+    "fields": {
+      "number": "string",
+			"item_total": "decimal",
+			"total": "decimal",
+			"state": "string",
+			"adjustment_total": "decimal",
+			"user_id": "integer",
+			"completed_at": "datetime",
+			"bill_address_id": "integer",
+			"ship_address_id": "integer",
+			"payment_total": "decimal",
+			"shipment_state": "string",
+			"payment_state": "string",
+			"email": "string",
+			"special_instructions": "text",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"currency": "string",
+			"last_ip_address": "string",
+			"created_by_id": "integer",
+			"shipment_total": "decimal",
+			"additional_tax_total": "decimal",
+			"promo_total": "decimal",
+			"channel": "string",
+			"included_tax_total": "decimal",
+			"item_count": "integer",
+			"approver_id": "integer",
+			"approved_at": "datetime",
+			"confirmation_delivered": "boolean",
+			"considered_risky": "boolean",
+			"token": "string",
+			"canceled_at": "datetime",
+			"canceler_id": "integer",
+			"store_id": "integer",
+			"state_lock_version": "integer",
+			"taxable_adjustment_total": "decimal",
+			"non_taxable_adjustment_total": "decimal"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeUser",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "SpreeUser",
+        "rel": "belongs_to",
+        "field": "created_by"
+      },
+      {
+        "class_name": "SpreeUser",
+        "rel": "belongs_to",
+        "field": "approver"
+      },
+      {
+        "class_name": "SpreeUser",
+        "rel": "belongs_to",
+        "field": "canceler"
+      },
+      {
+        "class_name": "SpreeAddress",
+        "rel": "belongs_to",
+        "field": "bill_address"
+      },
+      {
+        "class_name": "SpreeAddress",
+        "rel": "belongs_to",
+        "field": "ship_address"
+      },
+      {
+        "class_name": "SpreeStore",
+        "rel": "belongs_to",
+        "field": "store"
+      },
+      {
+        "class_name": "SpreeStateChange",
+        "rel": "has_many",
+        "field": "state_changes"
+      },
+      {
+        "class_name": "SpreeLineItem",
+        "rel": "has_many",
+        "field": "line_items"
+      },
+      {
+        "class_name": "SpreePayment",
+        "rel": "has_many",
+        "field": "payments"
+      },
+      {
+        "class_name": "SpreeReturnAuthorization",
+        "rel": "has_many",
+        "field": "return_authorizations"
+      },
+      {
+        "class_name": "SpreeAdjustment",
+        "rel": "has_many",
+        "field": "adjustments"
+      },
+      {
+        "class_name": "SpreeReimbursement",
+        "rel": "has_many",
+        "field": "reimbursements"
+      },
+      {
+        "class_name": "SpreeLineItemAdjustment",
+        "rel": "has_many",
+        "field": "line_item_adjustments"
+      },
+      {
+        "class_name": "SpreeInventoryUnit",
+        "rel": "has_many",
+        "field": "inventory_units"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "has_many",
+        "field": "variants"
+      },
+      {
+        "class_name": "SpreeProduct",
+        "rel": "has_many",
+        "field": "products"
+      },
+      {
+        "class_name": "SpreeRefund",
+        "rel": "has_many",
+        "field": "refunds"
+      },
+      {
+        "class_name": "SpreeAdjustment",
+        "rel": "has_many",
+        "field": "all_adjustments"
+      },
+      {
+        "class_name": "SpreeOrderPromotion",
+        "rel": "has_many",
+        "field": "order_promotions"
+      },
+      {
+        "class_name": "SpreePromotion",
+        "rel": "has_many",
+        "field": "promotions"
+      },
+      {
+        "class_name": "SpreeShipment",
+        "rel": "has_many",
+        "field": "shipments"
+      },
+      {
+        "class_name": "ShipmentAdjustment",
+        "rel": "has_many",
+        "field": "shipment_adjustments"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/orders",
+      "spree/order"
+    ]
+  },
+  "SpreeShippingCategory": {
+    "fields": {
+      "name": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Product",
+        "rel": "has_many",
+        "field": "products"
+      },
+      {
+        "class_name": "ShippingMethodCategory",
+        "rel": "has_many",
+        "field": "shipping_method_categories"
+      },
+      {
+        "class_name": "ShippingMethod",
+        "rel": "has_many",
+        "field": "shipping_methods"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/shipping_categories",
+      "spree/shipping_category"
+    ]
+  },
+  "SpreeOrderPromotion": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeOrder",
+        "rel": "belongs_to",
+        "field": "order"
+      },
+      {
+        "class_name": "SpreePromotion",
+        "rel": "belongs_to",
+        "field": "promotion"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/order_promotions",
+      "spree/order_promotion"
+    ]
+  },
+  "SpreeAbility": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/abilities",
+      "spree/ability"
+    ]
+  },
+  "SpreePaymentMethod": {
+    "fields": {
+      "name": "string",
+			"description": "text",
+			"active": "boolean",
+			"deleted_at": "datetime",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"display_on": "string",
+			"auto_capture": "boolean",
+			"preferences": "text",
+			"position": "integer",
+			"store_id": "bigint",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "SpreePayment",
+        "rel": "has_many",
+        "field": "payments"
+      },
+      {
+        "class_name": "SpreeCreditCard",
+        "rel": "has_many",
+        "field": "credit_cards"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/payment_methods",
+      "spree/payment_method"
+    ]
+  },
+  "SpreeOrderUpdater": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/order_updaters",
+      "spree/order_updater"
+    ]
+  },
+  "SpreeTaxonImage": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Viewable",
+        "rel": "belongs_to",
+        "field": "viewable"
+      }
+    ],
+    "extend_class_name": "SpreeAsset",
+    "table_name": [
+      "spree/taxon_images",
+      "spree/taxon_image"
+    ]
+  },
+  "SpreeAsset": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Viewable",
+        "rel": "belongs_to",
+        "field": "viewable"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/assets",
+      "spree/asset"
+    ]
+  },
+  "SpreeProperty": {
+    "fields": {
+      "name": "string",
+			"presentation": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreePropertyPrototype",
+        "rel": "has_many",
+        "field": "property_prototypes"
+      },
+      {
+        "class_name": "SpreePrototype",
+        "rel": "has_many",
+        "field": "prototypes"
+      },
+      {
+        "class_name": "ProductProperty",
+        "rel": "has_many",
+        "field": "product_properties"
+      },
+      {
+        "class_name": "Product",
+        "rel": "has_many",
+        "field": "products"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/properties",
+      "spree/property"
+    ]
+  },
+  "SpreeClassification": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeProduct",
+        "rel": "belongs_to",
+        "field": "product"
+      },
+      {
+        "class_name": "SpreeTaxon",
+        "rel": "belongs_to",
+        "field": "taxon"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/classifications",
+      "spree/classification"
+    ]
+  },
+  "SpreeStockDifferentiator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/differentiators",
+      "spree/stock/differentiator"
+    ]
+  },
+  "SpreeStockQuantifier": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/quantifiers",
+      "spree/stock/quantifier"
+    ]
+  },
+  "SpreeStockPrioritizer": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/prioritizers",
+      "spree/stock/prioritizer"
+    ]
+  },
+  "SpreeStockEstimator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/estimators",
+      "spree/stock/estimator"
+    ]
+  },
+  "SpreeStockAdjuster": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/adjusters",
+      "spree/stock/adjuster"
+    ]
+  },
+  "SpreeStockContentItem": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/content_items",
+      "spree/stock/content_item"
+    ]
+  },
+  "SpreeStockSplitterBase": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/splitter/bases",
+      "spree/stock/splitter/basis"
+    ]
+  },
+  "SpreeStockSplitterWeight": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeStockSplitterSpreeStockSplitterBase",
+    "table_name": [
+      "spree/stock/splitter/weights",
+      "spree/stock/splitter/weight"
+    ]
+  },
+  "SpreeStockSplitterShippingCategory": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeStockSplitterSpreeStockSplitterBase",
+    "table_name": [
+      "spree/stock/splitter/shipping_categories",
+      "spree/stock/splitter/shipping_category"
+    ]
+  },
+  "SpreeStockSplitterBackordered": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeStockSplitterSpreeStockSplitterBase",
+    "table_name": [
+      "spree/stock/splitter/backordereds",
+      "spree/stock/splitter/backordered"
+    ]
+  },
+  "SpreeStockPacker": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/packers",
+      "spree/stock/packer"
+    ]
+  },
+  "SpreeStockInventoryUnitBuilder": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/inventory_unit_builders",
+      "spree/stock/inventory_unit_builder"
+    ]
+  },
+  "SpreeStockAvailabilityValidator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeStockActiveModelValidator",
+    "table_name": [
+      "spree/stock/availability_validators",
+      "spree/stock/availability_validator"
+    ]
+  },
+  "SpreeStockPackage": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/packages",
+      "spree/stock/package"
+    ]
+  },
+  "SpreeStockCoordinator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/stock/coordinators",
+      "spree/stock/coordinator"
+    ]
+  },
+  "SpreeCreditCard": {
+    "fields": {
+      "month": "string",
+			"year": "string",
+			"cc_type": "string",
+			"last_digits": "string",
+			"address_id": "integer",
+			"gateway_customer_profile_id": "string",
+			"gateway_payment_profile_id": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"name": "string",
+			"user_id": "integer",
+			"payment_method_id": "integer",
+			"default": "boolean",
+			"deleted_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "PaymentMethod",
+        "rel": "belongs_to",
+        "field": "payment_method"
+      },
+      {
+        "class_name": "Spree.user_class.to_s",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Payment",
+        "rel": "has_many",
+        "field": "payments"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/credit_cards",
+      "spree/credit_card"
+    ]
+  },
+  "SpreeReimbursementType": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/reimbursement_types",
+      "spree/reimbursement_type"
+    ]
+  },
+  "SpreeStoreCreditEvent": {
+    "fields": {
+      "store_credit_id": "integer",
+			"action": "string",
+			"amount": "decimal",
+			"authorization_code": "string",
+			"user_total_amount": "decimal",
+			"originator_id": "integer",
+			"originator_type": "string",
+			"deleted_at": "datetime",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "StoreCredit",
+        "rel": "belongs_to",
+        "field": "store_credit"
+      },
+      {
+        "class_name": "Originator",
+        "rel": "belongs_to",
+        "field": "originator"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/store_credit_events",
+      "spree/store_credit_event"
+    ]
+  },
+  "SpreeStockLocation": {
+    "fields": {
+      "name": "string",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"default": "boolean",
+			"address1": "string",
+			"address2": "string",
+			"city": "string",
+			"state_id": "integer",
+			"state_name": "string",
+      "country_id": "integer",
+      "variant_id":"integer",
+			"zipcode": "string",
+			"phone": "string",
+			"active": "boolean",
+			"backorderable_default": "boolean",
+			"propagate_all_variants": "boolean",
+			"admin_name": "string"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeShipment",
+        "rel": "has_many",
+        "field": "shipments"
+      },
+      {
+        "class_name": "SpreeStockItem",
+        "rel": "has_many",
+        "field": "stock_items"
+      },
+      {
+        "class_name": "StockMovement",
+        "rel": "has_many",
+        "field": "stock_movements"
+      },
+      {
+        "class_name": "SpreeState",
+        "rel": "belongs_to",
+        "field": "state"
+      },
+      {
+        "class_name": "SpreeCountry",
+        "rel": "belongs_to",
+        "field": "country"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/stock_locations",
+      "spree/stock_location"
+    ]
+  },
+  "SpreeStockTransfer": {
+    "fields": {
+      "type": "string",
+			"reference": "string",
+			"source_location_id": "integer",
+			"destination_location_id": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"number": "string"
+    },
+    "associations": [
+      {
+        "class_name": "StockMovement",
+        "rel": "has_many",
+        "field": "stock_movements"
+      },
+      {
+        "class_name": "StockLocation",
+        "rel": "belongs_to",
+        "field": "source_location"
+      },
+      {
+        "class_name": "StockLocation",
+        "rel": "belongs_to",
+        "field": "destination_location"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/stock_transfers",
+      "spree/stock_transfer"
+    ]
+  },
+  "SpreeAddress": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeCountry",
+        "rel": "belongs_to",
+        "field": "country"
+      },
+      {
+        "class_name": "SpreeState",
+        "rel": "belongs_to",
+        "field": "state"
+      },
+      {
+        "class_name": "Spree.user_class.name",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Shipment",
+        "rel": "has_many",
+        "field": "shipments"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/addresses",
+      "spree/address"
+    ]
+  },
+  "SpreeStore": {
+    "fields": {
+      "name": "string",
+			"url": "string",
+			"meta_description": "text",
+			"meta_keywords": "text",
+			"seo_title": "string",
+			"mail_from_address": "string",
+			"default_currency": "string",
+			"code": "string",
+			"default": "boolean",
+			"created_at": "datetime",
+			"updated_at": "datetime",
+			"facebook": "string",
+			"twitter": "string",
+			"instagram": "string",
+			"default_locale": "string",
+			"customer_support_email": "string"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeOrder",
+        "rel": "has_many",
+        "field": "orders"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/stores",
+      "spree/store"
+    ]
+  },
+  "SpreeLineItem": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeOrder",
+        "rel": "belongs_to",
+        "field": "order"
+      },
+      {
+        "class_name": "SpreeVariant",
+        "rel": "belongs_to",
+        "field": "variant"
+      },
+      {
+        "class_name": "SpreeTaxCategory",
+        "rel": "belongs_to",
+        "field": "tax_category"
+      },
+      {
+        "class_name": "Product",
+        "rel": "has_one",
+        "field": "product"
+      },
+      {
+        "class_name": "Adjustment",
+        "rel": "has_many",
+        "field": "adjustments"
+      },
+      {
+        "class_name": "InventoryUnit",
+        "rel": "has_many",
+        "field": "inventory_units"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/line_items",
+      "spree/line_item"
+    ]
+  },
+  "SpreeStoreCreditType": {
+    "fields": {
+      "name": "string",
+			"priority": "integer",
+			"created_at": "datetime",
+			"updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "SpreeStoreCredit",
+        "rel": "has_many",
+        "field": "store_credits"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/store_credit_types",
+      "spree/store_credit_type"
+    ]
+  },
+  "SpreeGateway": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "SpreePayment",
+        "rel": "has_many",
+        "field": "payments"
+      },
+      {
+        "class_name": "SpreeCreditCard",
+        "rel": "has_many",
+        "field": "credit_cards"
+      }
+    ],
+    "extend_class_name": "SpreePaymentMethod",
+    "table_name": [
+      "spree/gateways",
+      "spree/gateway"
+    ]
+  },
+  "SpreeGatewayBogusSimple": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "SpreePayment",
+        "rel": "has_many",
+        "field": "payments"
+      },
+      {
+        "class_name": "SpreeCreditCard",
+        "rel": "has_many",
+        "field": "credit_cards"
+      }
+    ],
+    "extend_class_name": "SpreeGatewayBogus",
+    "table_name": [
+      "spree/gateway/bogus_simples",
+      "spree/gateway/bogus_simple"
+    ]
+  },
+  "SpreeGatewayBogus": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "SpreePayment",
+        "rel": "has_many",
+        "field": "payments"
+      },
+      {
+        "class_name": "SpreeCreditCard",
+        "rel": "has_many",
+        "field": "credit_cards"
+      }
+    ],
+    "extend_class_name": "SpreeGateway",
+    "table_name": [
+      "spree/gateway/bogus",
+      "spree/gateway/bogu"
+    ]
+  },
+  "SpreePreference": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreeBase",
+    "table_name": [
+      "spree/preferences",
+      "spree/preference"
+    ]
+  },
+  "SpreeReimbursementCredit": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "SpreeReimbursement",
+        "rel": "belongs_to",
+        "field": "reimbursement"
+      },
+      {
+        "class_name": "SpreeReimbursement",
+        "rel": "belongs_to",
+        "field": "creditable"
+      }
+    ],
+    "extend_class_name": "SpreeSpreeBase",
+    "table_name": [
+      "spree/reimbursement/credits",
+      "spree/reimbursement/credit"
+    ]
+  },
+  "SpreeReimbursementReimbursementTypeEngine": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/reimbursement/reimbursement_type_engines",
+      "spree/reimbursement/reimbursement_type_engine"
+    ]
+  },
+  "SpreeAppConfiguration": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreePreferencesConfiguration",
+    "table_name": [
+      "spree/app_configurations",
+      "spree/app_configuration"
+    ]
+  },
+  "SpreeFrontendConfiguration": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreePreferencesConfiguration",
+    "table_name": [
+      "spree/frontend_configurations",
+      "spree/frontend_configuration"
+    ]
+  },
+  "SpreeAdminResource": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/admin/resources",
+      "spree/admin/resource"
+    ]
+  },
+  "SpreeBackendConfiguration": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreePreferencesConfiguration",
+    "table_name": [
+      "spree/backend_configurations",
+      "spree/backend_configuration"
+    ]
+  },
+  "SpreeApiConfiguration": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SpreePreferencesConfiguration",
+    "table_name": [
+      "spree/api_configurations",
+      "spree/api_configuration"
+    ]
+  },
+  "SpreeApiDependencies": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "spree/api_dependencies",
+      "spree/api_dependency"
+    ]
+  }
+}

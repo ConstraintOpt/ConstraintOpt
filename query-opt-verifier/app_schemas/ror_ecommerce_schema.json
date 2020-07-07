@@ -1,0 +1,2644 @@
+{
+  "Variant": {
+    "fields": {
+      "product_id": "integer",
+      "sku": "string",
+      "name": "string",
+      "deleted_at": "datetime",
+      "master": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "inventory_id": "integer",
+      "image_group_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "VariantSupplier",
+        "rel": "has_many",
+        "field": "variant_suppliers"
+      },
+      {
+        "class_name": "Supplier",
+        "rel": "has_many",
+        "field": "suppliers"
+      },
+      {
+        "class_name": "VariantProperty",
+        "rel": "has_many",
+        "field": "variant_properties"
+      },
+      {
+        "class_name": "Property",
+        "rel": "has_many",
+        "field": "properties"
+      },
+      {
+        "class_name": "PurchaseOrderVariant",
+        "rel": "has_many",
+        "field": "purchase_order_variants"
+      },
+      {
+        "class_name": "PurchaseOrder",
+        "rel": "has_many",
+        "field": "purchase_orders"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "InStockNotification",
+        "rel": "has_many",
+        "field": "in_stock_notifications"
+      },
+      {
+        "class_name": "Product",
+        "rel": "belongs_to",
+        "field": "product"
+      },
+      {
+        "class_name": "Inventory",
+        "rel": "belongs_to",
+        "field": "inventory"
+      },
+      {
+        "class_name": "ImageGroup",
+        "rel": "belongs_to",
+        "field": "image_group"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "variants",
+      "variant"
+    ]
+  },
+  "Payment": {
+    "fields": {
+      "invoice_id": "integer",
+      "confirmation_id": "string",
+      "amount": "integer",
+      "error": "string",
+      "error_code": "string",
+      "message": "string",
+      "action": "string",
+      "params": "text",
+      "success": "boolean",
+      "test": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Invoice",
+        "rel": "belongs_to",
+        "field": "invoice"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "payments",
+      "payment"
+    ]
+  },
+  "Image": {
+    "fields": {
+      "imageable_id": "integer",
+      "imageable_type": "string",
+      "image_height": "integer",
+      "image_width": "integer",
+      "position": "integer",
+      "caption": "string",
+      "photo_file_name": "string",
+      "photo_content_type": "string",
+      "photo_file_size": "integer",
+      "photo_updated_at": "datetime",
+      "updated_at": "datetime",
+      "created_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Image",
+        "rel": "belongs_to",
+        "field": "imageable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "images",
+      "image"
+    ]
+  },
+  "PrototypeProperty": {
+    "fields": {
+      "prototype_id": "integer",
+      "property_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Prototype",
+        "rel": "belongs_to",
+        "field": "prototype"
+      },
+      {
+        "class_name": "Property",
+        "rel": "belongs_to",
+        "field": "property"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "prototype_properties",
+      "prototype_property"
+    ]
+  },
+  "UsersNewsletter": {
+    "fields": {
+      "user_id": "integer",
+      "newsletter_id": "integer",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Newsletter",
+        "rel": "belongs_to",
+        "field": "newsletter"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "users_newsletters",
+      "users_newsletter"
+    ]
+  },
+  "CartItem": {
+    "fields": {
+      "user_id": "integer",
+      "cart_id": "integer",
+      "variant_id": "integer",
+      "quantity": "integer",
+      "active": "boolean",
+      "item_type_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ItemType",
+        "rel": "belongs_to",
+        "field": "item_type"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Cart",
+        "rel": "belongs_to",
+        "field": "cart"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "belongs_to",
+        "field": "variant"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "cart_items",
+      "cart_item"
+    ]
+  },
+  "ReturnItem": {
+    "fields": {
+      "return_authorization_id": "integer",
+      "order_item_id": "integer",
+      "return_condition_id": "integer",
+      "return_reason_id": "integer",
+      "returned": "boolean",
+      "updated_by": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ReturnReason",
+        "rel": "belongs_to",
+        "field": "return_reason"
+      },
+      {
+        "class_name": "ReturnCondition",
+        "rel": "belongs_to",
+        "field": "return_condition"
+      },
+      {
+        "class_name": "ReturnAuthorization",
+        "rel": "belongs_to",
+        "field": "return_authorization"
+      },
+      {
+        "class_name": "OrderItem",
+        "rel": "belongs_to",
+        "field": "order_item"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "last_author"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "return_items",
+      "return_item"
+    ]
+  },
+  "Brand": {
+    "fields": {
+      "name": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Variant",
+        "rel": "has_many",
+        "field": "variants"
+      },
+      {
+        "class_name": "Product",
+        "rel": "has_many",
+        "field": "products"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "brands",
+      "brand"
+    ]
+  },
+  "Invoice": {
+    "fields": {
+      "order_id": "integer",
+      "invoice_type": "string",
+      "state": "string",
+      "active": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Payment",
+        "rel": "has_many",
+        "field": "payments"
+      },
+      {
+        "class_name": "Batch",
+        "rel": "has_many",
+        "field": "batches"
+      },
+      {
+        "class_name": "Order",
+        "rel": "belongs_to",
+        "field": "order"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "invoices",
+      "invoice"
+    ]
+  },
+  "Shipment": {
+    "fields": {
+      "order_id": "integer",
+      "shipping_method_id": "integer",
+      "address_id": "integer",
+      "tracking": "string",
+      "number": "string",
+      "state": "string",
+      "shipped_at": "datetime",
+      "active": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Order",
+        "rel": "belongs_to",
+        "field": "order"
+      },
+      {
+        "class_name": "ShippingMethod",
+        "rel": "belongs_to",
+        "field": "shipping_method"
+      },
+      {
+        "class_name": "Address",
+        "rel": "belongs_to",
+        "field": "address"
+      },
+      {
+        "class_name": "OrderItem",
+        "rel": "has_many",
+        "field": "order_items"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "shipments",
+      "shipment"
+    ]
+  },
+  "ReturnAuthorization": {
+    "fields": {
+      "number": "string",
+      "order_id": "integer",
+      "user_id": "integer",
+      "state": "string",
+      "created_by": "integer",
+      "active": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Order",
+        "rel": "belongs_to",
+        "field": "order"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "return_authorizations",
+      "return_authorization"
+    ]
+  },
+  "Account": {
+    "fields": {
+      "name": "string",
+      "account_type": "string",
+      "active": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "accounts",
+      "account"
+    ]
+  },
+  "ProductProperty": {
+    "fields": {
+      "product_id": "integer",
+      "property_id": "integer",
+      "position": "integer",
+      "description": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Product",
+        "rel": "belongs_to",
+        "field": "product"
+      },
+      {
+        "class_name": "Property",
+        "rel": "belongs_to",
+        "field": "property"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "product_properties",
+      "product_property"
+    ]
+  },
+  "Inventory": {
+    "fields": {
+      "count_on_hand": "integer",
+      "count_pending_to_customer": "integer",
+      "count_pending_from_supplier": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Variant",
+        "rel": "has_one",
+        "field": "variant"
+      },
+      {
+        "class_name": "AccountingAdjustment",
+        "rel": "has_many",
+        "field": "accounting_adjustments"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "inventories",
+      "inventory"
+    ]
+  },
+  "Sale": {
+    "fields": {
+      "product_id": "integer",
+      "starts_at": "datetime",
+      "ends_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Product",
+        "rel": "belongs_to",
+        "field": "product"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "sales",
+      "sale"
+    ]
+  },
+  "State": {
+    "fields": {
+      "name": "string",
+      "abbreviation": "string",
+      "described_as": "string",
+      "country_id": "integer",
+      "shipping_zone_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Country",
+        "rel": "belongs_to",
+        "field": "country"
+      },
+      {
+        "class_name": "Address",
+        "rel": "has_many",
+        "field": "addresses"
+      },
+      {
+        "class_name": "TaxRate",
+        "rel": "has_many",
+        "field": "tax_rates"
+      },
+      {
+        "class_name": "ShippingZone",
+        "rel": "belongs_to",
+        "field": "shipping_zone"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "states",
+      "state"
+    ]
+  },
+  "Referral": {
+    "fields": {
+      "applied": "boolean",
+      "clicked_at": "datetime",
+      "email": "string",
+      "name": "string",
+      "purchased_at": "datetime",
+      "referral_program_id": "integer",
+      "referral_type_id": "integer",
+      "referral_user_id": "integer",
+      "referring_user_id": "integer",
+      "registered_at": "datetime",
+      "sent_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "referring_user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "referral_user"
+      },
+      {
+        "class_name": "ReferralProgram",
+        "rel": "belongs_to",
+        "field": "referral_program"
+      },
+      {
+        "class_name": "ReferralType",
+        "rel": "belongs_to",
+        "field": "referral_type"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "referrals",
+      "referral"
+    ]
+  },
+  "ReferralBonus": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ReferralProgram",
+        "rel": "has_many",
+        "field": "referral_programs"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "referral_bonus",
+      "referral_bonu"
+    ]
+  },
+  "UserSession": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Authlogic::Session::Base",
+    "table_name": [
+      "user_sessions",
+      "user_session"
+    ]
+  },
+  "OrderItem": {
+    "fields": {
+      "order_id": "integer",
+      "variant_id": "integer",
+      "state": "string",
+      "tax_rate_id": "integer",
+      "shipping_rate_id": "integer",
+      "shipment_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Order",
+        "rel": "belongs_to",
+        "field": "order"
+      },
+      {
+        "class_name": "ShippingRate",
+        "rel": "belongs_to",
+        "field": "shipping_rate"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "belongs_to",
+        "field": "variant"
+      },
+      {
+        "class_name": "TaxRate",
+        "rel": "belongs_to",
+        "field": "tax_rate"
+      },
+      {
+        "class_name": "Shipment",
+        "rel": "belongs_to",
+        "field": "shipment"
+      },
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "order_items",
+      "order_item"
+    ]
+  },
+  "ProductType": {
+    "fields": {
+      "name": "string",
+      "parent_id": "integer",
+      "active": "boolean",
+      "rgt": "integer",
+      "lft": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Product",
+        "rel": "has_many",
+        "field": "products"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "product_types",
+      "product_type"
+    ]
+  },
+  "Supplier": {
+    "fields": {
+      "name": "string",
+      "email": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "VariantSupplier",
+        "rel": "has_many",
+        "field": "variant_suppliers"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "has_many",
+        "field": "variants"
+      },
+      {
+        "class_name": "Phone",
+        "rel": "has_many",
+        "field": "phones"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "suppliers",
+      "supplier"
+    ]
+  },
+  "Deal": {
+    "fields": {
+      "buy_quantity": "integer",
+      "get_percentage": "integer",
+      "deal_type_id": "integer",
+      "product_type_id": "integer",
+      "get_amount": "integer",
+      "deleted_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "DealType",
+        "rel": "belongs_to",
+        "field": "deal_type"
+      },
+      {
+        "class_name": "ProductType",
+        "rel": "belongs_to",
+        "field": "product_type"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "deals",
+      "deal"
+    ]
+  },
+  "ShippingRate": {
+    "fields": {
+      "shipping_method_id": "integer",
+      "shipping_rate_type_id": "integer",
+      "shipping_category_id": "integer",
+      "position": "integer",
+      "active": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ShippingMethod",
+        "rel": "belongs_to",
+        "field": "shipping_method"
+      },
+      {
+        "class_name": "ShippingRateType",
+        "rel": "belongs_to",
+        "field": "shipping_rate_type"
+      },
+      {
+        "class_name": "ShippingCategory",
+        "rel": "belongs_to",
+        "field": "shipping_category"
+      },
+      {
+        "class_name": "Product",
+        "rel": "has_many",
+        "field": "products"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "shipping_rates",
+      "shipping_rate"
+    ]
+  },
+  "CouponPercent": {
+    "fields": {
+      "type": "string",
+      "code": "string",
+      "percent": "integer",
+      "description": "text",
+      "combine": "boolean",
+      "starts_at": "datetime",
+      "expires_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Order",
+        "rel": "has_many",
+        "field": "orders"
+      }
+    ],
+    "extend_class_name": "Coupon",
+    "table_name": [
+      "coupon_percents",
+      "coupon_percent"
+    ]
+  },
+  "Prototype": {
+    "fields": {
+      "name": "string",
+      "active": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Product",
+        "rel": "has_many",
+        "field": "products"
+      },
+      {
+        "class_name": "PrototypeProperty",
+        "rel": "has_many",
+        "field": "prototype_properties"
+      },
+      {
+        "class_name": "Property",
+        "rel": "has_many",
+        "field": "properties"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "prototypes",
+      "prototype"
+    ]
+  },
+  "TaxRate": {
+    "fields": {
+      "state_id": "integer",
+      "country_id": "integer",
+      "start_date": "date",
+      "end_date": "date",
+      "active": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "State",
+        "rel": "belongs_to",
+        "field": "state"
+      },
+      {
+        "class_name": "Country",
+        "rel": "belongs_to",
+        "field": "country"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "tax_rates",
+      "tax_rate"
+    ]
+  },
+  "ShippingRateType": {
+    "fields": {
+      "name": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ShippingRate",
+        "rel": "has_many",
+        "field": "shipping_rates"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "shipping_rate_types",
+      "shipping_rate_type"
+    ]
+  },
+  "TransactionAccount": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "transaction_accounts",
+      "transaction_account"
+    ]
+  },
+  "AdminAbility": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "admin_abilities",
+      "admin_ability"
+    ]
+  },
+  "VariantProperty": {
+    "fields": {
+      "variant_id": "integer",
+      "property_id": "integer",
+      "description": "string",
+      "primary": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Variant",
+        "rel": "belongs_to",
+        "field": "variant"
+      },
+      {
+        "class_name": "Property",
+        "rel": "belongs_to",
+        "field": "property"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "variant_properties",
+      "variant_property"
+    ]
+  },
+  "Newsletter": {
+    "fields": {
+      "name": "string",
+      "autosubscribe": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "UsersNewsletter",
+        "rel": "has_many",
+        "field": "users_newsletters"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "users"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "newsletters",
+      "newsletter"
+    ]
+  },
+  "ReceivePurchaseOrder": {
+    "fields": {
+      "type": "string",
+      "batch_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "belongs_to",
+        "field": "batch"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "Transaction",
+    "table_name": [
+      "receive_purchase_orders",
+      "receive_purchase_order"
+    ]
+  },
+  "VariantRequiredError": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "variant_required_errors",
+      "variant_required_error"
+    ]
+  },
+  "Product": {
+    "fields": {
+      "name": "string",
+      "description": "text",
+      "product_keywords": "text",
+      "product_type_id": "integer",
+      "prototype_id": "integer",
+      "shipping_category_id": "integer",
+      "permalink": "string",
+      "available_at": "datetime",
+      "deleted_at": "datetime",
+      "meta_keywords": "string",
+      "meta_description": "string",
+      "featured": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "description_markup": "text",
+      "brand_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Brand",
+        "rel": "belongs_to",
+        "field": "brand"
+      },
+      {
+        "class_name": "ProductType",
+        "rel": "belongs_to",
+        "field": "product_type"
+      },
+      {
+        "class_name": "Prototype",
+        "rel": "belongs_to",
+        "field": "prototype"
+      },
+      {
+        "class_name": "ShippingCategory",
+        "rel": "belongs_to",
+        "field": "shipping_category"
+      },
+      {
+        "class_name": "ProductProperty",
+        "rel": "has_many",
+        "field": "product_properties"
+      },
+      {
+        "class_name": "Property",
+        "rel": "has_many",
+        "field": "properties"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "has_many",
+        "field": "variants"
+      },
+      {
+        "class_name": "Image",
+        "rel": "has_many",
+        "field": "images"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "has_many",
+        "field": "active_variants"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "products",
+      "product"
+    ]
+  },
+  "AccountingAdjustment": {
+    "fields": {
+      "adjustable_id": "integer",
+      "adjustable_type": "string",
+      "notes": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "has_many",
+        "field": "batches"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "accounting_adjustments",
+      "accounting_adjustment"
+    ]
+  },
+  "CouponFirstPurchasePercent": {
+    "fields": {
+      "type": "string",
+      "code": "string",
+      "percent": "integer",
+      "description": "text",
+      "combine": "boolean",
+      "starts_at": "datetime",
+      "expires_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Order",
+        "rel": "has_many",
+        "field": "orders"
+      }
+    ],
+    "extend_class_name": "CouponPercent",
+    "table_name": [
+      "coupon_first_purchase_percents",
+      "coupon_first_purchase_percent"
+    ]
+  },
+  "ReturnReason": {
+    "fields": {
+      "label": "string",
+      "description": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "return_reasons",
+      "return_reason"
+    ]
+  },
+  "TransactionLedger": {
+    "fields": {
+      "accountable_type": "string",
+      "accountable_id": "integer",
+      "transaction_id": "integer",
+      "transaction_account_id": "integer",
+      "period": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "TransactionAccount",
+        "rel": "belongs_to",
+        "field": "transaction_account"
+      },
+      {
+        "class_name": "Transaction",
+        "rel": "belongs_to",
+        "field": "transactionn"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "belongs_to",
+        "field": "accountable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "transaction_ledgers",
+      "transaction_ledger"
+    ]
+  },
+  "Country": {
+    "fields": {
+      "name": "string",
+      "abbreviation": "string",
+      "shipping_zone_id": "integer",
+      "active": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "State",
+        "rel": "has_many",
+        "field": "states"
+      },
+      {
+        "class_name": "ShippingZone",
+        "rel": "belongs_to",
+        "field": "shipping_zone"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "countries",
+      "country"
+    ]
+  },
+  "PhoneType": {
+    "fields": {
+      "name": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Phone",
+        "rel": "has_many",
+        "field": "phones"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "phone_types",
+      "phone_type"
+    ]
+  },
+  "CreditCardReceivePayment": {
+    "fields": {
+      "type": "string",
+      "batch_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "belongs_to",
+        "field": "batch"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "Transaction",
+    "table_name": [
+      "credit_card_receive_payments",
+      "credit_card_receive_payment"
+    ]
+  },
+  "CouponFirstPurchaseValue": {
+    "fields": {
+      "type": "string",
+      "code": "string",
+      "percent": "integer",
+      "description": "text",
+      "combine": "boolean",
+      "starts_at": "datetime",
+      "expires_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Order",
+        "rel": "has_many",
+        "field": "orders"
+      }
+    ],
+    "extend_class_name": "CouponValue",
+    "table_name": [
+      "coupon_first_purchase_values",
+      "coupon_first_purchase_value"
+    ]
+  },
+  "LowStockNotification": {
+    "fields": {
+      "user_id": "integer",
+      "type": "string",
+      "notifiable_id": "integer",
+      "notifiable_type": "string",
+      "send_at": "datetime",
+      "sent_at": "datetime",
+      "created_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "belongs_to",
+        "field": "notifiable"
+      }
+    ],
+    "extend_class_name": "Notification",
+    "table_name": [
+      "low_stock_notifications",
+      "low_stock_notification"
+    ]
+  },
+  "CouponValue": {
+    "fields": {
+      "type": "string",
+      "code": "string",
+      "percent": "integer",
+      "description": "text",
+      "combine": "boolean",
+      "starts_at": "datetime",
+      "expires_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Order",
+        "rel": "has_many",
+        "field": "orders"
+      }
+    ],
+    "extend_class_name": "Coupon",
+    "table_name": [
+      "coupon_values",
+      "coupon_value"
+    ]
+  },
+  "CreditCardCapture": {
+    "fields": {
+      "type": "string",
+      "batch_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "belongs_to",
+        "field": "batch"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "Transaction",
+    "table_name": [
+      "credit_card_captures",
+      "credit_card_capture"
+    ]
+  },
+  "ItemType": {
+    "fields": {
+      "name": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "cart_items"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "item_types",
+      "item_type"
+    ]
+  },
+  "PurchaseOrder": {
+    "fields": {
+      "supplier_id": "integer",
+      "invoice_number": "string",
+      "tracking_number": "string",
+      "notes": "string",
+      "state": "string",
+      "ordered_at": "datetime",
+      "estimated_arrival_on": "date",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Supplier",
+        "rel": "belongs_to",
+        "field": "supplier"
+      },
+      {
+        "class_name": "PurchaseOrderVariant",
+        "rel": "has_many",
+        "field": "purchase_order_variants"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "has_many",
+        "field": "variants"
+      },
+      {
+        "class_name": "Batch",
+        "rel": "has_many",
+        "field": "batches"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "purchase_orders",
+      "purchase_order"
+    ]
+  },
+  "PurchaseOrderVariant": {
+    "fields": {
+      "purchase_order_id": "integer",
+      "variant_id": "integer",
+      "quantity": "integer",
+      "is_received": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "PurchaseOrder",
+        "rel": "belongs_to",
+        "field": "purchase_order"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "belongs_to",
+        "field": "variant"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "purchase_order_variants",
+      "purchase_order_variant"
+    ]
+  },
+  "Role": {
+    "fields": {
+      "name": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "UserRole",
+        "rel": "has_many",
+        "field": "user_roles"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "users"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "roles",
+      "role"
+    ]
+  },
+  "Notification": {
+    "fields": {
+      "user_id": "integer",
+      "type": "string",
+      "notifiable_id": "integer",
+      "notifiable_type": "string",
+      "send_at": "datetime",
+      "sent_at": "datetime",
+      "created_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "belongs_to",
+        "field": "notifiable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "notifications",
+      "notification"
+    ]
+  },
+  "CreditCardCancel": {
+    "fields": {
+      "type": "string",
+      "batch_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "belongs_to",
+        "field": "batch"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "Transaction",
+    "table_name": [
+      "credit_card_cancels",
+      "credit_card_cancel"
+    ]
+  },
+  "StoreCredit": {
+    "fields": {
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "store_credits",
+      "store_credit"
+    ]
+  },
+  "InStockNotification": {
+    "fields": {
+      "user_id": "integer",
+      "type": "string",
+      "notifiable_id": "integer",
+      "notifiable_type": "string",
+      "send_at": "datetime",
+      "sent_at": "datetime",
+      "created_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "belongs_to",
+        "field": "notifiable"
+      }
+    ],
+    "extend_class_name": "Notification",
+    "table_name": [
+      "in_stock_notifications",
+      "in_stock_notification"
+    ]
+  },
+  "Transaction": {
+    "fields": {
+      "type": "string",
+      "batch_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "belongs_to",
+        "field": "batch"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "transactions",
+      "transaction"
+    ]
+  },
+  "ShippingMethod": {
+    "fields": {
+      "name": "string",
+      "shipping_zone_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ShippingRate",
+        "rel": "has_many",
+        "field": "shipping_rates"
+      },
+      {
+        "class_name": "ShippingZone",
+        "rel": "belongs_to",
+        "field": "shipping_zone"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "shipping_methods",
+      "shipping_method"
+    ]
+  },
+  "Order": {
+    "fields": {
+      "number": "string",
+      "ip_address": "string",
+      "email": "string",
+      "state": "string",
+      "user_id": "integer",
+      "bill_address_id": "integer",
+      "ship_address_id": "integer",
+      "coupon_id": "integer",
+      "active": "boolean",
+      "shipped": "boolean",
+      "shipments_count": "integer",
+      "calculated_at": "datetime",
+      "completed_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "OrderItem",
+        "rel": "has_many",
+        "field": "order_items"
+      },
+      {
+        "class_name": "Shipment",
+        "rel": "has_many",
+        "field": "shipments"
+      },
+      {
+        "class_name": "Invoice",
+        "rel": "has_many",
+        "field": "invoices"
+      },
+      {
+        "class_name": "Invoice",
+        "rel": "has_many",
+        "field": "completed_invoices"
+      },
+      {
+        "class_name": "Invoice",
+        "rel": "has_many",
+        "field": "authorized_invoices"
+      },
+      {
+        "class_name": "Invoice",
+        "rel": "has_many",
+        "field": "paid_invoices"
+      },
+      {
+        "class_name": "Invoice",
+        "rel": "has_many",
+        "field": "canceled_invoices"
+      },
+      {
+        "class_name": "ReturnAuthorization",
+        "rel": "has_many",
+        "field": "return_authorizations"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Coupon",
+        "rel": "belongs_to",
+        "field": "coupon"
+      },
+      {
+        "class_name": "Address",
+        "rel": "belongs_to",
+        "field": "ship_address"
+      },
+      {
+        "class_name": "Address",
+        "rel": "belongs_to",
+        "field": "bill_address"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "orders",
+      "order"
+    ]
+  },
+  "RefundInventory": {
+    "fields": {
+      "type": "string",
+      "batch_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "belongs_to",
+        "field": "batch"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "Transaction",
+    "table_name": [
+      "refund_inventories",
+      "refund_inventory"
+    ]
+  },
+  "Coupon": {
+    "fields": {
+      "type": "string",
+      "code": "string",
+      "percent": "integer",
+      "description": "text",
+      "combine": "boolean",
+      "starts_at": "datetime",
+      "expires_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Order",
+        "rel": "has_many",
+        "field": "orders"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "coupons",
+      "coupon"
+    ]
+  },
+  "VariantSupplier": {
+    "fields": {
+      "variant_id": "integer",
+      "supplier_id": "integer",
+      "total_quantity_supplied": "integer",
+      "min_quantity": "integer",
+      "max_quantity": "integer",
+      "active": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Supplier",
+        "rel": "belongs_to",
+        "field": "supplier"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "belongs_to",
+        "field": "variant"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "variant_suppliers",
+      "variant_supplier"
+    ]
+  },
+  "Batch": {
+    "fields": {
+      "batchable_type": "string",
+      "batchable_id": "integer",
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "belongs_to",
+        "field": "batchable"
+      },
+      {
+        "class_name": "Transaction",
+        "rel": "has_many",
+        "field": "transactions"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "batches",
+      "batch"
+    ]
+  },
+  "ShippingCategory": {
+    "fields": {
+      "name": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Product",
+        "rel": "has_many",
+        "field": "products"
+      },
+      {
+        "class_name": "ShippingRate",
+        "rel": "has_many",
+        "field": "shipping_rates"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "shipping_categories",
+      "shipping_category"
+    ]
+  },
+  "ReferralType": {
+    "fields": {
+      "name": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Referral",
+        "rel": "has_many",
+        "field": "referrals"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "referral_types",
+      "referral_type"
+    ]
+  },
+  "ReturnCondition": {
+    "fields": {
+      "label": "string",
+      "description": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ReturnItem",
+        "rel": "has_many",
+        "field": "return_items"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "return_conditions",
+      "return_condition"
+    ]
+  },
+  "Ability": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "abilities",
+      "ability"
+    ]
+  },
+  "ShippingZone": {
+    "fields": {
+      "name": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "ShippingMethod",
+        "rel": "has_many",
+        "field": "shipping_methods"
+      },
+      {
+        "class_name": "State",
+        "rel": "has_many",
+        "field": "states"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "shipping_zones",
+      "shipping_zone"
+    ]
+  },
+  "ReturnMerchandiseComplete": {
+    "fields": {
+      "type": "string",
+      "batch_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "belongs_to",
+        "field": "batch"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "Transaction",
+    "table_name": [
+      "return_merchandise_completes",
+      "return_merchandise_complete"
+    ]
+  },
+  "Comment": {
+    "fields": {
+      "note": "text",
+      "commentable_type": "string",
+      "commentable_id": "integer",
+      "created_by": "integer",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Comment",
+        "rel": "belongs_to",
+        "field": "commentable"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "comments",
+      "comment"
+    ]
+  },
+  "DealType": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Deal",
+        "rel": "has_many",
+        "field": "deals"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "deal_types",
+      "deal_type"
+    ]
+  },
+  "Property": {
+    "fields": {
+      "identifing_name": "string",
+      "display_name": "string",
+      "active": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "PrototypeProperty",
+        "rel": "has_many",
+        "field": "prototype_properties"
+      },
+      {
+        "class_name": "Prototype",
+        "rel": "has_many",
+        "field": "prototypes"
+      },
+      {
+        "class_name": "ProductProperty",
+        "rel": "has_many",
+        "field": "product_properties"
+      },
+      {
+        "class_name": "Product",
+        "rel": "has_many",
+        "field": "products"
+      },
+      {
+        "class_name": "VariantProperty",
+        "rel": "has_many",
+        "field": "variant_properties"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "has_many",
+        "field": "variants"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "properties",
+      "property"
+    ]
+  },
+  "ReferralProgram": {
+    "fields": {
+      "active": "boolean",
+      "description": "text",
+      "name": "string",
+      "referral_bonus_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Referral",
+        "rel": "has_many",
+        "field": "referrals"
+      },
+      {
+        "class_name": "ReferralProgram",
+        "rel": "belongs_to",
+        "field": "referral_bonus"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "referral_programs",
+      "referral_program"
+    ]
+  },
+  "ImageGroup": {
+    "fields": {
+      "name": "string",
+      "product_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Product",
+        "rel": "belongs_to",
+        "field": "product"
+      },
+      {
+        "class_name": "Variant",
+        "rel": "has_many",
+        "field": "variants"
+      },
+      {
+        "class_name": "Image",
+        "rel": "has_many",
+        "field": "images"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "image_groups",
+      "image_group"
+    ]
+  },
+  "OutOfStockNotification": {
+    "fields": {
+      "user_id": "integer",
+      "type": "string",
+      "notifiable_id": "integer",
+      "notifiable_type": "string",
+      "send_at": "datetime",
+      "sent_at": "datetime",
+      "created_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "belongs_to",
+        "field": "notifiable"
+      }
+    ],
+    "extend_class_name": "Notification",
+    "table_name": [
+      "out_of_stock_notifications",
+      "out_of_stock_notification"
+    ]
+  },
+  "AddressType": {
+    "fields": {
+      "name": "string",
+      "description": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Address",
+        "rel": "has_many",
+        "field": "addresses"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "address_types",
+      "address_type"
+    ]
+  },
+  "ApplicationRecord": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "application_records",
+      "application_record"
+    ]
+  },
+  "Address": {
+    "fields": {
+      "address_type_id": "integer",
+      "first_name": "string",
+      "last_name": "string",
+      "addressable_type": "string",
+      "addressable_id": "integer",
+      "address1": "string",
+      "address2": "string",
+      "city": "string",
+      "state_id": "integer",
+      "state_name": "string",
+      "zip_code": "string",
+      "phone_id": "integer",
+      "alternative_phone": "string",
+      "default": "boolean",
+      "billing_default": "boolean",
+      "active": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "country_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "State",
+        "rel": "belongs_to",
+        "field": "state"
+      },
+      {
+        "class_name": "Country",
+        "rel": "belongs_to",
+        "field": "country"
+      },
+      {
+        "class_name": "AddressType",
+        "rel": "belongs_to",
+        "field": "address_type"
+      },
+      {
+        "class_name": "Address",
+        "rel": "belongs_to",
+        "field": "addressable"
+      },
+      {
+        "class_name": "Phone",
+        "rel": "has_many",
+        "field": "phones"
+      },
+      {
+        "class_name": "Shipment",
+        "rel": "has_many",
+        "field": "shipments"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "addresses",
+      "address"
+    ]
+  },
+  "Phone": {
+    "fields": {
+      "phone_type_id": "integer",
+      "number": "string",
+      "phoneable_type": "string",
+      "phoneable_id": "integer",
+      "primary": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "PhoneType",
+        "rel": "belongs_to",
+        "field": "phone_type"
+      },
+      {
+        "class_name": "Phone",
+        "rel": "belongs_to",
+        "field": "phoneable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "phones",
+      "phone"
+    ]
+  },
+  "RorEReports::Customers": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "ror_e_reports/customers",
+      "ror_e_reports/customer"
+    ]
+  },
+  "RorEReports::Orders": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "ror_e_reports/orders",
+      "ror_e_reports/order"
+    ]
+  },
+  "RorEReports::Sales": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "ror_e_reports/sales",
+      "ror_e_reports/sale"
+    ]
+  },
+  "RorEReports::Accounting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "ror_e_reports/accountings",
+      "ror_e_reports/accounting"
+    ]
+  },
+  "Cart": {
+    "fields": {
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "customer_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "customer"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "cart_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "shopping_cart_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "saved_cart_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "wish_list_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "purchased_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "deleted_cart_items"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "carts",
+      "cart"
+    ]
+  },
+  "PaymentProfile": {
+    "fields": {
+      "user_id": "integer",
+      "address_id": "integer",
+      "payment_cim_id": "string",
+      "default": "boolean",
+      "active": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "last_digits": "string",
+      "month": "string",
+      "year": "string",
+      "cc_type": "string",
+      "first_name": "string",
+      "last_name": "string",
+      "card_name": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Address",
+        "rel": "belongs_to",
+        "field": "address"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "payment_profiles",
+      "payment_profile"
+    ]
+  },
+  "User": {
+    "fields": {
+      "first_name": "string",
+      "last_name": "string",
+      "email": "string",
+      "state": "string",
+      "account_id": "integer",
+      "customer_cim_id": "string",
+      "password_salt": "string",
+      "crypted_password": "string",
+      "perishable_token": "string",
+      "persistence_token": "string",
+      "access_token": "string",
+      "comments_count": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Account",
+        "rel": "belongs_to",
+        "field": "account"
+      },
+      {
+        "class_name": "UsersNewsletter",
+        "rel": "has_many",
+        "field": "users_newsletters"
+      },
+      {
+        "class_name": "Newsletter",
+        "rel": "has_many",
+        "field": "newsletters"
+      },
+      {
+        "class_name": "Referral",
+        "rel": "has_many",
+        "field": "referrals"
+      },
+      {
+        "class_name": "Referral",
+        "rel": "has_one",
+        "field": "referree"
+      },
+      {
+        "class_name": "StoreCredit",
+        "rel": "has_one",
+        "field": "store_credit"
+      },
+      {
+        "class_name": "Order",
+        "rel": "has_many",
+        "field": "orders"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "customer_service_comments"
+      },
+      {
+        "class_name": "Shipment",
+        "rel": "has_many",
+        "field": "shipments"
+      },
+      {
+        "class_name": "Order",
+        "rel": "has_many",
+        "field": "finished_orders"
+      },
+      {
+        "class_name": "Order",
+        "rel": "has_many",
+        "field": "completed_orders"
+      },
+      {
+        "class_name": "Phone",
+        "rel": "has_many",
+        "field": "phones"
+      },
+      {
+        "class_name": "Phone",
+        "rel": "has_one",
+        "field": "primary_phone"
+      },
+      {
+        "class_name": "Address",
+        "rel": "has_many",
+        "field": "addresses"
+      },
+      {
+        "class_name": "Address",
+        "rel": "has_one",
+        "field": "default_billing_address"
+      },
+      {
+        "class_name": "Address",
+        "rel": "has_many",
+        "field": "billing_addresses"
+      },
+      {
+        "class_name": "Address",
+        "rel": "has_one",
+        "field": "default_shipping_address"
+      },
+      {
+        "class_name": "Address",
+        "rel": "has_many",
+        "field": "shipping_addresses"
+      },
+      {
+        "class_name": "UserRole",
+        "rel": "has_many",
+        "field": "user_roles"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_many",
+        "field": "roles"
+      },
+      {
+        "class_name": "Cart",
+        "rel": "has_many",
+        "field": "carts"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "cart_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "shopping_cart_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "wish_list_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "saved_cart_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "purchased_items"
+      },
+      {
+        "class_name": "CartItem",
+        "rel": "has_many",
+        "field": "deleted_cart_items"
+      },
+      {
+        "class_name": "PaymentProfile",
+        "rel": "has_many",
+        "field": "payment_profiles"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "InStockNotification",
+        "rel": "has_many",
+        "field": "in_stock_notifications"
+      },
+      {
+        "class_name": "ReturnAuthorization",
+        "rel": "has_many",
+        "field": "return_authorizations"
+      },
+      {
+        "class_name": "ReturnAuthorization",
+        "rel": "has_many",
+        "field": "authored_return_authorizations"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "users",
+      "user"
+    ]
+  },
+  "UserRole": {
+    "fields": {
+      "role_id": "integer",
+      "user_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Role",
+        "rel": "belongs_to",
+        "field": "role"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "user_roles",
+      "user_role"
+    ]
+  },
+  "CreditCardPayment": {
+    "fields": {
+      "type": "string",
+      "batch_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Batch",
+        "rel": "belongs_to",
+        "field": "batch"
+      },
+      {
+        "class_name": "TransactionLedger",
+        "rel": "has_many",
+        "field": "transaction_ledgers"
+      }
+    ],
+    "extend_class_name": "Transaction",
+    "table_name": [
+      "credit_card_payments",
+      "credit_card_payment"
+    ]
+  }
+}

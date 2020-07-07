@@ -1,0 +1,3006 @@
+{
+  "DocumentCategory": {
+    "fields": {
+      "name": "string",
+      "position": "integer",
+      "is_default": "boolean",
+      "type": "string",
+      "active": "boolean",
+      "project_id": "integer",
+      "parent_id": "integer",
+      "position_name": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      },
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      }
+    ],
+    "extend_class_name": "Enumeration",
+    "table_name": [
+      "document_categories",
+      "document_category"
+    ]
+  },
+  "Change": {
+    "fields": {
+      "changeset_id": "integer",
+      "action": "string",
+      "path": "text",
+      "from_path": "text",
+      "from_revision": "string",
+      "revision": "string",
+      "branch": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Changeset",
+        "rel": "belongs_to",
+        "field": "changeset"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "changes",
+      "change"
+    ]
+  },
+  "News": {
+    "fields": {
+      "project_id": "integer",
+      "title": "string",
+      "summary": "string",
+      "description": "text",
+      "author_id": "integer",
+      "created_on": "timestamp",
+      "comments_count": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "news",
+      "news"
+    ]
+  },
+  "UserCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "user_custom_fields",
+      "user_custom_field"
+    ]
+  },
+  "IssuePriority": {
+    "fields": {
+      "name": "string",
+      "position": "integer",
+      "is_default": "boolean",
+      "type": "string",
+      "active": "boolean",
+      "project_id": "integer",
+      "parent_id": "integer",
+      "position_name": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Issue",
+        "rel": "has_many",
+        "field": "issues"
+      },
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      }
+    ],
+    "extend_class_name": "Enumeration",
+    "table_name": [
+      "issue_priorities",
+      "issue_priority"
+    ]
+  },
+  "Wiki": {
+    "fields": {
+      "project_id": "integer",
+      "start_page": "string",
+      "status": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "WikiPage",
+        "rel": "has_many",
+        "field": "pages"
+      },
+      {
+        "class_name": "WikiRedirect",
+        "rel": "has_many",
+        "field": "redirects"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "wikis",
+      "wiki"
+    ]
+  },
+  "Repository::Subversion": {
+    "fields": {
+      "project_id": "integer",
+      "url": "string",
+      "login": "string",
+      "password": "string",
+      "root_url": "string",
+      "type": "string",
+      "path_encoding": "string",
+      "log_encoding": "string",
+      "extra_info": "text",
+      "identifier": "string",
+      "is_default": "boolean",
+      "created_on": "timestamp"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "Change",
+        "rel": "has_many",
+        "field": "filechanges"
+      }
+    ],
+    "extend_class_name": "Repository",
+    "table_name": [
+      "repository/subversions",
+      "repository/subversion"
+    ]
+  },
+  "Repository::Cvs": {
+    "fields": {
+      "project_id": "integer",
+      "url": "string",
+      "login": "string",
+      "password": "string",
+      "root_url": "string",
+      "type": "string",
+      "path_encoding": "string",
+      "log_encoding": "string",
+      "extra_info": "text",
+      "identifier": "string",
+      "is_default": "boolean",
+      "created_on": "timestamp"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "Change",
+        "rel": "has_many",
+        "field": "filechanges"
+      }
+    ],
+    "extend_class_name": "Repository",
+    "table_name": [
+      "repository/cvs",
+      "repository/cv"
+    ]
+  },
+  "Repository::Bazaar": {
+    "fields": {
+      "project_id": "integer",
+      "url": "string",
+      "login": "string",
+      "password": "string",
+      "root_url": "string",
+      "type": "string",
+      "path_encoding": "string",
+      "log_encoding": "string",
+      "extra_info": "text",
+      "identifier": "string",
+      "is_default": "boolean",
+      "created_on": "timestamp"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "Change",
+        "rel": "has_many",
+        "field": "filechanges"
+      }
+    ],
+    "extend_class_name": "Repository",
+    "table_name": [
+      "repository/bazaars",
+      "repository/bazaar"
+    ]
+  },
+  "Repository::Mercurial": {
+    "fields": {
+      "project_id": "integer",
+      "url": "string",
+      "login": "string",
+      "password": "string",
+      "root_url": "string",
+      "type": "string",
+      "path_encoding": "string",
+      "log_encoding": "string",
+      "extra_info": "text",
+      "identifier": "string",
+      "is_default": "boolean",
+      "created_on": "timestamp"
+    },
+    "associations": [
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Change",
+        "rel": "has_many",
+        "field": "filechanges"
+      }
+    ],
+    "extend_class_name": "Repository",
+    "table_name": [
+      "repository/mercurials",
+      "repository/mercurial"
+    ]
+  },
+  "Repository::Filesystem": {
+    "fields": {
+      "project_id": "integer",
+      "url": "string",
+      "login": "string",
+      "password": "string",
+      "root_url": "string",
+      "type": "string",
+      "path_encoding": "string",
+      "log_encoding": "string",
+      "extra_info": "text",
+      "identifier": "string",
+      "is_default": "boolean",
+      "created_on": "timestamp"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "Change",
+        "rel": "has_many",
+        "field": "filechanges"
+      }
+    ],
+    "extend_class_name": "Repository",
+    "table_name": [
+      "repository/filesystems",
+      "repository/filesystem"
+    ]
+  },
+  "Repository::Git": {
+    "fields": {
+      "project_id": "integer",
+      "url": "string",
+      "login": "string",
+      "password": "string",
+      "root_url": "string",
+      "type": "string",
+      "path_encoding": "string",
+      "log_encoding": "string",
+      "extra_info": "text",
+      "identifier": "string",
+      "is_default": "boolean",
+      "created_on": "timestamp"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "Change",
+        "rel": "has_many",
+        "field": "filechanges"
+      }
+    ],
+    "extend_class_name": "Repository",
+    "table_name": [
+      "repository/gits",
+      "repository/git"
+    ]
+  },
+  "CustomFieldValue": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "custom_field_values",
+      "custom_field_value"
+    ]
+  },
+  "Project": {
+    "fields": {
+      "name": "string",
+      "description": "text",
+      "homepage": "string",
+      "is_public": "boolean",
+      "parent_id": "integer",
+      "created_on": "timestamp",
+      "updated_on": "timestamp",
+      "identifier": "string",
+      "status": "integer",
+      "lft": "integer",
+      "rgt": "integer",
+      "inherit_members": "boolean",
+      "default_version_id": "integer",
+      "default_assigned_to_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "TimeEntryActivity",
+        "rel": "has_many",
+        "field": "time_entry_activities"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "EnabledModule",
+        "rel": "has_many",
+        "field": "enabled_modules"
+      },
+      {
+        "class_name": "Tracker",
+        "rel": "has_and_belongs_to_many",
+        "field": "trackers"
+      },
+      {
+        "class_name": "Issue",
+        "rel": "has_many",
+        "field": "issues"
+      },
+      {
+        "class_name": "Project",
+        "rel": "has_many",
+        "field": "issue_changes"
+      },
+      {
+        "class_name": "Version",
+        "rel": "has_many",
+        "field": "versions"
+      },
+      {
+        "class_name": "Attachment",
+        "rel": "has_many",
+        "field": "attachments"
+      },
+      {
+        "class_name": "Version",
+        "rel": "belongs_to",
+        "field": "default_version"
+      },
+      {
+        "class_name": "Principal",
+        "rel": "belongs_to",
+        "field": "default_assigned_to"
+      },
+      {
+        "class_name": "TimeEntry",
+        "rel": "has_many",
+        "field": "time_entries"
+      },
+      {
+        "class_name": "Query",
+        "rel": "has_many",
+        "field": "queries"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      },
+      {
+        "class_name": "News",
+        "rel": "has_many",
+        "field": "news"
+      },
+      {
+        "class_name": "IssueCategory",
+        "rel": "has_many",
+        "field": "issue_categories"
+      },
+      {
+        "class_name": "Board",
+        "rel": "has_many",
+        "field": "boards"
+      },
+      {
+        "class_name": "Repository",
+        "rel": "has_one",
+        "field": "repository"
+      },
+      {
+        "class_name": "Repository",
+        "rel": "has_many",
+        "field": "repositories"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "Wiki",
+        "rel": "has_one",
+        "field": "wiki"
+      },
+      {
+        "class_name": "IssueCustomField",
+        "rel": "has_and_belongs_to_many",
+        "field": "issue_custom_fields"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "projects",
+      "project"
+    ]
+  },
+  "DocumentCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "document_custom_fields",
+      "document_custom_field"
+    ]
+  },
+  "ProjectQuery": {
+    "fields": {
+      "project_id": "integer",
+      "name": "string",
+      "filters": "text",
+      "user_id": "integer",
+      "column_names": "text",
+      "sort_criteria": "text",
+      "group_by": "string",
+      "type": "string",
+      "visibility": "integer",
+      "options": "text"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Query",
+    "table_name": [
+      "project_queries",
+      "project_query"
+    ]
+  },
+  "IssueCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "has_and_belongs_to_many",
+        "field": "projects"
+      },
+      {
+        "class_name": "Tracker",
+        "rel": "has_and_belongs_to_many",
+        "field": "trackers"
+      },
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "issue_custom_fields",
+      "issue_custom_field"
+    ]
+  },
+  "WikiContent": {
+    "fields": {
+      "page_id": "integer",
+      "author_id": "integer",
+      "text": "text",
+      "comments": "string",
+      "updated_on": "datetime",
+      "version": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "WikiPage",
+        "rel": "belongs_to",
+        "field": "page"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      },
+      {
+        "class_name": "WikiContentVersion",
+        "rel": "has_many",
+        "field": "versions"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "wiki_contents",
+      "wiki_content"
+    ]
+  },
+  "CustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "custom_fields",
+      "custom_field"
+    ]
+  },
+  "WikiContentVersion": {
+    "fields": {
+      "wiki_content_id": "integer",
+      "page_id": "integer",
+      "author_id": "integer",
+      "data": "binary",
+      "compression": "string",
+      "comments": "string",
+      "updated_on": "datetime",
+      "version": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "WikiPage",
+        "rel": "belongs_to",
+        "field": "page"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "wiki_content_versions",
+      "wiki_content_version"
+    ]
+  },
+  "Watcher": {
+    "fields": {
+      "watchable_type": "string",
+      "watchable_id": "integer",
+      "user_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Watcher",
+        "rel": "belongs_to",
+        "field": "watchable"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "watchers",
+      "watcher"
+    ]
+  },
+  "TimeEntryCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "time_entry_custom_fields",
+      "time_entry_custom_field"
+    ]
+  },
+  "GroupBuiltin": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "has_and_belongs_to_many",
+        "field": "users"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Project",
+        "rel": "has_many",
+        "field": "projects"
+      },
+      {
+        "class_name": "IssueCategory",
+        "rel": "has_many",
+        "field": "issue_categories"
+      }
+    ],
+    "extend_class_name": "Group",
+    "table_name": [
+      "group_builtins",
+      "group_builtin"
+    ]
+  },
+  "IssueStatus": {
+    "fields": {
+      "name": "string",
+      "is_closed": "boolean",
+      "position": "integer",
+      "default_done_ratio": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "WorkflowTransition",
+        "rel": "has_many",
+        "field": "workflows"
+      },
+      {
+        "class_name": "WorkflowTransition",
+        "rel": "has_many",
+        "field": "workflow_transitions_as_new_status"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "issue_statuses",
+      "issue_status"
+    ]
+  },
+  "ScmFetchError": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "scm_fetch_errors",
+      "scm_fetch_error"
+    ]
+  },
+  "Repository": {
+    "fields": {
+      "project_id": "integer",
+      "url": "string",
+      "login": "string",
+      "password": "string",
+      "root_url": "string",
+      "type": "string",
+      "path_encoding": "string",
+      "log_encoding": "string",
+      "extra_info": "text",
+      "identifier": "string",
+      "is_default": "boolean",
+      "created_on": "timestamp"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "Change",
+        "rel": "has_many",
+        "field": "filechanges"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "repositories",
+      "repository"
+    ]
+  },
+  "TimeEntryActivityCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "time_entry_activity_custom_fields",
+      "time_entry_activity_custom_field"
+    ]
+  },
+  "IssueQuery": {
+    "fields": {
+      "project_id": "integer",
+      "name": "string",
+      "filters": "text",
+      "user_id": "integer",
+      "column_names": "text",
+      "sort_criteria": "text",
+      "group_by": "string",
+      "type": "string",
+      "visibility": "integer",
+      "options": "text"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Query",
+    "table_name": [
+      "issue_queries",
+      "issue_query"
+    ]
+  },
+  "Issue": {
+    "fields": {
+      "tracker_id": "integer",
+      "project_id": "integer",
+      "subject": "string",
+      "description": "text",
+      "due_date": "date",
+      "category_id": "integer",
+      "status_id": "integer",
+      "assigned_to_id": "integer",
+      "priority_id": "integer",
+      "fixed_version_id": "integer",
+      "author_id": "integer",
+      "lock_version": "integer",
+      "created_on": "timestamp",
+      "updated_on": "timestamp",
+      "start_date": "date",
+      "done_ratio": "integer",
+      "estimated_hours": "float",
+      "parent_id": "integer",
+      "root_id": "integer",
+      "lft": "integer",
+      "rgt": "integer",
+      "is_private": "boolean",
+      "closed_on": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Tracker",
+        "rel": "belongs_to",
+        "field": "tracker"
+      },
+      {
+        "class_name": "IssueStatus",
+        "rel": "belongs_to",
+        "field": "status"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      },
+      {
+        "class_name": "Principal",
+        "rel": "belongs_to",
+        "field": "assigned_to"
+      },
+      {
+        "class_name": "Version",
+        "rel": "belongs_to",
+        "field": "fixed_version"
+      },
+      {
+        "class_name": "IssuePriority",
+        "rel": "belongs_to",
+        "field": "priority"
+      },
+      {
+        "class_name": "IssueCategory",
+        "rel": "belongs_to",
+        "field": "category"
+      },
+      {
+        "class_name": "Journal",
+        "rel": "has_many",
+        "field": "journals"
+      },
+      {
+        "class_name": "TimeEntry",
+        "rel": "has_many",
+        "field": "time_entries"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_and_belongs_to_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "IssueRelation",
+        "rel": "has_many",
+        "field": "relations_from"
+      },
+      {
+        "class_name": "IssueRelation",
+        "rel": "has_many",
+        "field": "relations_to"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "issues",
+      "issue"
+    ]
+  },
+  "GroupAnonymous": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "has_and_belongs_to_many",
+        "field": "users"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Project",
+        "rel": "has_many",
+        "field": "projects"
+      },
+      {
+        "class_name": "IssueCategory",
+        "rel": "has_many",
+        "field": "issue_categories"
+      }
+    ],
+    "extend_class_name": "GroupBuiltin",
+    "table_name": [
+      "group_anonymous",
+      "group_anonymou"
+    ]
+  },
+  "Document": {
+    "fields": {
+      "project_id": "integer",
+      "category_id": "integer",
+      "title": "string",
+      "description": "text",
+      "created_on": "timestamp"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "DocumentCategory",
+        "rel": "belongs_to",
+        "field": "category"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "documents",
+      "document"
+    ]
+  },
+  "EnabledModule": {
+    "fields": {
+      "project_id": "integer",
+      "name": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "enabled_modules",
+      "enabled_module"
+    ]
+  },
+  "Tracker": {
+    "fields": {
+      "name": "string",
+      "description": "string",
+      "is_in_chlog": "boolean",
+      "position": "integer",
+      "is_in_roadmap": "boolean",
+      "fields_bits": "integer",
+      "default_status_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "IssueStatus",
+        "rel": "belongs_to",
+        "field": "default_status"
+      },
+      {
+        "class_name": "Issue",
+        "rel": "has_many",
+        "field": "issues"
+      },
+      {
+        "class_name": "WorkflowRule",
+        "rel": "has_many",
+        "field": "workflow_rules"
+      },
+      {
+        "class_name": "Project",
+        "rel": "has_and_belongs_to_many",
+        "field": "projects"
+      },
+      {
+        "class_name": "IssueCustomField",
+        "rel": "has_and_belongs_to_many",
+        "field": "custom_fields"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "trackers",
+      "tracker"
+    ]
+  },
+  "TimeEntryImport": {
+    "fields": {
+      "type": "string",
+      "user_id": "integer",
+      "filename": "string",
+      "settings": "text",
+      "total_items": "integer",
+      "finished": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "ImportItem",
+        "rel": "has_many",
+        "field": "items"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "Import",
+    "table_name": [
+      "time_entry_imports",
+      "time_entry_import"
+    ]
+  },
+  "Group": {
+    "fields": {
+      "type": "string",
+      "group_id": "integer",
+      "user_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "has_and_belongs_to_many",
+        "field": "users"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Project",
+        "rel": "has_many",
+        "field": "projects"
+      },
+      {
+        "class_name": "IssueCategory",
+        "rel": "has_many",
+        "field": "issue_categories"
+      }
+    ],
+    "extend_class_name": "Principal",
+    "table_name": [
+      "groups",
+      "group"
+    ]
+  },
+  "VersionCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "version_custom_fields",
+      "version_custom_field"
+    ]
+  },
+  "DocumentCategoryCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "document_category_custom_fields",
+      "document_category_custom_field"
+    ]
+  },
+  "IssueRelation": {
+    "fields": {
+      "issue_from_id": "integer",
+      "issue_to_id": "integer",
+      "relation_type": "string",
+      "delay": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Issue",
+        "rel": "belongs_to",
+        "field": "issue_from"
+      },
+      {
+        "class_name": "Issue",
+        "rel": "belongs_to",
+        "field": "issue_to"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "issue_relations",
+      "issue_relation"
+    ]
+  },
+  "Relations": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Array",
+    "table_name": [
+      "relations",
+      "relation"
+    ]
+  },
+  "EmailAddress": {
+    "fields": {
+      "user_id": "integer",
+      "address": "string",
+      "is_default": "boolean",
+      "notify": "boolean",
+      "created_on": "datetime",
+      "updated_on": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "email_addresses",
+      "email_address"
+    ]
+  },
+  "AuthSourceException": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "auth_source_exceptions",
+      "auth_source_exception"
+    ]
+  },
+  "AuthSourceTimeoutException": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "AuthSourceException",
+    "table_name": [
+      "auth_source_timeout_exceptions",
+      "auth_source_timeout_exception"
+    ]
+  },
+  "AuthSource": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "host": "string",
+      "port": "integer",
+      "account": "string",
+      "account_password": "string",
+      "base_dn": "string",
+      "attr_login": "string",
+      "attr_firstname": "string",
+      "attr_lastname": "string",
+      "attr_mail": "string",
+      "onthefly_register": "boolean",
+      "tls": "boolean",
+      "filter": "text",
+      "timeout": "integer",
+      "verify_peer": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "users"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "auth_sources",
+      "auth_source"
+    ]
+  },
+  "UnauthorizedAction": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "unauthorized_actions",
+      "unauthorized_action"
+    ]
+  },
+  "MissingInformation": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "missing_informations",
+      "missing_information"
+    ]
+  },
+  "WikiPage": {
+    "fields": {
+      "wiki_id": "integer",
+      "title": "string",
+      "created_on": "datetime",
+      "protected": "boolean",
+      "parent_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Wiki",
+        "rel": "belongs_to",
+        "field": "wiki"
+      },
+      {
+        "class_name": "WikiContent",
+        "rel": "has_one",
+        "field": "content"
+      },
+      {
+        "class_name": "WikiPage",
+        "rel": "has_one",
+        "field": "parent"
+      },
+      {
+        "class_name": "WikiContent",
+        "rel": "has_one",
+        "field": "content_without_text"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "wiki_pages",
+      "wiki_page"
+    ]
+  },
+  "WikiDiff": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Redmine::Helpers::Diff",
+    "table_name": [
+      "wiki_diffs",
+      "wiki_diff"
+    ]
+  },
+  "WikiAnnotate": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "wiki_annotates",
+      "wiki_annotate"
+    ]
+  },
+  "Attachment": {
+    "fields": {
+      "container_id": "integer",
+      "filesize": "integer",
+      "container_type": "string",
+      "filename": "string",
+      "disk_filename": "string",
+      "content_type": "string",
+      "digest": "string",
+      "downloads": "integer",
+      "author_id": "integer",
+      "created_on": "timestamp",
+      "description": "string",
+      "disk_directory": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Attachment",
+        "rel": "belongs_to",
+        "field": "container"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "attachments",
+      "attachment"
+    ]
+  },
+  "IssuePriorityCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "issue_priority_custom_fields",
+      "issue_priority_custom_field"
+    ]
+  },
+  "ProjectCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "project_custom_fields",
+      "project_custom_field"
+    ]
+  },
+  "Message": {
+    "fields": {
+      "board_id": "integer",
+      "parent_id": "integer",
+      "subject": "string",
+      "content": "text",
+      "author_id": "integer",
+      "replies_count": "integer",
+      "last_reply_id": "integer",
+      "created_on": "datetime",
+      "updated_on": "datetime",
+      "locked": "boolean",
+      "sticky": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Board",
+        "rel": "belongs_to",
+        "field": "board"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      },
+      {
+        "class_name": "Message",
+        "rel": "belongs_to",
+        "field": "last_reply"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "messages",
+      "message"
+    ]
+  },
+  "Member": {
+    "fields": {
+      "user_id": "integer",
+      "project_id": "integer",
+      "created_on": "timestamp",
+      "mail_notification": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Principal",
+        "rel": "belongs_to",
+        "field": "principal"
+      },
+      {
+        "class_name": "MemberRole",
+        "rel": "has_many",
+        "field": "member_roles"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_many",
+        "field": "roles"
+      },
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "members",
+      "member"
+    ]
+  },
+  "IssueCategory": {
+    "fields": {
+      "project_id": "integer",
+      "name": "string",
+      "assigned_to_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Principal",
+        "rel": "belongs_to",
+        "field": "assigned_to"
+      },
+      {
+        "class_name": "Issue",
+        "rel": "has_many",
+        "field": "issues"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "issue_categories",
+      "issue_category"
+    ]
+  },
+  "Setting": {
+    "fields": {
+      "name": "string",
+      "value": "text",
+      "updated_on": "timestamp"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "settings",
+      "setting"
+    ]
+  },
+  "TimeEntryQuery": {
+    "fields": {
+      "project_id": "integer",
+      "name": "string",
+      "filters": "text",
+      "user_id": "integer",
+      "column_names": "text",
+      "sort_criteria": "text",
+      "group_by": "string",
+      "type": "string",
+      "visibility": "integer",
+      "options": "text"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Query",
+    "table_name": [
+      "time_entry_queries",
+      "time_entry_query"
+    ]
+  },
+  "Changeset": {
+    "fields": {
+      "repository_id": "integer",
+      "revision": "string",
+      "committer": "string",
+      "committed_on": "datetime",
+      "comments": "text",
+      "commit_date": "date",
+      "scmid": "string",
+      "user_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Repository",
+        "rel": "belongs_to",
+        "field": "repository"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Change",
+        "rel": "has_many",
+        "field": "filechanges"
+      },
+      {
+        "class_name": "Issue",
+        "rel": "has_and_belongs_to_many",
+        "field": "issues"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_and_belongs_to_many",
+        "field": "parents"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_and_belongs_to_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "changesets",
+      "changeset"
+    ]
+  },
+  "UserPreference": {
+    "fields": {
+      "user_id": "integer",
+      "others": "text",
+      "hide_mail": "boolean",
+      "time_zone": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_preferences",
+      "user_preference"
+    ]
+  },
+  "Role": {
+    "fields": {
+      "name": "string",
+      "position": "integer",
+      "assignable": "boolean",
+      "builtin": "integer",
+      "permissions": "text",
+      "issues_visibility": "string",
+      "users_visibility": "string",
+      "time_entries_visibility": "string",
+      "all_roles_managed": "boolean",
+      "settings": "text"
+    },
+    "associations": [
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "members"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "roles",
+      "role"
+    ]
+  },
+  "PermissionsAttributeCoder": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "permissions_attribute_coders",
+      "permissions_attribute_coder"
+    ]
+  },
+  "TimeEntryActivity": {
+    "fields": {
+      "name": "string",
+      "position": "integer",
+      "is_default": "boolean",
+      "type": "string",
+      "active": "boolean",
+      "project_id": "integer",
+      "parent_id": "integer",
+      "position_name": "string"
+    },
+    "associations": [
+      {
+        "class_name": "TimeEntry",
+        "rel": "has_many",
+        "field": "time_entries"
+      },
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      }
+    ],
+    "extend_class_name": "Enumeration",
+    "table_name": [
+      "time_entry_activities",
+      "time_entry_activity"
+    ]
+  },
+  "WorkflowPermission": {
+    "fields": {
+      "type": "string",
+      "tracker_id": "integer",
+      "old_status_id": "integer",
+      "new_status_id": "integer",
+      "role_id": "integer",
+      "assignee": "boolean",
+      "author": "boolean",
+      "field_name": "string",
+      "rule": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Role",
+        "rel": "belongs_to",
+        "field": "role"
+      },
+      {
+        "class_name": "Tracker",
+        "rel": "belongs_to",
+        "field": "tracker"
+      },
+      {
+        "class_name": "IssueStatus",
+        "rel": "belongs_to",
+        "field": "old_status"
+      },
+      {
+        "class_name": "IssueStatus",
+        "rel": "belongs_to",
+        "field": "new_status"
+      }
+    ],
+    "extend_class_name": "WorkflowRule",
+    "table_name": [
+      "workflow_permissions",
+      "workflow_permission"
+    ]
+  },
+  "TimeEntry": {
+    "fields": {
+      "project_id": "integer",
+      "author_id": "integer",
+      "user_id": "integer",
+      "issue_id": "integer",
+      "hours": "float",
+      "comments": "string",
+      "activity_id": "integer",
+      "spent_on": "date",
+      "tyear": "integer",
+      "tmonth": "integer",
+      "tweek": "integer",
+      "created_on": "datetime",
+      "updated_on": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Issue",
+        "rel": "belongs_to",
+        "field": "issue"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "TimeEntryActivity",
+        "rel": "belongs_to",
+        "field": "activity"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "time_entries",
+      "time_entry"
+    ]
+  },
+  "GroupNonMember": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "has_and_belongs_to_many",
+        "field": "users"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Project",
+        "rel": "has_many",
+        "field": "projects"
+      },
+      {
+        "class_name": "IssueCategory",
+        "rel": "has_many",
+        "field": "issue_categories"
+      }
+    ],
+    "extend_class_name": "GroupBuiltin",
+    "table_name": [
+      "group_non_members",
+      "group_non_member"
+    ]
+  },
+  "Version": {
+    "fields": {
+      "project_id": "integer",
+      "name": "string",
+      "description": "string",
+      "effective_date": "date",
+      "created_on": "timestamp",
+      "updated_on": "timestamp",
+      "wiki_page_title": "string",
+      "status": "string",
+      "sharing": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Issue",
+        "rel": "has_many",
+        "field": "fixed_issues"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "versions",
+      "version"
+    ]
+  },
+  "ImportItem": {
+    "fields": {
+      "import_id": "integer",
+      "position": "integer",
+      "obj_id": "integer",
+      "message": "text",
+      "unique_id": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Import",
+        "rel": "belongs_to",
+        "field": "import"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "import_items",
+      "import_item"
+    ]
+  },
+  "IssueImport": {
+    "fields": {
+      "type": "string",
+      "user_id": "integer",
+      "filename": "string",
+      "settings": "text",
+      "total_items": "integer",
+      "finished": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "ImportItem",
+        "rel": "has_many",
+        "field": "items"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "Import",
+    "table_name": [
+      "issue_imports",
+      "issue_import"
+    ]
+  },
+  "Token": {
+    "fields": {
+      "user_id": "integer",
+      "action": "string",
+      "value": "string",
+      "created_on": "datetime",
+      "updated_on": "timestamp"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "tokens",
+      "token"
+    ]
+  },
+  "Comment": {
+    "fields": {
+      "commented_type": "string",
+      "commented_id": "integer",
+      "author_id": "integer",
+      "content": "text",
+      "created_on": "datetime",
+      "updated_on": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Comment",
+        "rel": "belongs_to",
+        "field": "commented"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "author"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "comments",
+      "comment"
+    ]
+  },
+  "Journal": {
+    "fields": {
+      "journalized_id": "integer",
+      "journalized_type": "string",
+      "user_id": "integer",
+      "notes": "text",
+      "created_on": "datetime",
+      "private_notes": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "Journal",
+        "rel": "belongs_to",
+        "field": "journalized"
+      },
+      {
+        "class_name": "Issue",
+        "rel": "belongs_to",
+        "field": "issue"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "JournalDetail",
+        "rel": "has_many",
+        "field": "details"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "journals",
+      "journal"
+    ]
+  },
+  "JournalDetail": {
+    "fields": {
+      "journal_id": "integer",
+      "property": "string",
+      "prop_key": "string",
+      "old_value": "text",
+      "value": "text"
+    },
+    "associations": [
+      {
+        "class_name": "Journal",
+        "rel": "belongs_to",
+        "field": "journal"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "journal_details",
+      "journal_detail"
+    ]
+  },
+  "WorkflowTransition": {
+    "fields": {
+      "type": "string",
+      "tracker_id": "integer",
+      "old_status_id": "integer",
+      "new_status_id": "integer",
+      "role_id": "integer",
+      "assignee": "boolean",
+      "author": "boolean",
+      "field_name": "string",
+      "rule": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Role",
+        "rel": "belongs_to",
+        "field": "role"
+      },
+      {
+        "class_name": "Tracker",
+        "rel": "belongs_to",
+        "field": "tracker"
+      },
+      {
+        "class_name": "IssueStatus",
+        "rel": "belongs_to",
+        "field": "old_status"
+      },
+      {
+        "class_name": "IssueStatus",
+        "rel": "belongs_to",
+        "field": "new_status"
+      }
+    ],
+    "extend_class_name": "WorkflowRule",
+    "table_name": [
+      "workflow_transitions",
+      "workflow_transition"
+    ]
+  },
+  "QueryColumn": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "query_columns",
+      "query_column"
+    ]
+  },
+  "TimestampQueryColumn": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "QueryColumn",
+    "table_name": [
+      "timestamp_query_columns",
+      "timestamp_query_column"
+    ]
+  },
+  "QueryAssociationColumn": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "QueryColumn",
+    "table_name": [
+      "query_association_columns",
+      "query_association_column"
+    ]
+  },
+  "QueryCustomFieldColumn": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "QueryColumn",
+    "table_name": [
+      "query_custom_field_columns",
+      "query_custom_field_column"
+    ]
+  },
+  "QueryAssociationCustomFieldColumn": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "QueryCustomFieldColumn",
+    "table_name": [
+      "query_association_custom_field_columns",
+      "query_association_custom_field_column"
+    ]
+  },
+  "QueryFilter": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "query_filters",
+      "query_filter"
+    ]
+  },
+  "Query": {
+    "fields": {
+      "project_id": "integer",
+      "name": "string",
+      "filters": "text",
+      "user_id": "integer",
+      "column_names": "text",
+      "sort_criteria": "text",
+      "group_by": "string",
+      "type": "string",
+      "visibility": "integer",
+      "options": "text"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "queries",
+      "query"
+    ]
+  },
+  "StatementInvalid": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "::ActiveRecord::StatementInvalid",
+    "table_name": [
+      "statement_invalids",
+      "statement_invalid"
+    ]
+  },
+  "AuthSourceLdap": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "host": "string",
+      "port": "integer",
+      "account": "string",
+      "account_password": "string",
+      "base_dn": "string",
+      "attr_login": "string",
+      "attr_firstname": "string",
+      "attr_lastname": "string",
+      "attr_mail": "string",
+      "onthefly_register": "boolean",
+      "tls": "boolean",
+      "filter": "text",
+      "timeout": "integer",
+      "verify_peer": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "users"
+      }
+    ],
+    "extend_class_name": "AuthSource",
+    "table_name": [
+      "auth_source_ldaps",
+      "auth_source_ldap"
+    ]
+  },
+  "WikiRedirect": {
+    "fields": {
+      "wiki_id": "integer",
+      "title": "string",
+      "redirects_to": "string",
+      "created_on": "datetime",
+      "redirects_to_wiki_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Wiki",
+        "rel": "belongs_to",
+        "field": "wiki"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "wiki_redirects",
+      "wiki_redirect"
+    ]
+  },
+  "Enumeration": {
+    "fields": {
+      "name": "string",
+      "position": "integer",
+      "is_default": "boolean",
+      "type": "string",
+      "active": "boolean",
+      "project_id": "integer",
+      "parent_id": "integer",
+      "position_name": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "enumerations",
+      "enumeration"
+    ]
+  },
+  "Import": {
+    "fields": {
+      "type": "string",
+      "user_id": "integer",
+      "filename": "string",
+      "settings": "text",
+      "total_items": "integer",
+      "finished": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "ImportItem",
+        "rel": "has_many",
+        "field": "items"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "imports",
+      "import"
+    ]
+  },
+  "Principal": {
+    "fields": {
+      "type": "string",
+      "login": "string",
+      "hashed_password": "string",
+      "firstname": "string",
+      "lastname": "string",
+      "admin": "boolean",
+      "status": "integer",
+      "last_login_on": "datetime",
+      "language": "string",
+      "auth_source_id": "integer",
+      "created_on": "timestamp",
+      "updated_on": "timestamp",
+      "identity_url": "string",
+      "mail_notification": "string",
+      "salt": "string",
+      "must_change_passwd": "boolean",
+      "passwd_changed_on": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Project",
+        "rel": "has_many",
+        "field": "projects"
+      },
+      {
+        "class_name": "IssueCategory",
+        "rel": "has_many",
+        "field": "issue_categories"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "principals",
+      "principal"
+    ]
+  },
+  "MemberRole": {
+    "fields": {
+      "member_id": "integer",
+      "role_id": "integer",
+      "inherited_from": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Member",
+        "rel": "belongs_to",
+        "field": "member"
+      },
+      {
+        "class_name": "Role",
+        "rel": "belongs_to",
+        "field": "role"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "member_roles",
+      "member_role"
+    ]
+  },
+  "CustomValue": {
+    "fields": {
+      "customized_type": "string",
+      "customized_id": "integer",
+      "custom_field_id": "integer",
+      "value": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomField",
+        "rel": "belongs_to",
+        "field": "custom_field"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "belongs_to",
+        "field": "customized"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "custom_values",
+      "custom_value"
+    ]
+  },
+  "GroupCustomField": {
+    "fields": {
+      "type": "string",
+      "name": "string",
+      "field_format": "string",
+      "possible_values": "text",
+      "regexp": "string",
+      "min_length": "integer",
+      "max_length": "integer",
+      "is_required": "boolean",
+      "is_for_all": "boolean",
+      "is_filter": "boolean",
+      "position": "integer",
+      "searchable": "boolean",
+      "default_value": "text",
+      "editable": "boolean",
+      "visible": "boolean",
+      "multiple": "boolean",
+      "format_store": "text",
+      "description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldEnumeration",
+        "rel": "has_many",
+        "field": "enumerations"
+      },
+      {
+        "class_name": "CustomValue",
+        "rel": "has_many",
+        "field": "custom_values"
+      },
+      {
+        "class_name": "Role",
+        "rel": "has_and_belongs_to_many",
+        "field": "roles"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "group_custom_fields",
+      "group_custom_field"
+    ]
+  },
+  "CustomFieldEnumeration": {
+    "fields": {
+      "custom_field_id": "integer",
+      "name": "string",
+      "active": "boolean",
+      "position": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "CustomField",
+        "rel": "belongs_to",
+        "field": "custom_field"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "custom_field_enumerations",
+      "custom_field_enumeration"
+    ]
+  },
+  "WorkflowRule": {
+    "fields": {
+      "type": "string",
+      "tracker_id": "integer",
+      "old_status_id": "integer",
+      "new_status_id": "integer",
+      "role_id": "integer",
+      "assignee": "boolean",
+      "author": "boolean",
+      "field_name": "string",
+      "rule": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Role",
+        "rel": "belongs_to",
+        "field": "role"
+      },
+      {
+        "class_name": "Tracker",
+        "rel": "belongs_to",
+        "field": "tracker"
+      },
+      {
+        "class_name": "IssueStatus",
+        "rel": "belongs_to",
+        "field": "old_status"
+      },
+      {
+        "class_name": "IssueStatus",
+        "rel": "belongs_to",
+        "field": "new_status"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "workflow_rules",
+      "workflow_rule"
+    ]
+  },
+  "Board": {
+    "fields": {
+      "project_id": "integer",
+      "name": "string",
+      "description": "string",
+      "position": "integer",
+      "topics_count": "integer",
+      "messages_count": "integer",
+      "last_message_id": "integer",
+      "parent_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      },
+      {
+        "class_name": "Message",
+        "rel": "has_many",
+        "field": "messages"
+      },
+      {
+        "class_name": "Message",
+        "rel": "belongs_to",
+        "field": "last_message"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "boards",
+      "board"
+    ]
+  },
+  "User": {
+    "fields": {
+      "login": "string",
+      "hashed_password": "string",
+      "firstname": "string",
+      "lastname": "string",
+      "admin": "boolean",
+      "status": "integer",
+      "last_login_on": "datetime",
+      "language": "string",
+      "auth_source_id": "integer",
+      "created_on": "timestamp",
+      "updated_on": "timestamp",
+      "type": "string",
+      "identity_url": "string",
+      "mail_notification": "string",
+      "salt": "string",
+      "must_change_passwd": "boolean",
+      "passwd_changed_on": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "has_and_belongs_to_many",
+        "field": "groups"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "UserPreference",
+        "rel": "has_one",
+        "field": "preference"
+      },
+      {
+        "class_name": "Token",
+        "rel": "has_one",
+        "field": "rss_token"
+      },
+      {
+        "class_name": "Token",
+        "rel": "has_one",
+        "field": "api_token"
+      },
+      {
+        "class_name": "EmailAddress",
+        "rel": "has_one",
+        "field": "email_address"
+      },
+      {
+        "class_name": "EmailAddress",
+        "rel": "has_many",
+        "field": "email_addresses"
+      },
+      {
+        "class_name": "AuthSource",
+        "rel": "belongs_to",
+        "field": "auth_source"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Project",
+        "rel": "has_many",
+        "field": "projects"
+      },
+      {
+        "class_name": "IssueCategory",
+        "rel": "has_many",
+        "field": "issue_categories"
+      }
+    ],
+    "extend_class_name": "Principal",
+    "table_name": [
+      "users",
+      "user"
+    ]
+  },
+  "AnonymousUser": {
+    "fields": {
+      "login": "string",
+      "hashed_password": "string",
+      "firstname": "string",
+      "lastname": "string",
+      "admin": "boolean",
+      "status": "integer",
+      "last_login_on": "datetime",
+      "language": "string",
+      "auth_source_id": "integer",
+      "created_on": "timestamp",
+      "updated_on": "timestamp",
+      "type": "string",
+      "identity_url": "string",
+      "mail_notification": "string",
+      "salt": "string",
+      "must_change_passwd": "boolean",
+      "passwd_changed_on": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "has_and_belongs_to_many",
+        "field": "groups"
+      },
+      {
+        "class_name": "Changeset",
+        "rel": "has_many",
+        "field": "changesets"
+      },
+      {
+        "class_name": "UserPreference",
+        "rel": "has_one",
+        "field": "preference"
+      },
+      {
+        "class_name": "Token",
+        "rel": "has_one",
+        "field": "rss_token"
+      },
+      {
+        "class_name": "Token",
+        "rel": "has_one",
+        "field": "api_token"
+      },
+      {
+        "class_name": "EmailAddress",
+        "rel": "has_one",
+        "field": "email_address"
+      },
+      {
+        "class_name": "EmailAddress",
+        "rel": "has_many",
+        "field": "email_addresses"
+      },
+      {
+        "class_name": "AuthSource",
+        "rel": "belongs_to",
+        "field": "auth_source"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "members"
+      },
+      {
+        "class_name": "Member",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "Project",
+        "rel": "has_many",
+        "field": "projects"
+      },
+      {
+        "class_name": "IssueCategory",
+        "rel": "has_many",
+        "field": "issue_categories"
+      }
+    ],
+    "extend_class_name": "User",
+    "table_name": [
+      "anonymous_users",
+      "anonymous_user"
+    ]
+  },
+  "Meeting": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "Project",
+        "rel": "belongs_to",
+        "field": "project"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "meetings",
+      "meeting"
+    ]
+  }
+}

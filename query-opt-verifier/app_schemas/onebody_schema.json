@@ -1,0 +1,1994 @@
+{
+  "DocumentFolderGroup": {
+    "fields": {
+      "document_folder_id": "integer",
+      "group_id": "integer",
+      "created_at": "datetime",
+      "site_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "DocumentFolder",
+        "rel": "belongs_to",
+        "field": "document_folder"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "document_folder_groups",
+      "document_folder_group"
+    ]
+  },
+  "Membership": {
+    "fields": {
+      "group_id": "integer",
+      "person_id": "integer",
+      "admin": "boolean",
+      "get_email": "boolean",
+      "share_address": "boolean",
+      "share_mobile_phone": "boolean",
+      "share_work_phone": "boolean",
+      "share_fax": "boolean",
+      "share_email": "boolean",
+      "share_birthday": "boolean",
+      "share_anniversary": "boolean",
+      "updated_at": "datetime",
+      "code": "integer",
+      "site_id": "integer",
+      "legacy_id": "integer",
+      "share_home_phone": "boolean",
+      "auto": "boolean",
+      "created_at": "datetime",
+      "roles": "text",
+      "leader": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "memberships",
+      "membership"
+    ]
+  },
+  "PrintableDirectory": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "printable_directories",
+      "printable_directory"
+    ]
+  },
+  "FamilyUpdater": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Updater",
+    "table_name": [
+      "family_updaters",
+      "family_updater"
+    ]
+  },
+  "CustomFieldValue": {
+    "fields": {
+      "site_id": "integer",
+      "field_id": "integer",
+      "object_type": "string",
+      "object_id": "integer",
+      "value": "text",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldValue",
+        "rel": "belongs_to",
+        "field": "object"
+      },
+      {
+        "class_name": "CustomField",
+        "rel": "belongs_to",
+        "field": "field"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "custom_field_values",
+      "custom_field_value"
+    ]
+  },
+  "ImportPreview": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ImportExecution",
+    "table_name": [
+      "import_previews",
+      "import_preview"
+    ]
+  },
+  "ImportExecution": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "import_executions",
+      "import_execution"
+    ]
+  },
+  "CustomField": {
+    "fields": {
+      "site_id": "integer",
+      "name": "string",
+      "format": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "position": "integer",
+      "tab_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldTab",
+        "rel": "belongs_to",
+        "field": "tab"
+      },
+      {
+        "class_name": "CustomFieldValue",
+        "rel": "has_many",
+        "field": "custom_field_values"
+      },
+      {
+        "class_name": "CustomFieldOption",
+        "rel": "has_many",
+        "field": "custom_field_options"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "custom_fields",
+      "custom_field"
+    ]
+  },
+  "PictureUploader": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "picture_uploaders",
+      "picture_uploader"
+    ]
+  },
+  "SigninFailure": {
+    "fields": {
+      "email": "string",
+      "ip": "string",
+      "created_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "signin_failures",
+      "signin_failure"
+    ]
+  },
+  "Tagging": {
+    "fields": {
+      "tag_id": "integer",
+      "taggable_id": "integer",
+      "taggable_type": "string",
+      "created_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Tagging",
+        "rel": "belongs_to",
+        "field": "tag"
+      },
+      {
+        "class_name": "Tagging",
+        "rel": "belongs_to",
+        "field": "taggable"
+      },
+      {
+        "class_name": "Verse",
+        "rel": "belongs_to",
+        "field": "verse"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "taggings",
+      "tagging"
+    ]
+  },
+  "PersonCustomField": {
+    "fields": {
+      "site_id": "integer",
+      "name": "string",
+      "format": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "position": "integer",
+      "tab_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "CustomFieldTab",
+        "rel": "belongs_to",
+        "field": "tab"
+      },
+      {
+        "class_name": "CustomFieldValue",
+        "rel": "has_many",
+        "field": "custom_field_values"
+      },
+      {
+        "class_name": "CustomFieldOption",
+        "rel": "has_many",
+        "field": "custom_field_options"
+      }
+    ],
+    "extend_class_name": "CustomField",
+    "table_name": [
+      "person_custom_fields",
+      "person_custom_field"
+    ]
+  },
+  "Verse": {
+    "fields": {
+      "reference": "string",
+      "text": "text",
+      "translation": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "book": "integer",
+      "chapter": "integer",
+      "verse": "integer",
+      "site_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "has_and_belongs_to_many",
+        "field": "people"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "verses",
+      "verse"
+    ]
+  },
+  "Document": {
+    "fields": {
+      "name": "string",
+      "description": "string",
+      "folder_id": "integer",
+      "file_file_name": "string",
+      "file_content_type": "string",
+      "file_fingerprint": "string",
+      "file_file_size": "integer",
+      "file_updated_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "site_id": "integer",
+      "preview_file_name": "string",
+      "preview_content_type": "string",
+      "preview_fingerprint": "string",
+      "preview_file_size": "integer",
+      "preview_updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "DocumentFolder",
+        "rel": "belongs_to",
+        "field": "folder"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "documents",
+      "document"
+    ]
+  },
+  "ImportParser": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "import_parsers",
+      "import_parser"
+    ]
+  },
+  "CustomFieldOption": {
+    "fields": {
+      "site_id": "integer",
+      "field_id": "integer",
+      "label": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "sequence": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "CustomField",
+        "rel": "belongs_to",
+        "field": "field"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "custom_field_options",
+      "custom_field_option"
+    ]
+  },
+  "MembershipBatch": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "membership_batches",
+      "membership_batch"
+    ]
+  },
+  "Search": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "searches",
+      "search"
+    ]
+  },
+  "AttendanceBatch": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "attendance_batches",
+      "attendance_batch"
+    ]
+  },
+  "Family": {
+    "fields": {
+      "legacy_id": "integer",
+      "name": "string",
+      "last_name": "string",
+      "address1": "string",
+      "address2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": "string",
+      "home_phone": "string",
+      "email": "string",
+      "latitude": "float",
+      "longitude": "float",
+      "updated_at": "datetime",
+      "visible": "boolean",
+      "site_id": "integer",
+      "deleted": "boolean",
+      "barcode_id": "string",
+      "barcode_assigned_at": "datetime",
+      "barcode_id_changed": "boolean",
+      "alternate_barcode_id": "string",
+      "photo_file_name": "string",
+      "photo_content_type": "string",
+      "photo_fingerprint": "string",
+      "photo_file_size": "integer",
+      "photo_updated_at": "datetime",
+      "country": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "people"
+      },
+      {
+        "class_name": "Update",
+        "rel": "has_many",
+        "field": "updates"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "families",
+      "family"
+    ]
+  },
+  "Group": {
+    "fields": {
+      "name": "string",
+      "description": "text",
+      "meets": "string",
+      "location": "string",
+      "directions": "text",
+      "other_notes": "text",
+      "category": "string",
+      "creator_id": "integer",
+      "private": "boolean",
+      "address": "string",
+      "members_send": "boolean",
+      "updated_at": "datetime",
+      "hidden": "boolean",
+      "approved": "boolean",
+      "link_code": "string",
+      "parents_of": "integer",
+      "site_id": "integer",
+      "blog": "boolean",
+      "email": "boolean",
+      "prayer": "boolean",
+      "attendance": "boolean",
+      "legacy_id": "integer",
+      "gcal_private_link": "string",
+      "approval_required_to_join": "boolean",
+      "pictures": "boolean",
+      "cm_api_list_id": "string",
+      "photo_file_name": "string",
+      "photo_content_type": "string",
+      "photo_fingerprint": "string",
+      "photo_file_size": "integer",
+      "photo_updated_at": "datetime",
+      "created_at": "datetime",
+      "latitude": "float",
+      "longitude": "float",
+      "membership_mode": "string",
+      "has_tasks": "boolean",
+      "share_token": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Membership",
+        "rel": "has_many",
+        "field": "memberships"
+      },
+      {
+        "class_name": "MembershipRequest",
+        "rel": "has_many",
+        "field": "membership_requests"
+      },
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "people"
+      },
+      {
+        "class_name": "Admin",
+        "rel": "has_many",
+        "field": "admins"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "leaders"
+      },
+      {
+        "class_name": "Message",
+        "rel": "has_many",
+        "field": "messages"
+      },
+      {
+        "class_name": "PrayerRequest",
+        "rel": "has_many",
+        "field": "prayer_requests"
+      },
+      {
+        "class_name": "AttendanceRecord",
+        "rel": "has_many",
+        "field": "attendance_records"
+      },
+      {
+        "class_name": "Album",
+        "rel": "has_many",
+        "field": "albums"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "album_pictures"
+      },
+      {
+        "class_name": "StreamItem",
+        "rel": "has_many",
+        "field": "stream_items"
+      },
+      {
+        "class_name": "Attachment",
+        "rel": "has_many",
+        "field": "attachments"
+      },
+      {
+        "class_name": "GroupTime",
+        "rel": "has_many",
+        "field": "group_times"
+      },
+      {
+        "class_name": "CheckinTime",
+        "rel": "has_many",
+        "field": "checkin_times"
+      },
+      {
+        "class_name": "Task",
+        "rel": "has_many",
+        "field": "tasks"
+      },
+      {
+        "class_name": "DocumentFolderGroup",
+        "rel": "has_many",
+        "field": "document_folder_groups"
+      },
+      {
+        "class_name": "DocumentFolder",
+        "rel": "has_many",
+        "field": "document_folders"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "creator"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "parents_of_group"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "groups",
+      "group"
+    ]
+  },
+  "MembershipRequest": {
+    "fields": {
+      "person_id": "integer",
+      "group_id": "integer",
+      "created_at": "datetime",
+      "site_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "membership_requests",
+      "membership_request"
+    ]
+  },
+  "Album": {
+    "fields": {
+      "name": "string",
+      "description": "text",
+      "site_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "is_public": "boolean",
+      "owner_id": "integer",
+      "owner_type": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Album",
+        "rel": "belongs_to",
+        "field": "owner"
+      },
+      {
+        "class_name": "Picture",
+        "rel": "has_many",
+        "field": "pictures"
+      },
+      {
+        "class_name": "StreamItem",
+        "rel": "has_one",
+        "field": "stream_item"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "albums",
+      "album"
+    ]
+  },
+  "Admin": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "site_id": "integer",
+      "template_name": "string",
+      "flags": "text",
+      "super_admin": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "people"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "admins",
+      "admin"
+    ]
+  },
+  "MembershipSharingUpdater": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "membership_sharing_updaters",
+      "membership_sharing_updater"
+    ]
+  },
+  "Site": {
+    "fields": {
+      "name": "string",
+      "host": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "secondary_host": "string",
+      "max_admins": "integer",
+      "max_people": "integer",
+      "max_groups": "integer",
+      "import_export_enabled": "boolean",
+      "pages_enabled": "boolean",
+      "pictures_enabled": "boolean",
+      "publications_enabled": "boolean",
+      "active": "boolean",
+      "twitter_enabled": "boolean",
+      "external_guid": "string",
+      "settings_changed_at": "datetime",
+      "logo_file_name": "string",
+      "logo_content_type": "string",
+      "logo_fingerprint": "string",
+      "logo_file_size": "integer",
+      "logo_updated_at": "datetime",
+      "email_host": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Setting",
+        "rel": "has_many",
+        "field": "settings"
+      },
+      {
+        "class_name": "StreamItem",
+        "rel": "has_one",
+        "field": "stream_item"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "sites",
+      "site"
+    ]
+  },
+  "Setup": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "setups",
+      "setup"
+    ]
+  },
+  "Attachment": {
+    "fields": {
+      "message_id": "integer",
+      "name": "string",
+      "content_type": "string",
+      "created_at": "datetime",
+      "site_id": "integer",
+      "page_id": "integer",
+      "group_id": "integer",
+      "file_file_name": "string",
+      "file_content_type": "string",
+      "file_fingerprint": "string",
+      "file_file_size": "integer",
+      "file_updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Message",
+        "rel": "belongs_to",
+        "field": "message"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "attachments",
+      "attachment"
+    ]
+  },
+  "Page": {
+    "fields": {
+      "slug": "string",
+      "title": "string",
+      "body": "text",
+      "parent_id": "integer",
+      "path": "string",
+      "published": "boolean",
+      "site_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "navigation": "boolean",
+      "system": "boolean",
+      "raw": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Page",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Page",
+        "rel": "has_many",
+        "field": "children"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "pages",
+      "page"
+    ]
+  },
+  "AttendanceRecord": {
+    "fields": {
+      "site_id": "integer",
+      "person_id": "integer",
+      "group_id": "integer",
+      "attended_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "first_name": "string",
+      "last_name": "string",
+      "family_name": "string",
+      "age": "string",
+      "can_pick_up": "string",
+      "cannot_pick_up": "string",
+      "medical_notes": "string",
+      "checkin_time_id": "integer",
+      "print_extra_nametag": "boolean",
+      "barcode_id": "string",
+      "label_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "CheckinTime",
+        "rel": "belongs_to",
+        "field": "checkin_time"
+      },
+      {
+        "class_name": "CheckinLabel",
+        "rel": "belongs_to",
+        "field": "checkin_label"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "attendance_records",
+      "attendance_record"
+    ]
+  },
+  "Message": {
+    "fields": {
+      "group_id": "integer",
+      "person_id": "integer",
+      "to_person_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "parent_id": "integer",
+      "subject": "string",
+      "body": "text",
+      "share_email": "boolean",
+      "code": "integer",
+      "site_id": "integer",
+      "html_body": "text",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "to"
+      },
+      {
+        "class_name": "Message",
+        "rel": "belongs_to",
+        "field": "parent"
+      },
+      {
+        "class_name": "Message",
+        "rel": "has_many",
+        "field": "children"
+      },
+      {
+        "class_name": "Attachment",
+        "rel": "has_many",
+        "field": "attachments"
+      },
+      {
+        "class_name": "Message",
+        "rel": "has_many",
+        "field": "log_items"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "messages",
+      "message"
+    ]
+  },
+  "GeneratedFile": {
+    "fields": {
+      "site_id": "integer",
+      "person_id": "integer",
+      "file_file_name": "string",
+      "file_content_type": "string",
+      "file_fingerprint": "string",
+      "file_file_size": "integer",
+      "file_updated_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "job_id": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "generated_files",
+      "generated_file"
+    ]
+  },
+  "StreamItemGrouper": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "stream_item_groupers",
+      "stream_item_grouper"
+    ]
+  },
+  "Grouper": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "groupers",
+      "grouper"
+    ]
+  },
+  "ImportParser": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "import_parsers",
+      "import_parser"
+    ]
+  },
+  "Strategies::CSV": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "strategies/csvs",
+      "strategies/csv"
+    ]
+  },
+  "Setting": {
+    "fields": {
+      "section": "string",
+      "name": "string",
+      "format": "string",
+      "value": "string",
+      "description": "string",
+      "hidden": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "site_id": "integer",
+      "global": "boolean",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "settings",
+      "setting"
+    ]
+  },
+  "Updater": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "updaters",
+      "updater"
+    ]
+  },
+  "PrayerRequest": {
+    "fields": {
+      "group_id": "integer",
+      "person_id": "integer",
+      "request": "text",
+      "answer": "text",
+      "answered_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "site_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "prayer_requests",
+      "prayer_request"
+    ]
+  },
+  "CheckinFolder": {
+    "fields": {
+      "site_id": "integer",
+      "checkin_time_id": "integer",
+      "name": "string",
+      "sequence": "integer",
+      "active": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "CheckinTime",
+        "rel": "belongs_to",
+        "field": "checkin_time"
+      },
+      {
+        "class_name": "GroupTime",
+        "rel": "has_many",
+        "field": "group_times"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "groups"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "checkin_folders",
+      "checkin_folder"
+    ]
+  },
+  "MailgunApi": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "mailgun_apis",
+      "mailgun_api"
+    ]
+  },
+  "Forbidden": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "forbiddens",
+      "forbidden"
+    ]
+  },
+  "KeyMissing": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "key_missings",
+      "key_missing"
+    ]
+  },
+  "CustomFieldTab": {
+    "fields": {
+      "site_id": "integer",
+      "name": "string",
+      "position": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "CustomField",
+        "rel": "has_many",
+        "field": "fields"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "custom_field_tabs",
+      "custom_field_tab"
+    ]
+  },
+  "ImportRow": {
+    "fields": {
+      "site_id": "integer",
+      "import_id": "integer",
+      "sequence": "integer",
+      "person_id": "integer",
+      "created_person": "boolean",
+      "created_family": "boolean",
+      "updated_person": "boolean",
+      "updated_family": "boolean",
+      "family_id": "integer",
+      "matched_person_by": "integer",
+      "matched_family_by": "integer",
+      "status": "integer",
+      "import_attributes": "text",
+      "attribute_changes": "text",
+      "attribute_errors": "text",
+      "errored": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Import",
+        "rel": "belongs_to",
+        "field": "import"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Family",
+        "rel": "belongs_to",
+        "field": "family"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "import_rows",
+      "import_row"
+    ]
+  },
+  "Verification": {
+    "fields": {
+      "email": "string",
+      "mobile_phone": "string",
+      "code": "integer",
+      "verified": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "site_id": "integer",
+      "carrier": "string",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "verifications",
+      "verification"
+    ]
+  },
+  "Comment": {
+    "fields": {
+      "verse_id": "integer",
+      "person_id": "integer",
+      "text": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "recipe_id": "integer",
+      "news_item_id": "integer",
+      "song_id": "integer",
+      "site_id": "integer",
+      "picture_id": "integer",
+      "commentable_type": "string",
+      "commentable_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "belongs_to",
+        "field": "commentable"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "comments",
+      "comment"
+    ]
+  },
+  "Signup": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "signups",
+      "signup"
+    ]
+  },
+  "Person": {
+    "fields": {
+      "legacy_id": "integer",
+      "family_id": "integer",
+      "position": "integer",
+      "gender": "string",
+      "first_name": "string",
+      "last_name": "string",
+      "suffix": "string",
+      "mobile_phone": "string",
+      "work_phone": "string",
+      "fax": "string",
+      "birthday": "datetime",
+      "email": "string",
+      "email_changed": "boolean",
+      "website": "string",
+      "classes": "text",
+      "shepherd": "string",
+      "mail_group": "string",
+      "encrypted_password": "string",
+      "business_name": "string",
+      "business_description": "text",
+      "business_phone": "string",
+      "business_email": "string",
+      "business_website": "string",
+      "about": "text",
+      "testimony": "text",
+      "share_mobile_phone": "boolean",
+      "share_work_phone": "boolean",
+      "share_fax": "boolean",
+      "share_email": "boolean",
+      "share_birthday": "boolean",
+      "anniversary": "datetime",
+      "updated_at": "datetime",
+      "alternate_email": "string",
+      "email_bounces": "integer",
+      "business_category": "string",
+      "account_frozen": "boolean",
+      "messages_enabled": "boolean",
+      "business_address": "string",
+      "flags": "string",
+      "visible": "boolean",
+      "parental_consent": "string",
+      "admin_id": "integer",
+      "friends_enabled": "boolean",
+      "member": "boolean",
+      "staff": "boolean",
+      "elder": "boolean",
+      "deacon": "boolean",
+      "legacy_family_id": "integer",
+      "feed_code": "string",
+      "share_activity": "boolean",
+      "site_id": "integer",
+      "twitter_account": "string",
+      "api_key": "string",
+      "salt": "string",
+      "deleted": "boolean",
+      "child": "boolean",
+      "custom_type": "string",
+      "custom_fields": "text",
+      "can_pick_up": "string",
+      "cannot_pick_up": "string",
+      "medical_notes": "string",
+      "relationships_hash": "string",
+      "photo_file_name": "string",
+      "photo_content_type": "string",
+      "photo_fingerprint": "string",
+      "photo_file_size": "integer",
+      "photo_updated_at": "datetime",
+      "description": "string",
+      "share_anniversary": "boolean",
+      "share_address": "boolean",
+      "share_home_phone": "boolean",
+      "password_hash": "string",
+      "password_salt": "string",
+      "created_at": "datetime",
+      "facebook_url": "string",
+      "twitter": "string",
+      "incomplete_tasks_count": "integer",
+      "primary_emailer": "boolean",
+      "last_seen_stream_item_id": "integer",
+      "last_seen_group_id": "integer",
+      "provider": "string",
+      "uid": "string",
+      "status": "integer",
+      "alias": "string",
+      "last_seen_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Family",
+        "rel": "belongs_to",
+        "field": "family"
+      },
+      {
+        "class_name": "Admin",
+        "rel": "belongs_to",
+        "field": "admin"
+      },
+      {
+        "class_name": "Album",
+        "rel": "has_many",
+        "field": "albums"
+      },
+      {
+        "class_name": "Picture",
+        "rel": "has_many",
+        "field": "pictures"
+      },
+      {
+        "class_name": "Message",
+        "rel": "has_many",
+        "field": "messages"
+      },
+      {
+        "class_name": "Update",
+        "rel": "has_many",
+        "field": "updates"
+      },
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "prayer_signups"
+      },
+      {
+        "class_name": "Verse",
+        "rel": "has_and_belongs_to_many",
+        "field": "verses"
+      },
+      {
+        "class_name": "Person",
+        "rel": "has_many",
+        "field": "log_items"
+      },
+      {
+        "class_name": "StreamItem",
+        "rel": "has_many",
+        "field": "stream_items"
+      },
+      {
+        "class_name": "PrayerRequest",
+        "rel": "has_many",
+        "field": "prayer_requests"
+      },
+      {
+        "class_name": "AttendanceRecord",
+        "rel": "has_many",
+        "field": "attendance_records"
+      },
+      {
+        "class_name": "GeneratedFile",
+        "rel": "has_many",
+        "field": "generated_files"
+      },
+      {
+        "class_name": "Task",
+        "rel": "has_many",
+        "field": "tasks"
+      },
+      {
+        "class_name": "StreamItem",
+        "rel": "belongs_to",
+        "field": "last_seen_stream_item"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "last_seen_group"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "groups"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "people",
+      "person"
+    ]
+  },
+  "Relationship": {
+    "fields": {
+      "person_id": "integer",
+      "related_id": "integer",
+      "name": "string",
+      "other_name": "string",
+      "site_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "related"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "relationships",
+      "relationship"
+    ]
+  },
+  "DocumentFolder": {
+    "fields": {
+      "name": "string",
+      "description": "string",
+      "hidden": "boolean",
+      "folder_id": "integer",
+      "parent_folder_ids": "string",
+      "path": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "site_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "DocumentFolder",
+        "rel": "belongs_to",
+        "field": "folder"
+      },
+      {
+        "class_name": "DocumentFolder",
+        "rel": "has_many",
+        "field": "folders"
+      },
+      {
+        "class_name": "Document",
+        "rel": "has_many",
+        "field": "documents"
+      },
+      {
+        "class_name": "DocumentFolderGroup",
+        "rel": "has_many",
+        "field": "document_folder_groups"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "groups"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "document_folders",
+      "document_folder"
+    ]
+  },
+  "GroupTime": {
+    "fields": {
+      "group_id": "integer",
+      "checkin_time_id": "integer",
+      "sequence": "integer",
+      "site_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "section": "string",
+      "print_extra_nametag": "boolean",
+      "checkin_folder_id": "integer",
+      "label_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "CheckinFolder",
+        "rel": "belongs_to",
+        "field": "checkin_folder"
+      },
+      {
+        "class_name": "CheckinTime",
+        "rel": "belongs_to",
+        "field": "checkin_time"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "group_times",
+      "group_time"
+    ]
+  },
+  "EmailSetup": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "email_setups",
+      "email_setup"
+    ]
+  },
+  "Friendship": {
+    "fields": {
+      "person_id": "integer",
+      "friend_id": "integer",
+      "created_at": "datetime",
+      "ordering": "integer",
+      "site_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "friend"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "friendships",
+      "friendship"
+    ]
+  },
+  "Picture": {
+    "fields": {
+      "person_id": "integer",
+      "created_at": "datetime",
+      "cover": "boolean",
+      "updated_at": "datetime",
+      "site_id": "integer",
+      "album_id": "integer",
+      "original_url": "string",
+      "photo_file_name": "string",
+      "photo_content_type": "string",
+      "photo_fingerprint": "string",
+      "photo_file_size": "integer",
+      "photo_updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Album",
+        "rel": "belongs_to",
+        "field": "album"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "pictures",
+      "picture"
+    ]
+  },
+  "ErrorRotatingPhoto": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "RuntimeError",
+    "table_name": [
+      "error_rotating_photos",
+      "error_rotating_photo"
+    ]
+  },
+  "ProcessedMessage": {
+    "fields": {
+      "header_message_id": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "processed_messages",
+      "processed_message"
+    ]
+  },
+  "Comparator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "comparators",
+      "comparator"
+    ]
+  },
+  "Import": {
+    "fields": {
+      "site_id": "integer",
+      "person_id": "integer",
+      "filename": "string",
+      "status": "integer",
+      "error_message": "string",
+      "importable_type": "string",
+      "mappings": "text",
+      "match_strategy": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "completed_at": "datetime",
+      "row_count": "integer",
+      "flags": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "ImportRow",
+        "rel": "has_many",
+        "field": "rows"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "imports",
+      "import"
+    ]
+  },
+  "ParentalConsent": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "parental_consents",
+      "parental_consent"
+    ]
+  },
+  "ApplicationRecord": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "application_records",
+      "application_record"
+    ]
+  },
+  "CheckinLabel": {
+    "fields": {
+      "name": "string",
+      "description": "string",
+      "xml": "text",
+      "site_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "checkin_labels",
+      "checkin_label"
+    ]
+  },
+  "InvalidCheckinLabelPath": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "invalid_checkin_label_paths",
+      "invalid_checkin_label_path"
+    ]
+  },
+  "StreamItem": {
+    "fields": {
+      "site_id": "integer",
+      "title": "string",
+      "body": "text",
+      "context": "text",
+      "person_id": "integer",
+      "group_id": "integer",
+      "streamable_id": "integer",
+      "streamable_type": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "shared": "boolean",
+      "text": "boolean",
+      "is_public": "boolean",
+      "stream_item_group_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "StreamItem",
+        "rel": "belongs_to",
+        "field": "streamable"
+      },
+      {
+        "class_name": "StreamItem",
+        "rel": "belongs_to",
+        "field": "stream_item_group"
+      },
+      {
+        "class_name": "StreamItem",
+        "rel": "has_many",
+        "field": "items"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "stream_items",
+      "stream_item"
+    ]
+  },
+  "Update": {
+    "fields": {
+      "person_id": "integer",
+      "created_at": "datetime",
+      "complete": "boolean",
+      "site_id": "integer",
+      "data": "text",
+      "diff": "text",
+      "family_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "updates",
+      "update"
+    ]
+  },
+  "CheckinTime": {
+    "fields": {
+      "weekday": "integer",
+      "time": "integer",
+      "the_datetime": "datetime",
+      "site_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "campus": "string",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "GroupTime",
+        "rel": "has_many",
+        "field": "group_times"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "groups"
+      },
+      {
+        "class_name": "CheckinFolder",
+        "rel": "has_many",
+        "field": "checkin_folders"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "checkin_times",
+      "checkin_time"
+    ]
+  },
+  "FriendshipRequest": {
+    "fields": {
+      "person_id": "integer",
+      "from_id": "integer",
+      "rejected": "boolean",
+      "created_at": "datetime",
+      "site_id": "integer",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "from"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "friendship_requests",
+      "friendship_request"
+    ]
+  },
+  "Concerns::Person::Fields::LabelLookupFailure": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Concerns::Person::Fields::",
+    "table_name": [
+      "concerns/person/fields/label_lookup_failures",
+      "concerns/person/fields/label_lookup_failure"
+    ]
+  },
+  "NewsItem": {
+    "fields": {
+      "title": "string",
+      "link": "string",
+      "body": "text",
+      "published": "datetime",
+      "active": "boolean",
+      "site_id": "integer",
+      "source": "string",
+      "person_id": "integer",
+      "sequence": "integer",
+      "expires_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "news_items",
+      "news_item"
+    ]
+  },
+  "Task": {
+    "fields": {
+      "name": "string",
+      "description": "text",
+      "completed": "boolean",
+      "duedate": "date",
+      "group_id": "integer",
+      "person_id": "integer",
+      "site_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "position": "integer",
+      "group_scope": "boolean",
+      "type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "Person",
+        "rel": "belongs_to",
+        "field": "person"
+      },
+      {
+        "class_name": "Comment",
+        "rel": "has_many",
+        "field": "comments"
+      }
+    ],
+    "extend_class_name": "ApplicationRecord",
+    "table_name": [
+      "tasks",
+      "task"
+    ]
+  }
+}

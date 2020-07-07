@@ -1,0 +1,5500 @@
+{
+  "Draft": {
+    "fields": {
+      "user_id": "integer",
+      "draft_key": "string",
+      "data": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "sequence": "integer",
+      "revisions": "integer"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "drafts",
+      "draft"
+    ]
+  },
+  "TagGroupMembership": {
+    "fields": {
+      "tag_id": "integer",
+      "tag_group_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Tag",
+        "rel": "belongs_to",
+        "field": "tag"
+      },
+      {
+        "class_name": "TagGroup",
+        "rel": "belongs_to",
+        "field": "tag_group"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "tag_group_memberships",
+      "tag_group_membership"
+    ]
+  },
+  "GithubUserInfo": {
+    "fields": {
+      "user_id": "integer",
+      "screen_name": "string",
+      "github_user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "github_user_infos",
+      "github_user_info"
+    ]
+  },
+  "SingleSignOnRecord": {
+    "fields": {
+      "user_id": "integer",
+      "external_id": "string",
+      "last_payload": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "external_username": "string",
+      "external_email": "string",
+      "external_name": "string",
+      "external_avatar_url": "string",
+      "external_profile_background_url": "string",
+      "external_card_background_url": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "single_sign_on_records",
+      "single_sign_on_record"
+    ]
+  },
+  "ChildTheme": {
+    "fields": {
+      "parent_theme_id": "integer",
+      "child_theme_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Theme",
+        "rel": "belongs_to",
+        "field": "parent_theme"
+      },
+      {
+        "class_name": "Theme",
+        "rel": "belongs_to",
+        "field": "child_theme"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "child_themes",
+      "child_theme"
+    ]
+  },
+  "Report": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "reports",
+      "report"
+    ]
+  },
+  "UserCustomField": {
+    "fields": {
+      "user_id": "integer",
+      "name": "string",
+      "value": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_custom_fields",
+      "user_custom_field"
+    ]
+  },
+  "TopicPostersSummary": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "topic_posters_summaries",
+      "topic_posters_summary"
+    ]
+  },
+  "DirectoryItem": {
+    "fields": {
+      "period_type": "integer",
+      "user_id": "integer",
+      "likes_received": "integer",
+      "likes_given": "integer",
+      "topics_entered": "integer",
+      "topic_count": "integer",
+      "post_count": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "days_visited": "integer",
+      "posts_read": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "UserStat",
+        "rel": "has_one",
+        "field": "user_stat"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "directory_items",
+      "directory_item"
+    ]
+  },
+  "TopicFeaturedUsers": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "topic_featured_users",
+      "topic_featured_user"
+    ]
+  },
+  "TopicGroup": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_groups",
+      "topic_group"
+    ]
+  },
+  "GroupHistory": {
+    "fields": {
+      "group_id": "integer",
+      "acting_user_id": "integer",
+      "target_user_id": "integer",
+      "action": "integer",
+      "subject": "string",
+      "prev_value": "text",
+      "new_value": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "acting_user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "target_user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "group_histories",
+      "group_history"
+    ]
+  },
+  "LocaleSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "locale_site_settings",
+      "locale_site_setting"
+    ]
+  },
+  "OnceoffLog": {
+    "fields": {
+      "job_name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "onceoff_logs",
+      "onceoff_log"
+    ]
+  },
+  "TopicTag": {
+    "fields": {
+      "topic_id": "integer",
+      "tag_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "belongs_to",
+        "field": "tag"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_tags",
+      "topic_tag"
+    ]
+  },
+  "TopicAllowedGroup": {
+    "fields": {
+      "group_id": "integer",
+      "topic_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_allowed_groups",
+      "topic_allowed_group"
+    ]
+  },
+  "UserProfile": {
+    "fields": {
+      "location": "string",
+      "website": "string",
+      "bio_raw": "text",
+      "bio_cooked": "text",
+      "profile_background": "string",
+      "dismissed_banner_key": "integer",
+      "bio_cooked_version": "integer",
+      "badge_granted_title": "boolean",
+      "card_background": "string",
+      "views": "integer",
+      "profile_background_upload_id": "integer",
+      "card_background_upload_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "card_background_upload"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "profile_background_upload"
+      },
+      {
+        "class_name": "UserProfileView",
+        "rel": "has_many",
+        "field": "user_profile_views"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_profiles",
+      "user_profile"
+    ]
+  },
+  "TopicView": {
+    "fields": {
+      "topic_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_view_items",
+      "topic_view_item"
+    ]
+  },
+  "UserProfileView": {
+    "fields": {
+      "user_profile_id": "integer",
+      "viewed_at": "datetime",
+      "user_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "UserProfile",
+        "rel": "belongs_to",
+        "field": "user_profile"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_profile_views",
+      "user_profile_view"
+    ]
+  },
+  "PluginStore": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "plugin_stores",
+      "plugin_store"
+    ]
+  },
+  "Category": {
+    "fields": {
+      "name": "string",
+      "color": "string",
+      "topic_id": "integer",
+      "topic_count": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "user_id": "integer",
+      "topics_year": "integer",
+      "topics_month": "integer",
+      "topics_week": "integer",
+      "slug": "string",
+      "description": "text",
+      "text_color": "string",
+      "read_restricted": "boolean",
+      "auto_close_hours": "float",
+      "post_count": "integer",
+      "latest_post_id": "integer",
+      "latest_topic_id": "integer",
+      "position": "integer",
+      "parent_category_id": "integer",
+      "posts_year": "integer",
+      "posts_month": "integer",
+      "posts_week": "integer",
+      "email_in": "string",
+      "email_in_allow_strangers": "boolean",
+      "topics_day": "integer",
+      "posts_day": "integer",
+      "allow_badges": "boolean",
+      "name_lower": "string",
+      "auto_close_based_on_last_post": "boolean",
+      "topic_template": "text",
+      "contains_messages": "boolean",
+      "sort_order": "string",
+      "sort_ascending": "boolean",
+      "uploaded_logo_id": "integer",
+      "uploaded_background_id": "integer",
+      "topic_featured_link_allowed": "boolean",
+      "all_topics_wiki": "boolean",
+      "show_subcategory_list": "boolean",
+      "num_featured_topics": "integer",
+      "default_view": "string",
+      "subcategory_list_style": "string",
+      "default_top_period": "string",
+      "mailinglist_mirror": "boolean",
+      "suppress_from_latest": "boolean",
+      "minimum_required_tags": "integer",
+      "navigate_to_first_post_after_read": "boolean",
+      "search_priority": "integer",
+      "allow_global_tags": "boolean",
+      "reviewable_by_group_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic_only_relative_url"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "latest_post"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "uploaded_logo"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "uploaded_background"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "has_many",
+        "field": "topics"
+      },
+      {
+        "class_name": "CategoryUser",
+        "rel": "has_many",
+        "field": "category_users"
+      },
+      {
+        "class_name": "CategoryFeaturedTopic",
+        "rel": "has_many",
+        "field": "category_featured_topics"
+      },
+      {
+        "class_name": "Category",
+        "rel": "has_many",
+        "field": "featured_topics"
+      },
+      {
+        "class_name": "CategoryGroup",
+        "rel": "has_many",
+        "field": "category_groups"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "groups"
+      },
+      {
+        "class_name": "WebHook",
+        "rel": "has_and_belongs_to_many",
+        "field": "web_hooks"
+      },
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "parent_category"
+      },
+      {
+        "class_name": "Category",
+        "rel": "has_many",
+        "field": "subcategories"
+      },
+      {
+        "class_name": "CategoryTag",
+        "rel": "has_many",
+        "field": "category_tags"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "has_many",
+        "field": "tags"
+      },
+      {
+        "class_name": "CategoryTagGroup",
+        "rel": "has_many",
+        "field": "category_tag_groups"
+      },
+      {
+        "class_name": "TagGroup",
+        "rel": "has_many",
+        "field": "tag_groups"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "reviewable_by_group"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "categories",
+      "category"
+    ]
+  },
+  "Tag": {
+    "fields": {
+      "name": "string",
+      "topic_count": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "pm_topic_count": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "TagUser",
+        "rel": "has_many",
+        "field": "tag_users"
+      },
+      {
+        "class_name": "TopicTag",
+        "rel": "has_many",
+        "field": "topic_tags"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "has_many",
+        "field": "topics"
+      },
+      {
+        "class_name": "CategoryTag",
+        "rel": "has_many",
+        "field": "category_tags"
+      },
+      {
+        "class_name": "Category",
+        "rel": "has_many",
+        "field": "categories"
+      },
+      {
+        "class_name": "TagGroupMembership",
+        "rel": "has_many",
+        "field": "tag_group_memberships"
+      },
+      {
+        "class_name": "TagGroup",
+        "rel": "has_many",
+        "field": "tag_groups"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "tags",
+      "tag"
+    ]
+  },
+  "NewTopicDurationSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "new_topic_duration_site_settings",
+      "new_topic_duration_site_setting"
+    ]
+  },
+  "GroupManager": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "manager"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "group_managers",
+      "group_manager"
+    ]
+  },
+  "IgnoredUser": {
+    "fields": {
+      "user_id": "integer",
+      "ignored_user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "summarized_at": "datetime",
+      "expiring_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "ignored_user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "ignored_users",
+      "ignored_user"
+    ]
+  },
+  "ColorSchemeColor": {
+    "fields": {
+      "name": "string",
+      "hex": "string",
+      "color_scheme_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "ColorScheme",
+        "rel": "belongs_to",
+        "field": "color_scheme"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "color_scheme_colors",
+      "color_scheme_color"
+    ]
+  },
+  "UserBadge": {
+    "fields": {
+      "badge_id": "integer",
+      "user_id": "integer",
+      "granted_at": "datetime",
+      "granted_by_id": "integer",
+      "post_id": "integer",
+      "notification_id": "integer",
+      "seq": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Badge",
+        "rel": "belongs_to",
+        "field": "badge"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "granted_by"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "belongs_to",
+        "field": "notification"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_badges",
+      "user_badge"
+    ]
+  },
+  "UserAction": {
+    "fields": {
+      "action_type": "integer",
+      "user_id": "integer",
+      "target_topic_id": "integer",
+      "target_post_id": "integer",
+      "target_user_id": "integer",
+      "acting_user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "target_post"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "target_topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_actions",
+      "user_action"
+    ]
+  },
+  "UserAvatar": {
+    "fields": {
+      "user_id": "integer",
+      "custom_upload_id": "integer",
+      "gravatar_upload_id": "integer",
+      "last_gravatar_download_attempt": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "gravatar_upload"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "custom_upload"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_avatars",
+      "user_avatar"
+    ]
+  },
+  "GroupMention": {
+    "fields": {
+      "post_id": "integer",
+      "group_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "group_mentions",
+      "group_mention"
+    ]
+  },
+  "ReviewableScore": {
+    "fields": {
+      "reviewable_id": "integer",
+      "user_id": "integer",
+      "reviewable_score_type": "integer",
+      "status": "integer",
+      "score": "float",
+      "take_action_bonus": "float",
+      "reviewed_by_id": "integer",
+      "reviewed_at": "datetime",
+      "meta_topic_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "reason": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Reviewable",
+        "rel": "belongs_to",
+        "field": "reviewable"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "reviewed_by"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "meta_topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "reviewable_scores",
+      "reviewable_score"
+    ]
+  },
+  "ApplicationRequest": {
+    "fields": {
+      "date": "date",
+      "req_type": "integer",
+      "count": "integer"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "application_requests",
+      "application_request"
+    ]
+  },
+  "SkippedEmailLog": {
+    "fields": {
+      "email_type": "string",
+      "to_address": "string",
+      "user_id": "integer",
+      "post_id": "integer",
+      "reason_type": "integer",
+      "custom_reason": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "EmailLog",
+        "rel": "belongs_to",
+        "field": "email_log"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "has_one",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "skipped_email_logs",
+      "skipped_email_log"
+    ]
+  },
+  "GivenDailyLike": {
+    "fields": {
+      "user_id": "integer",
+      "likes_given": "integer",
+      "given_date": "date",
+      "limit_reached": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "given_daily_likes",
+      "given_daily_like"
+    ]
+  },
+  "UserStat": {
+    "fields": {
+      "user_id": "integer",
+      "topics_entered": "integer",
+      "time_read": "integer",
+      "days_visited": "integer",
+      "posts_read_count": "integer",
+      "likes_given": "integer",
+      "likes_received": "integer",
+      "topic_reply_count": "integer",
+      "new_since": "datetime",
+      "read_faq": "datetime",
+      "first_post_created_at": "datetime",
+      "post_count": "integer",
+      "topic_count": "integer",
+      "bounce_score": "float",
+      "reset_bounce_score_after": "datetime",
+      "flags_agreed": "integer",
+      "flags_disagreed": "integer",
+      "flags_ignored": "integer",
+      "first_unread_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_stats",
+      "user_stat"
+    ]
+  },
+  "TagUser": {
+    "fields": {
+      "tag_id": "integer",
+      "user_id": "integer",
+      "notification_level": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Tag",
+        "rel": "belongs_to",
+        "field": "tag"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "tag_users",
+      "tag_user"
+    ]
+  },
+  "UserWarning": {
+    "fields": {
+      "topic_id": "integer",
+      "user_id": "integer",
+      "created_by_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "created_by"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_warnings",
+      "user_warning"
+    ]
+  },
+  "IncomingEmail": {
+    "fields": {
+      "user_id": "integer",
+      "topic_id": "integer",
+      "post_id": "integer",
+      "raw": "text",
+      "error": "text",
+      "message_id": "text",
+      "from_address": "text",
+      "to_addresses": "text",
+      "cc_addresses": "text",
+      "subject": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "rejection_message": "text",
+      "is_auto_generated": "boolean",
+      "is_bounce": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "incoming_emails",
+      "incoming_email"
+    ]
+  },
+  "UserExport": {
+    "fields": {
+      "file_name": "string",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "upload_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "upload"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_exports",
+      "user_export"
+    ]
+  },
+  "JavascriptCache": {
+    "fields": {
+		"digest": "string",
+        "theme_field_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "ThemeField",
+        "rel": "belongs_to",
+        "field": "theme_field"
+      },
+      {
+        "class_name": "Theme",
+        "rel": "belongs_to",
+        "field": "theme"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "javascript_caches",
+      "javascript_cach"
+    ]
+  },
+  "TopicAllowedUser": {
+    "fields": {
+      "user_id": "integer",
+      "topic_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_allowed_users",
+      "topic_allowed_user"
+    ]
+  },
+  "Developer": {
+    "fields": {
+      "user_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "developers",
+      "developer"
+    ]
+  },
+  "PostRevision": {
+    "fields": {
+      "user_id": "integer",
+      "post_id": "integer",
+      "modifications": "text",
+      "number": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "hidden": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_revisions",
+      "post_revision"
+    ]
+  },
+  "ReviewableUser": {
+    "fields": {
+      "type": "string",
+      "status": "integer",
+      "created_by_id": "integer",
+      "reviewable_by_moderator": "boolean",
+      "reviewable_by_group_id": "integer",
+      "category_id": "integer",
+      "topic_id": "integer",
+      "score": "float",
+      "potential_spam": "boolean",
+      "target_id": "integer",
+      "target_type": "string",
+      "target_created_by_id": "integer",
+      "version": "integer",
+      "latest_score": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Reviewable",
+    "table_name": [
+      "reviewable_users",
+      "reviewable_user"
+    ]
+  },
+  "ReviewableFlaggedPost": {
+    "fields": {
+      "type": "string",
+      "status": "integer",
+      "created_by_id": "integer",
+      "reviewable_by_moderator": "boolean",
+      "reviewable_by_group_id": "integer",
+      "category_id": "integer",
+      "topic_id": "integer",
+      "score": "float",
+      "potential_spam": "boolean",
+      "target_id": "integer",
+      "target_type": "string",
+      "target_created_by_id": "integer",
+      "version": "integer",
+      "latest_score": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "Reviewable",
+    "table_name": [
+      "reviewable_flagged_posts",
+      "reviewable_flagged_post"
+    ]
+  },
+  "AutoTrackDurationSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "auto_track_duration_site_settings",
+      "auto_track_duration_site_setting"
+    ]
+  },
+  "TopicPoster": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "OpenStruct",
+    "table_name": [
+      "topic_posters",
+      "topic_poster"
+    ]
+  },
+  "GroupArchivedMessage": {
+    "fields": {
+      "group_id": "integer",
+      "topic_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "group_archived_messages",
+      "group_archived_message"
+    ]
+  },
+  "TopicLink": {
+    "fields": {
+      "topic_id": "integer",
+      "post_id": "integer",
+      "user_id": "integer",
+      "url": "string",
+      "domain": "string",
+      "internal": "boolean",
+      "link_topic_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "reflection": "boolean",
+      "clicks": "integer",
+      "link_post_id": "integer",
+      "title": "string",
+      "crawled_at": "datetime",
+      "quote": "boolean",
+      "extension": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "link_topic"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "link_post"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "TopicLinkClick",
+        "rel": "has_many",
+        "field": "topic_link_clicks"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_links",
+      "topic_link"
+    ]
+  },
+  "ThemeField": {
+    "fields": {
+      "theme_id": "integer",
+      "target_id": "integer",
+      "name": "string",
+      "value": "text",
+      "value_baked": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "compiler_version": "integer",
+      "error": "string",
+      "upload_id": "integer",
+      "type_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "upload"
+      },
+      {
+        "class_name": "JavascriptCache",
+        "rel": "has_one",
+        "field": "javascript_cache"
+      },
+      {
+        "class_name": "Theme",
+        "rel": "belongs_to",
+        "field": "theme"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "theme_fields",
+      "theme_field"
+    ]
+  },
+  "ThemeFileMatcher": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "theme_file_matchers",
+      "theme_file_matcher"
+    ]
+  },
+  "CategoryGroup": {
+    "fields": {
+      "category_id": "integer",
+      "group_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "permission_type": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "category_groups",
+      "category_group"
+    ]
+  },
+  "PushSubscription": {
+    "fields": {
+      "user_id": "integer",
+      "data": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "push_subscriptions",
+      "push_subscription"
+    ]
+  },
+  "UserSecondFactor": {
+    "fields": {
+      "user_id": "integer",
+      "method": "integer",
+      "data": "string",
+      "enabled": "boolean",
+      "last_used": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_second_factors",
+      "user_second_factor"
+    ]
+  },
+  "OptimizedImage": {
+    "fields": {
+      "sha1": "string",
+      "extension": "string",
+      "width": "integer",
+      "height": "integer",
+      "upload_id": "integer",
+      "url": "string",
+      "filesize": "integer",
+      "etag": "string",
+      "version": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "upload"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "optimized_images",
+      "optimized_image"
+    ]
+  },
+  "WebHookEvent": {
+    "fields": {
+      "web_hook_id": "integer",
+      "headers": "string",
+      "payload": "text",
+      "status": "integer",
+      "response_headers": "string",
+      "response_body": "text",
+      "duration": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "WebHook",
+        "rel": "belongs_to",
+        "field": "web_hook"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "web_hook_events",
+      "web_hook_event"
+    ]
+  },
+  "Oauth2UserInfo": {
+    "fields": {
+      "user_id": "integer",
+      "uid": "string",
+      "provider": "string",
+      "email": "string",
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "oauth2_user_infos",
+      "oauth2_user_info"
+    ]
+  },
+  "SharedDraft": {
+    "fields": {
+      "topic_id": "integer",
+      "category_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "shared_drafts",
+      "shared_draft"
+    ]
+  },
+  "DraftSequence": {
+    "fields": {
+      "user_id": "integer",
+      "draft_key": "string",
+      "sequence": "integer"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "draft_sequences",
+      "draft_sequence"
+    ]
+  },
+  "EmailLog": {
+    "fields": {
+      "to_address": "string",
+      "email_type": "string",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "post_id": "integer",
+      "bounced": "boolean",
+      "message_id": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "has_one",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "email_logs",
+      "email_log"
+    ]
+  },
+  "TopicUser": {
+    "fields": {
+      "user_id": "integer",
+      "topic_id": "integer",
+      "posted": "boolean",
+      "last_read_post_number": "integer",
+      "highest_seen_post_number": "integer",
+      "last_visited_at": "datetime",
+      "first_visited_at": "datetime",
+      "notification_level": "integer",
+      "notifications_changed_at": "datetime",
+      "notifications_reason_id": "integer",
+      "total_msecs_viewed": "integer",
+      "cleared_pinned_at": "datetime",
+      "last_emailed_post_number": "integer",
+      "liked": "boolean",
+      "bookmarked": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_users",
+      "topic_user"
+    ]
+  },
+  "UsernameValidator": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "username_validators",
+      "username_validator"
+    ]
+  },
+  "TopMenuItem": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "top_menu_items",
+      "top_menu_item"
+    ]
+  },
+  "CategoryPageStyle": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "category_page_styles",
+      "category_page_style"
+    ]
+  },
+  "TopicLinkClick": {
+    "fields": {
+      "topic_link_id": "integer",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "TopicLink",
+        "rel": "belongs_to",
+        "field": "topic_link"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_link_clicks",
+      "topic_link_click"
+    ]
+  },
+  "UserAuthToken": {
+    "fields": {
+      "user_id": "integer",
+      "auth_token": "string",
+      "prev_auth_token": "string",
+      "user_agent": "string",
+      "auth_token_seen": "boolean",
+      "rotated_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "seen_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_auth_tokens",
+      "user_auth_token"
+    ]
+  },
+  "ReviewableHistory": {
+    "fields": {
+      "reviewable_id": "integer",
+      "reviewable_history_type": "integer",
+      "status": "integer",
+      "created_by_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Reviewable",
+        "rel": "belongs_to",
+        "field": "reviewable"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "created_by"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "reviewable_histories",
+      "reviewable_history"
+    ]
+  },
+  "PostReply": {
+    "fields": {
+      "post_id": "integer",
+      "reply_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "reply"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_replies",
+      "post_reply"
+    ]
+  },
+  "CategoryTag": {
+    "fields": {
+      "category_id": "integer",
+      "tag_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "belongs_to",
+        "field": "tag"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "category_tags",
+      "category_tag"
+    ]
+  },
+  "UserField": {
+    "fields": {
+      "name": "string",
+      "field_type": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "editable": "boolean",
+      "description": "string",
+      "required": "boolean",
+      "show_on_profile": "boolean",
+      "position": "integer",
+      "show_on_user_card": "boolean",
+      "external_name": "string",
+      "external_type": "string"
+    },
+    "associations": [
+      {
+        "class_name": "UserFieldOption",
+        "rel": "has_many",
+        "field": "user_field_options"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_fields",
+      "user_field"
+    ]
+  },
+  "Topic": {
+    "fields": {
+      "title": "string",
+      "last_posted_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "views": "integer",
+      "posts_count": "integer",
+      "user_id": "integer",
+      "last_post_user_id": "integer",
+      "reply_count": "integer",
+      "featured_user1_id": "integer",
+      "featured_user2_id": "integer",
+      "featured_user3_id": "integer",
+      "avg_time": "integer",
+      "deleted_at": "datetime",
+      "highest_post_number": "integer",
+      "image_url": "string",
+      "like_count": "integer",
+      "incoming_link_count": "integer",
+      "category_id": "integer",
+      "visible": "boolean",
+      "moderator_posts_count": "integer",
+      "closed": "boolean",
+      "archived": "boolean",
+      "bumped_at": "datetime",
+      "has_summary": "boolean",
+      "archetype": "string",
+      "featured_user4_id": "integer",
+      "notify_moderators_count": "integer",
+      "spam_count": "integer",
+      "pinned_at": "datetime",
+      "score": "float",
+      "percent_rank": "float",
+      "subtype": "string",
+      "slug": "string",
+      "deleted_by_id": "integer",
+      "participant_count": "integer",
+      "word_count": "integer",
+      "excerpt": "string",
+      "pinned_globally": "boolean",
+      "pinned_until": "datetime",
+      "fancy_title": "string",
+      "highest_staff_post_number": "integer",
+      "featured_link": "string",
+      "reviewable_score": "float"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topics",
+      "topic"
+    ]
+  },
+  "UserExists": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "user_exists",
+      "user_exist"
+    ]
+  },
+  "CategoryUser": {
+    "fields": {
+      "category_id": "integer",
+      "user_id": "integer",
+      "notification_level": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "category_users",
+      "category_user"
+    ]
+  },
+  "WatchedWord": {
+    "fields": {
+      "word": "string",
+      "action": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "watched_words",
+      "watched_word"
+    ]
+  },
+  "PostTiming": {
+    "fields": {
+      "topic_id": "integer",
+      "post_number": "integer",
+      "user_id": "integer",
+      "msecs": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_timings",
+      "post_timing"
+    ]
+  },
+  "TopicNotifier": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "topic_notifiers",
+      "topic_notifier"
+    ]
+  },
+  "TopLists": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "top_lists",
+      "top_list"
+    ]
+  },
+  "ThemeTranslationOverride": {
+    "fields": {
+      "theme_id": "integer",
+      "locale": "string",
+      "translation_key": "string",
+      "value": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Theme",
+        "rel": "belongs_to",
+        "field": "theme"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "theme_translation_overrides",
+      "theme_translation_override"
+    ]
+  },
+  "Group": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "automatic": "boolean",
+      "user_count": "integer",
+      "automatic_membership_email_domains": "text",
+      "automatic_membership_retroactive": "boolean",
+      "primary_group": "boolean",
+      "title": "string",
+      "grant_trust_level": "integer",
+      "incoming_email": "string",
+      "has_messages": "boolean",
+      "flair_url": "string",
+      "flair_bg_color": "string",
+      "flair_color": "string",
+      "bio_raw": "text",
+      "bio_cooked": "text",
+      "allow_membership_requests": "boolean",
+      "full_name": "string",
+      "default_notification_level": "integer",
+      "visibility_level": "integer",
+      "public_exit": "boolean",
+      "public_admission": "boolean",
+      "membership_request_template": "text",
+      "messageable_level": "integer",
+      "mentionable_level": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "CategoryGroup",
+        "rel": "has_many",
+        "field": "category_groups"
+      },
+      {
+        "class_name": "GroupUser",
+        "rel": "has_many",
+        "field": "group_users"
+      },
+      {
+        "class_name": "GroupRequest",
+        "rel": "has_many",
+        "field": "group_requests"
+      },
+      {
+        "class_name": "GroupMention",
+        "rel": "has_many",
+        "field": "group_mentions"
+      },
+      {
+        "class_name": "GroupArchivedMessage",
+        "rel": "has_many",
+        "field": "group_archived_messages"
+      },
+      {
+        "class_name": "Category",
+        "rel": "has_many",
+        "field": "categories"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "users"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "requesters"
+      },
+      {
+        "class_name": "GroupHistory",
+        "rel": "has_many",
+        "field": "group_histories"
+      },
+      {
+        "class_name": "Category",
+        "rel": "has_many",
+        "field": "category_reviews"
+      },
+      {
+        "class_name": "Reviewable",
+        "rel": "has_many",
+        "field": "reviewables"
+      },
+      {
+        "class_name": "WebHook",
+        "rel": "has_and_belongs_to_many",
+        "field": "web_hooks"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "groups",
+      "group"
+    ]
+  },
+  "UserArchivedMessage": {
+    "fields": {
+      "user_id": "integer",
+      "topic_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_archived_messages",
+      "user_archived_message"
+    ]
+  },
+  "TopicConverter": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "topic_converters",
+      "topic_converter"
+    ]
+  },
+  "ScreenedIpAddress": {
+    "fields": {
+      "action_type": "integer",
+      "match_count": "integer",
+      "last_match_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "screened_ip_addresses",
+      "screened_ip_address"
+    ]
+  },
+  "UserOption": {
+    "fields": {
+      "user_id": "integer",
+      "mailing_list_mode": "boolean",
+      "email_digests": "boolean",
+      "external_links_in_new_tab": "boolean",
+      "enable_quoting": "boolean",
+      "dynamic_favicon": "boolean",
+      "disable_jump_reply": "boolean",
+      "automatically_unpin_topics": "boolean",
+      "digest_after_minutes": "integer",
+      "auto_track_topics_after_msecs": "integer",
+      "new_topic_duration_minutes": "integer",
+      "last_redirected_to_top_at": "datetime",
+      "email_previous_replies": "integer",
+      "email_in_reply_to": "boolean",
+      "like_notification_frequency": "integer",
+      "mailing_list_mode_frequency": "integer",
+      "include_tl0_in_digests": "boolean",
+      "notification_level_when_replying": "integer",
+      "theme_key_seq": "integer",
+      "allow_private_messages": "boolean",
+      "homepage_id": "integer",
+      "theme_ids": "integer",
+      "hide_profile_and_presence": "boolean",
+      "text_size_key": "integer",
+      "text_size_seq": "integer",
+      "email_level": "integer",
+      "email_messages_level": "integer",
+      "title_count_mode_key": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_options",
+      "user_option"
+    ]
+  },
+  "CategoryList": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "category_lists",
+      "category_list"
+    ]
+  },
+  "ReviewablePrioritySetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "reviewable_priority_settings",
+      "reviewable_priority_setting"
+    ]
+  },
+  "PreviousRepliesSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "previous_replies_site_settings",
+      "previous_replies_site_setting"
+    ]
+  },
+  "ScreenedEmail": {
+    "fields": {
+      "email": "string",
+      "action_type": "integer",
+      "match_count": "integer",
+      "last_match_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "screened_emails",
+      "screened_email"
+    ]
+  },
+  "UserVisit": {
+    "fields": {
+      "user_id": "integer",
+      "visited_at": "date",
+      "posts_read": "integer",
+      "mobile": "boolean",
+      "time_read": "integer"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_visits",
+      "user_visit"
+    ]
+  },
+  "SlugSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "slug_settings",
+      "slug_setting"
+    ]
+  },
+  "CustomEmoji": {
+    "fields": {
+      "name": "string",
+      "upload_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "upload"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "custom_emojis",
+      "custom_emoji"
+    ]
+  },
+  "TagSearchData": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "tag_search_data",
+      "tag_search_datum"
+    ]
+  },
+  "PostDetail": {
+    "fields": {
+      "post_id": "integer",
+      "key": "string",
+      "value": "string",
+      "extra": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_details",
+      "post_detail"
+    ]
+  },
+  "UserSecurityKey": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_security_keys",
+      "user_security_key"
+    ]
+  },
+  "AdminDashboardGeneralData": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "AdminDashboardData",
+    "table_name": [
+      "admin_dashboard_general_data",
+      "admin_dashboard_general_datum"
+    ]
+  },
+  "UserUpload": {
+    "fields": {
+      "upload_id": "integer",
+      "user_id": "integer",
+      "created_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "upload"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_uploads",
+      "user_upload"
+    ]
+  },
+  "ScreenedUrl": {
+    "fields": {
+      "url": "string",
+      "domain": "string",
+      "action_type": "integer",
+      "match_count": "integer",
+      "last_match_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "screened_urls",
+      "screened_url"
+    ]
+  },
+  "TopicList": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "topic_lists",
+      "topic_list"
+    ]
+  },
+  "Reviewable": {
+    "fields": {
+      "type": "string",
+      "status": "integer",
+      "created_by_id": "integer",
+      "reviewable_by_moderator": "boolean",
+      "reviewable_by_group_id": "integer",
+      "category_id": "integer",
+      "topic_id": "integer",
+      "score": "float",
+      "potential_spam": "boolean",
+      "target_id": "integer",
+      "target_type": "string",
+      "target_created_by_id": "integer",
+      "version": "integer",
+      "latest_score": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "created_by"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "reviewables",
+      "reviewable"
+    ]
+  },
+  "UpdateConflict": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "update_conflicts",
+      "update_conflict"
+    ]
+  },
+  "InvalidAction": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "invalid_actions",
+      "invalid_action"
+    ]
+  },
+  "ApiKey": {
+    "fields": {
+      "key": "string",
+      "user_id": "integer",
+      "created_by_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "hidden": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "created_by"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "api_keys",
+      "api_key"
+    ]
+  },
+  "TranslationOverride": {
+    "fields": {
+      "locale": "string",
+      "translation_key": "string",
+      "value": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "compiled_js": "text"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "translation_overrides",
+      "translation_override"
+    ]
+  },
+  "EmailToken": {
+    "fields": {
+      "user_id": "integer",
+      "email": "string",
+      "token": "string",
+      "confirmed": "boolean",
+      "expired": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "email_tokens",
+      "email_token"
+    ]
+  },
+  "RemoteTheme": {
+    "fields": {
+      "remote_url": "string",
+      "remote_version": "string",
+      "local_version": "string",
+      "about_url": "string",
+      "license_url": "string",
+      "commits_behind": "integer",
+      "remote_updated_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "private_key": "text",
+      "branch": "string",
+      "last_error_text": "text",
+      "authors": "string",
+      "theme_version": "string",
+      "minimum_discourse_version": "string",
+      "maximum_discourse_version": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "remote_themes",
+      "remote_theme"
+    ]
+  },
+  "ImportError": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "import_errors",
+      "import_error"
+    ]
+  },
+  "StylesheetCache": {
+    "fields": {
+      "target": "string",
+      "digest": "string",
+      "content": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "theme_id": "integer",
+      "source_map": "text"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "stylesheet_caches",
+      "stylesheet_cach"
+    ]
+  },
+  "EmailChangeRequest": {
+    "fields": {
+      "user_id": "integer",
+      "old_email": "string",
+      "new_email": "string",
+      "old_email_token_id": "integer",
+      "new_email_token_id": "integer",
+      "change_state": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "EmailToken",
+        "rel": "belongs_to",
+        "field": "old_email_token"
+      },
+      {
+        "class_name": "EmailToken",
+        "rel": "belongs_to",
+        "field": "new_email_token"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "email_change_requests",
+      "email_change_request"
+    ]
+  },
+  "IncomingLinksReport": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "incoming_links_reports",
+      "incoming_links_report"
+    ]
+  },
+  "Site": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "sites",
+      "site"
+    ]
+  },
+  "EmailStyle": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "email_styles",
+      "email_style"
+    ]
+  },
+  "DiscourseVersionCheck": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "discourse_version_checks",
+      "discourse_version_check"
+    ]
+  },
+  "SiteSetting": {
+    "fields": {
+      "name": "string",
+      "data_type": "integer",
+      "value": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "site_settings",
+      "site_setting"
+    ]
+  },
+  "Upload": {
+    "fields": {
+      "user_id": "integer",
+      "original_filename": "string",
+      "filesize": "integer",
+      "width": "integer",
+      "height": "integer",
+      "url": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "sha1": "string",
+      "origin": "string",
+      "retain_hours": "integer",
+      "extension": "string",
+      "thumbnail_width": "integer",
+      "thumbnail_height": "integer",
+      "etag": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "PostUpload",
+        "rel": "has_many",
+        "field": "post_uploads"
+      },
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "posts"
+      },
+      {
+        "class_name": "OptimizedImage",
+        "rel": "has_many",
+        "field": "optimized_images"
+      },
+      {
+        "class_name": "UserUpload",
+        "rel": "has_many",
+        "field": "user_uploads"
+      }
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "uploads",
+      "upload"
+    ]
+  },
+  "IncomingReferer": {
+    "fields": {
+      "path": "string",
+      "incoming_domain_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "IncomingDomain",
+        "rel": "belongs_to",
+        "field": "incoming_domain"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "incoming_referers",
+      "incoming_referer"
+    ]
+  },
+  "TopicEmbed": {
+    "fields": {
+      "topic_id": "integer",
+      "post_id": "integer",
+      "embed_url": "string",
+      "content_sha1": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "deleted_at": "datetime",
+      "deleted_by_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_embeds",
+      "topic_embed"
+    ]
+  },
+  "FetchResponse": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "fetch_responses",
+      "fetch_response"
+    ]
+  },
+  "CategoryFeaturedTopic": {
+    "fields": {
+      "category_id": "integer",
+      "topic_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "rank": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "category_featured_topics",
+      "category_featured_topic"
+    ]
+  },
+  "TagGroup": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "parent_tag_id": "integer",
+      "one_per_topic": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "TagGroupMembership",
+        "rel": "has_many",
+        "field": "tag_group_memberships"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "has_many",
+        "field": "tags"
+      },
+      {
+        "class_name": "CategoryTagGroup",
+        "rel": "has_many",
+        "field": "category_tag_groups"
+      },
+      {
+        "class_name": "Category",
+        "rel": "has_many",
+        "field": "categories"
+      },
+      {
+        "class_name": "TagGroupPermission",
+        "rel": "has_many",
+        "field": "tag_group_permissions"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "belongs_to",
+        "field": "parent_tag"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "tag_groups",
+      "tag_group"
+    ]
+  },
+  "AnonymousUser": {
+    "fields": {
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "master_user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "anonymous_users",
+      "anonymous_user"
+    ]
+  },
+  "Permalink": {
+    "fields": {
+      "url": "string",
+      "topic_id": "integer",
+      "post_id": "integer",
+      "category_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "external_url": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "permalinks",
+      "permalink"
+    ]
+  },
+  "Normalizer": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "normalizers",
+      "normalizer"
+    ]
+  },
+  "RemoveMutedTagsFromLatestSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "remove_muted_tags_from_latest_site_settings",
+      "remove_muted_tags_from_latest_site_setting"
+    ]
+  },
+  "InvitedGroup": {
+    "fields": {
+      "group_id": "integer",
+      "invite_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "Invite",
+        "rel": "belongs_to",
+        "field": "invite"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "invited_groups",
+      "invited_group"
+    ]
+  },
+  "UserFieldOption": {
+    "fields": {
+      "user_field_id": "integer",
+      "value": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_field_options",
+      "user_field_option"
+    ]
+  },
+  "BackupMetadata": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "backup_metadata",
+      "backup_metadatum"
+    ]
+  },
+  "GroupRequest": {
+    "fields": {
+      "group_id": "integer",
+      "user_id": "integer",
+      "reason": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "group_requests",
+      "group_request"
+    ]
+  },
+  "UserAuthTokenLog": {
+    "fields": {
+      "action": "string",
+      "user_auth_token_id": "integer",
+      "user_id": "integer",
+      "user_agent": "string",
+      "auth_token": "string",
+      "created_at": "datetime",
+      "path": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_auth_token_logs",
+      "user_auth_token_log"
+    ]
+  },
+  "PostStat": {
+    "fields": {
+      "post_id": "integer",
+      "drafts_saved": "integer",
+      "typing_duration_msecs": "integer",
+      "composer_open_duration_msecs": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_stats",
+      "post_stat"
+    ]
+  },
+  "PostReplyKey": {
+    "fields": {
+      "user_id": "integer",
+      "post_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_reply_keys",
+      "post_reply_key"
+    ]
+  },
+  "About": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "abouts",
+      "about"
+    ]
+  },
+  "CategoryMods": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "category_mods",
+      "category_mod"
+    ]
+  },
+  "Badge": {
+    "fields": {
+      "name": "string",
+      "description": "text",
+      "badge_type_id": "integer",
+      "grant_count": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "allow_title": "boolean",
+      "multiple_grant": "boolean",
+      "icon": "string",
+      "listable": "boolean",
+      "target_posts": "boolean",
+      "query": "text",
+      "enabled": "boolean",
+      "auto_revoke": "boolean",
+      "badge_grouping_id": "integer",
+      "trigger": "integer",
+      "show_posts": "boolean",
+      "system": "boolean",
+      "image": "string",
+      "long_description": "text"
+    },
+    "associations": [
+      {
+        "class_name": "BadgeType",
+        "rel": "belongs_to",
+        "field": "badge_type"
+      },
+      {
+        "class_name": "BadgeGrouping",
+        "rel": "belongs_to",
+        "field": "badge_grouping"
+      },
+      {
+        "class_name": "UserBadge",
+        "rel": "has_many",
+        "field": "user_badges"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "badges",
+      "badge"
+    ]
+  },
+  "NotificationLevelWhenReplyingSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "notification_level_when_replying_site_settings",
+      "notification_level_when_replying_site_setting"
+    ]
+  },
+  "ColorScheme": {
+    "fields": {
+      "name": "string",
+      "version": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "via_wizard": "boolean",
+      "base_scheme_id": "string",
+      "theme_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "ColorSchemeColor",
+        "rel": "has_many",
+        "field": "color_scheme_colors"
+      },
+      {
+        "class_name": "Theme",
+        "rel": "belongs_to",
+        "field": "theme"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "color_schemes",
+      "color_scheme"
+    ]
+  },
+  "PostActionType": {
+    "fields": {
+      "name_key": "string",
+      "is_flag": "boolean",
+      "icon": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "position": "integer",
+      "score_bonus": "float",
+      "reviewable_priority": "integer"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_action_types",
+      "post_action_type"
+    ]
+  },
+  "ReviewableQueuedPost": {
+    "fields": {
+      "type": "string",
+      "status": "integer",
+      "created_by_id": "integer",
+      "reviewable_by_moderator": "boolean",
+      "reviewable_by_group_id": "integer",
+      "category_id": "integer",
+      "topic_id": "integer",
+      "score": "float",
+      "potential_spam": "boolean",
+      "target_id": "integer",
+      "target_type": "string",
+      "target_created_by_id": "integer",
+      "version": "integer",
+      "latest_score": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "created_by"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "Reviewable",
+    "table_name": [
+      "reviewable_queued_posts",
+      "reviewable_queued_post"
+    ]
+  },
+  "Notification": {
+    "fields": {
+      "notification_type": "integer",
+      "user_id": "integer",
+      "data": "string",
+      "read": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "topic_id": "integer",
+      "post_number": "integer",
+      "post_action_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "notifications",
+      "notification"
+    ]
+  },
+  "Emoji": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "emojis",
+      "emoji"
+    ]
+  },
+  "EmojiSetSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "emoji_set_site_settings",
+      "emoji_set_site_setting"
+    ]
+  },
+  "BackupLocationSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "backup_location_site_settings",
+      "backup_location_site_setting"
+    ]
+  },
+  "UserAssociatedAccount": {
+    "fields": {
+      "provider_name": "string",
+      "provider_uid": "string",
+      "user_id": "integer",
+      "last_used": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_associated_accounts",
+      "user_associated_account"
+    ]
+  },
+  "ReviewableSensitivitySetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "reviewable_sensitivity_settings",
+      "reviewable_sensitivity_setting"
+    ]
+  },
+  "UserSearchData": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_search_data",
+      "user_search_datum"
+    ]
+  },
+  "PostMover": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "post_movers",
+      "post_mover"
+    ]
+  },
+  "CategoryCustomField": {
+    "fields": {
+      "category_id": "integer",
+      "name": "string",
+      "value": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "category_custom_fields",
+      "category_custom_field"
+    ]
+  },
+  "ThemeSetting": {
+    "fields": {
+      "name": "string",
+      "data_type": "integer",
+      "value": "text",
+      "theme_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Theme",
+        "rel": "belongs_to",
+        "field": "theme"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "theme_settings",
+      "theme_setting"
+    ]
+  },
+  "SearchLog": {
+    "fields": {
+      "term": "string",
+      "user_id": "integer",
+      "search_result_id": "integer",
+      "search_type": "integer",
+      "created_at": "datetime",
+      "search_result_type": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "search_logs",
+      "search_log"
+    ]
+  },
+  "Invite": {
+    "fields": {
+      "invite_key": "string",
+      "email": "string",
+      "invited_by_id": "integer",
+      "user_id": "integer",
+      "redeemed_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "deleted_at": "datetime",
+      "deleted_by_id": "integer",
+      "invalidated_at": "datetime",
+      "moderator": "boolean",
+      "custom_message": "text",
+      "via_email": "boolean"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "invites",
+      "invite"
+    ]
+  },
+  "UserExists": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "user_exists",
+      "user_exist"
+    ]
+  },
+  "S3RegionSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "s3_region_site_settings",
+      "s3_region_site_setting"
+    ]
+  },
+  "PostAction": {
+    "fields": {
+      "post_id": "integer",
+      "user_id": "integer",
+      "post_action_type_id": "integer",
+      "deleted_at": "datetime",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "deleted_by_id": "integer",
+      "related_post_id": "integer",
+      "staff_took_action": "boolean",
+      "deferred_by_id": "integer",
+      "targets_topic": "boolean",
+      "agreed_at": "datetime",
+      "agreed_by_id": "integer",
+      "deferred_at": "datetime",
+      "disagreed_at": "datetime",
+      "disagreed_by_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "PostActionType",
+        "rel": "belongs_to",
+        "field": "post_action_type"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "related_post"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "target_user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_actions",
+      "post_action"
+    ]
+  },
+  "ReviewableClaimedTopic": {
+    "fields": {
+      "user_id": "integer",
+      "topic_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "reviewable_claimed_topics",
+      "reviewable_claimed_topic"
+    ]
+  },
+  "UserHistory": {
+    "fields": {
+      "action": "integer",
+      "acting_user_id": "integer",
+      "target_user_id": "integer",
+      "details": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "context": "string",
+      "ip_address": "string",
+      "email": "string",
+      "subject": "text",
+      "previous_value": "text",
+      "new_value": "text",
+      "topic_id": "integer",
+      "admin_only": "boolean",
+      "post_id": "integer",
+      "custom_type": "string",
+      "category_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "acting_user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "target_user"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_histories",
+      "user_history"
+    ]
+  },
+  "WebHook": {
+    "fields": {
+      "payload_url": "string",
+      "content_type": "integer",
+      "last_delivery_status": "integer",
+      "status": "integer",
+      "secret": "string",
+      "wildcard_web_hook": "boolean",
+      "verify_certificate": "boolean",
+      "active": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "WebHookEventType",
+        "rel": "has_and_belongs_to_many",
+        "field": "web_hook_event_types"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_and_belongs_to_many",
+        "field": "groups"
+      },
+      {
+        "class_name": "Category",
+        "rel": "has_and_belongs_to_many",
+        "field": "categories"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "has_and_belongs_to_many",
+        "field": "tags"
+      },
+      {
+        "class_name": "WebHookEvent",
+        "rel": "has_many",
+        "field": "web_hook_events"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "web_hooks",
+      "web_hook"
+    ]
+  },
+  "BackupFile": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "backup_files",
+      "backup_file"
+    ]
+  },
+  "TopicTrackingState": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "topic_tracking_states",
+      "topic_tracking_state"
+    ]
+  },
+  "CategoryTagGroup": {
+    "fields": {
+      "category_id": "integer",
+      "tag_group_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      },
+      {
+        "class_name": "TagGroup",
+        "rel": "belongs_to",
+        "field": "tag_group"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "category_tag_groups",
+      "category_tag_group"
+    ]
+  },
+  "LikeNotificationFrequencySiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "like_notification_frequency_site_settings",
+      "like_notification_frequency_site_setting"
+    ]
+  },
+  "EmbeddableHost": {
+    "fields": {
+      "host": "string",
+      "category_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "path_whitelist": "string",
+      "class_name": "string"
+    },
+    "associations": [
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "embeddable_hosts",
+      "embeddable_host"
+    ]
+  },
+  "UserApiKey": {
+    "fields": {
+      "user_id": "integer",
+      "client_id": "string",
+      "key": "string",
+      "application_name": "string",
+      "push_url": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "revoked_at": "datetime",
+      "scopes": "text",
+      "last_used_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_api_keys",
+      "user_api_key"
+    ]
+  },
+  "UserOpenId": {
+    "fields": {
+      "user_id": "integer",
+      "email": "string",
+      "url": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "active": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_open_ids",
+      "user_open_id"
+    ]
+  },
+  "MutedUser": {
+    "fields": {
+      "user_id": "integer",
+      "muted_user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "muted_user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "muted_users",
+      "muted_user"
+    ]
+  },
+  "PostCustomField": {
+    "fields": {
+      "post_id": "integer",
+      "name": "string",
+      "value": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_custom_fields",
+      "post_custom_field"
+    ]
+  },
+  "GroupUser": {
+    "fields": {
+      "group_id": "integer",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "owner": "boolean",
+      "notification_level": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "group_users",
+      "group_user"
+    ]
+  },
+  "QuotedPost": {
+    "fields": {
+      "post_id": "integer",
+      "quoted_post_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "quoted_post"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "quoted_posts",
+      "quoted_post"
+    ]
+  },
+  "BadgeGrouping": {
+    "fields": {
+      "name": "string",
+      "description": "text",
+      "position": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Badge",
+        "rel": "has_many",
+        "field": "badges"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "badge_groupings",
+      "badge_grouping"
+    ]
+  },
+  "CategorySearchData": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "category_search_data",
+      "category_search_datum"
+    ]
+  },
+  "TopTopic": {
+    "fields": {
+      "topic_id": "integer",
+      "yearly_posts_count": "integer",
+      "yearly_views_count": "integer",
+      "yearly_likes_count": "integer",
+      "monthly_posts_count": "integer",
+      "monthly_views_count": "integer",
+      "monthly_likes_count": "integer",
+      "weekly_posts_count": "integer",
+      "weekly_views_count": "integer",
+      "weekly_likes_count": "integer",
+      "daily_posts_count": "integer",
+      "daily_views_count": "integer",
+      "daily_likes_count": "integer",
+      "daily_score": "float",
+      "weekly_score": "float",
+      "monthly_score": "float",
+      "yearly_score": "float",
+      "all_score": "float",
+      "daily_op_likes_count": "integer",
+      "weekly_op_likes_count": "integer",
+      "monthly_op_likes_count": "integer",
+      "yearly_op_likes_count": "integer",
+      "quarterly_posts_count": "integer",
+      "quarterly_views_count": "integer",
+      "quarterly_likes_count": "integer",
+      "quarterly_score": "float",
+      "quarterly_op_likes_count": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "top_topics",
+      "top_topic"
+    ]
+  },
+  "MailingListModeSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "mailing_list_mode_site_settings",
+      "mailing_list_mode_site_setting"
+    ]
+  },
+  "GlobalSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "global_settings",
+      "global_setting"
+    ]
+  },
+  "BaseProvider": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "base_providers",
+      "base_provider"
+    ]
+  },
+  "FileProvider": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "BaseProvider",
+    "table_name": [
+      "file_providers",
+      "file_provider"
+    ]
+  },
+  "EnvProvider": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "BaseProvider",
+    "table_name": [
+      "env_providers",
+      "env_provider"
+    ]
+  },
+  "BlankProvider": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "BaseProvider",
+    "table_name": [
+      "blank_providers",
+      "blank_provider"
+    ]
+  },
+  "TopicCustomField": {
+    "fields": {
+      "topic_id": "integer",
+      "name": "string",
+      "value": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_custom_fields",
+      "topic_custom_field"
+    ]
+  },
+  "CategoryTagStat": {
+    "fields": {
+      "topic_count": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      },
+      {
+        "class_name": "Tag",
+        "rel": "belongs_to",
+        "field": "tag"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "category_tag_stats",
+      "category_tag_stat"
+    ]
+  },
+  "UserSummary": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "user_summaries",
+      "user_summary"
+    ]
+  },
+  "UserWithCount": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "OpenStruct",
+    "table_name": [
+      "user_with_counts",
+      "user_with_count"
+    ]
+  },
+  "CategoryWithCounts": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "OpenStruct",
+    "table_name": [
+      "category_with_counts",
+      "category_with_count"
+    ]
+  },
+  "PluginStoreRow": {
+    "fields": {
+      "plugin_name": "string",
+      "key": "string",
+      "type_name": "string",
+      "value": "text"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "plugin_store_rows",
+      "plugin_store_row"
+    ]
+  },
+  "TopicParticipantsSummary": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "topic_participants_summaries",
+      "topic_participants_summary"
+    ]
+  },
+  "Embedding": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "OpenStruct",
+    "table_name": [
+      "embeddings",
+      "embedding"
+    ]
+  },
+  "InstagramUserInfo": {
+    "fields": {
+      "user_id": "integer",
+      "screen_name": "string",
+      "instagram_user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "instagram_user_infos",
+      "instagram_user_info"
+    ]
+  },
+  "DigestEmailSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "digest_email_site_settings",
+      "digest_email_site_setting"
+    ]
+  },
+  "WebCrawlerRequest": {
+    "fields": {
+      "date": "date",
+      "user_agent": "string",
+      "count": "integer"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "web_crawler_requests",
+      "web_crawler_request"
+    ]
+  },
+  "TagGroupPermission": {
+    "fields": {
+      "permission_type": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "TagGroup",
+        "rel": "belongs_to",
+        "field": "tag_group"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "tag_group_permissions",
+      "tag_group_permission"
+    ]
+  },
+  "Theme": {
+    "fields": {
+      "name": "string",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "compiler_version": "integer",
+      "user_selectable": "boolean",
+      "hidden": "boolean",
+      "color_scheme_id": "integer",
+      "remote_theme_id": "integer",
+      "component": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "ColorScheme",
+        "rel": "belongs_to",
+        "field": "color_scheme"
+      },
+      {
+        "class_name": "ThemeField",
+        "rel": "has_many",
+        "field": "theme_fields"
+      },
+      {
+        "class_name": "ThemeSetting",
+        "rel": "has_many",
+        "field": "theme_settings"
+      },
+      {
+        "class_name": "ThemeTranslationOverride",
+        "rel": "has_many",
+        "field": "theme_translation_overrides"
+      },
+      {
+        "class_name": "ChildTheme",
+        "rel": "has_many",
+        "field": "child_theme_relation"
+      },
+      {
+        "class_name": "ChildTheme",
+        "rel": "has_many",
+        "field": "parent_theme_relation"
+      },
+      {
+        "class_name": "ChildTheme",
+        "rel": "has_many",
+        "field": "child_themes"
+      },
+      {
+        "class_name": "Theme",
+        "rel": "has_many",
+        "field": "parent_themes"
+      },
+      {
+        "class_name": "ColorScheme",
+        "rel": "has_many",
+        "field": "color_schemes"
+      },
+      {
+        "class_name": "RemoteTheme",
+        "rel": "belongs_to",
+        "field": "remote_theme"
+      },
+      {
+        "class_name": "ThemeField",
+        "rel": "has_one",
+        "field": "settings_field"
+      },
+      {
+        "class_name": "JavascriptCache",
+        "rel": "has_one",
+        "field": "javascript_cache"
+      },
+      {
+        "class_name": "ThemeField",
+        "rel": "has_many",
+        "field": "locale_fields"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "themes",
+      "theme"
+    ]
+  },
+  "PostAnalyzer": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "post_analyzers",
+      "post_analyzer"
+    ]
+  },
+  "UnsubscribeKey": {
+    "fields": {
+      "key": "string",
+      "user_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "unsubscribe_key_type": "string",
+      "topic_id": "integer",
+      "post_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "unsubscribe_keys",
+      "unsubscribe_key"
+    ]
+  },
+  "CategoryAndTopicLists": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "category_and_topic_lists",
+      "category_and_topic_list"
+    ]
+  },
+  "EmailLevelSiteSetting": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "email_level_site_settings",
+      "email_level_site_setting"
+    ]
+  },
+  "TopicSearchData": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_search_data",
+      "topic_search_datum"
+    ]
+  },
+  "Upload": {
+    "fields": {
+      "user_id": "integer",
+      "original_filename": "string",
+      "filesize": "integer",
+      "width": "integer",
+      "height": "integer",
+      "url": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "sha1": "string",
+      "origin": "string",
+      "retain_hours": "integer",
+      "extension": "string",
+      "thumbnail_width": "integer",
+      "thumbnail_height": "integer",
+      "etag": "string"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "PostUpload",
+        "rel": "has_many",
+        "field": "post_uploads"
+      },
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "posts"
+      },
+      {
+        "class_name": "OptimizedImage",
+        "rel": "has_many",
+        "field": "optimized_images"
+      },
+      {
+        "class_name": "UserUpload",
+        "rel": "has_many",
+        "field": "user_uploads"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "uploads",
+      "upload"
+    ]
+  },
+  "AdminDashboardData": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "admin_dashboard_data",
+      "admin_dashboard_datum"
+    ]
+  },
+  "UserSearch": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "user_searches",
+      "user_search"
+    ]
+  },
+  "Post": {
+    "fields": {
+      "user_id": "integer",
+      "topic_id": "integer",
+      "post_number": "integer",
+      "raw": "text",
+      "cooked": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "reply_to_post_number": "integer",
+      "reply_count": "integer",
+      "quote_count": "integer",
+      "deleted_at": "datetime",
+      "off_topic_count": "integer",
+      "like_count": "integer",
+      "incoming_link_count": "integer",
+      "bookmark_count": "integer",
+      "avg_time": "integer",
+      "score": "float",
+      "reads": "integer",
+      "post_type": "integer",
+      "sort_order": "integer",
+      "last_editor_id": "integer",
+      "hidden": "boolean",
+      "hidden_reason_id": "integer",
+      "notify_moderators_count": "integer",
+      "spam_count": "integer",
+      "illegal_count": "integer",
+      "inappropriate_count": "integer",
+      "last_version_at": "datetime",
+      "user_deleted": "boolean",
+      "reply_to_user_id": "integer",
+      "percent_rank": "float",
+      "notify_user_count": "integer",
+      "like_score": "integer",
+      "deleted_by_id": "integer",
+      "edit_reason": "string",
+      "word_count": "integer",
+      "version": "integer",
+      "cook_method": "integer",
+      "wiki": "boolean",
+      "baked_at": "datetime",
+      "baked_version": "integer",
+      "hidden_at": "datetime",
+      "self_edits": "integer",
+      "reply_quoted": "boolean",
+      "via_email": "boolean",
+      "raw_email": "text",
+      "public_version": "integer",
+      "action_code": "string",
+      "image_url": "string",
+      "locked_by_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "reply_to_user"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "PostReply",
+        "rel": "has_many",
+        "field": "post_replies"
+      },
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "replies"
+      },
+      {
+        "class_name": "PostAction",
+        "rel": "has_many",
+        "field": "post_actions"
+      },
+      {
+        "class_name": "TopicLink",
+        "rel": "has_many",
+        "field": "topic_links"
+      },
+      {
+        "class_name": "GroupMention",
+        "rel": "has_many",
+        "field": "group_mentions"
+      },
+      {
+        "class_name": "PostUpload",
+        "rel": "has_many",
+        "field": "post_uploads"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "has_many",
+        "field": "uploads"
+      },
+      {
+        "class_name": "PostStat",
+        "rel": "has_one",
+        "field": "post_stat"
+      },
+      {
+        "class_name": "IncomingEmail",
+        "rel": "has_one",
+        "field": "incoming_email"
+      },
+      {
+        "class_name": "PostDetail",
+        "rel": "has_many",
+        "field": "post_details"
+      },
+      {
+        "class_name": "PostRevision",
+        "rel": "has_many",
+        "field": "post_revisions"
+      },
+      {
+        "class_name": "PostRevision",
+        "rel": "has_many",
+        "field": "revisions"
+      },
+      {
+        "class_name": "UserAction",
+        "rel": "has_many",
+        "field": "user_actions"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "posts",
+      "post"
+    ]
+  },
+  "GroupCustomField": {
+    "fields": {
+      "group_id": "integer",
+      "name": "string",
+      "value": "text",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "group"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "group_custom_fields",
+      "group_custom_field"
+    ]
+  },
+  "TopicInvite": {
+    "fields": {
+      "topic_id": "integer",
+      "invite_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Invite",
+        "rel": "belongs_to",
+        "field": "invite"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_invites",
+      "topic_invite"
+    ]
+  },
+  "DiscourseSingleSignOn": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "SingleSignOn",
+    "table_name": [
+      "discourse_single_sign_ons",
+      "discourse_single_sign_on"
+    ]
+  },
+  "BlankExternalId": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "blank_external_ids",
+      "blank_external_id"
+    ]
+  },
+  "BannedExternalId": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "StandardError",
+    "table_name": [
+      "banned_external_ids",
+      "banned_external_id"
+    ]
+  },
+  "UserBadges": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "user_badges",
+      "user_badge"
+    ]
+  },
+  "PostSearchData": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_search_data",
+      "post_search_datum"
+    ]
+  },
+  "WebHookEventType": {
+    "fields": {
+      "name": "string"
+    },
+    "associations": [
+      {
+        "class_name": "WebHook",
+        "rel": "has_and_belongs_to_many",
+        "field": "web_hooks"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "web_hook_event_types",
+      "web_hook_event_type"
+    ]
+  },
+  "TopicTimer": {
+    "fields": {
+      "execute_at": "datetime",
+      "status_type": "integer",
+      "user_id": "integer",
+      "topic_id": "integer",
+      "based_on_last_post": "boolean",
+      "deleted_at": "datetime",
+      "deleted_by_id": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "category_id": "integer",
+      "public_type": "boolean"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "belongs_to",
+        "field": "topic"
+      },
+      {
+        "class_name": "Category",
+        "rel": "belongs_to",
+        "field": "category"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "topic_timers",
+      "topic_timer"
+    ]
+  },
+  "IncomingLink": {
+    "fields": {
+      "created_at": "datetime",
+      "user_id": "integer",
+      "current_user_id": "integer",
+      "post_id": "integer",
+      "incoming_referer_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      },
+      {
+        "class_name": "IncomingReferer",
+        "rel": "belongs_to",
+        "field": "incoming_referer"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "incoming_links",
+      "incoming_link"
+    ]
+  },
+  "BadgeType": {
+    "fields": {
+      "name": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Badge",
+        "rel": "has_many",
+        "field": "badges"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "badge_types",
+      "badge_type"
+    ]
+  },
+  "UserEmail": {
+    "fields": {
+      "user_id": "integer",
+      "email": "string",
+      "primary": "boolean",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "user_emails",
+      "user_email"
+    ]
+  },
+  "PostUpload": {
+    "fields": {
+      "post_id": "integer",
+      "upload_id": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "upload"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "post_uploads",
+      "post_upload"
+    ]
+  },
+  "TrustLevelSetting": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "EnumSiteSetting",
+    "table_name": [
+      "trust_level_settings",
+      "trust_level_setting"
+    ]
+  },
+  "TrustLevelAndStaffSetting": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "TrustLevelSetting",
+    "table_name": [
+      "trust_level_and_staff_settings",
+      "trust_level_and_staff_setting"
+    ]
+  },
+  "User": {
+    "fields": {
+      "username": "string",
+      "created_at": "datetime",
+      "updated_at": "datetime",
+      "name": "string",
+      "seen_notification_id": "integer",
+      "last_posted_at": "datetime",
+      "password_hash": "string",
+      "salt": "string",
+      "active": "boolean",
+      "username_lower": "string",
+      "last_seen_at": "datetime",
+      "admin": "boolean",
+      "last_emailed_at": "datetime",
+      "trust_level": "integer",
+      "approved": "boolean",
+      "approved_by_id": "integer",
+      "approved_at": "datetime",
+      "previous_visit_at": "datetime",
+      "suspended_at": "datetime",
+      "suspended_till": "datetime",
+      "date_of_birth": "date",
+      "views": "integer",
+      "flag_level": "integer",
+      "moderator": "boolean",
+      "title": "string",
+      "uploaded_avatar_id": "integer",
+      "locale": "string",
+      "primary_group_id": "integer",
+      "staged": "boolean",
+      "first_seen_at": "datetime",
+      "silenced_till": "datetime",
+      "group_locked_trust_level": "integer",
+      "manual_locked_trust_level": "integer"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "has_many",
+        "field": "posts"
+      },
+      {
+        "class_name": "Notification",
+        "rel": "has_many",
+        "field": "notifications"
+      },
+      {
+        "class_name": "TopicUser",
+        "rel": "has_many",
+        "field": "topic_users"
+      },
+      {
+        "class_name": "CategoryUser",
+        "rel": "has_many",
+        "field": "category_users"
+      },
+      {
+        "class_name": "TagUser",
+        "rel": "has_many",
+        "field": "tag_users"
+      },
+      {
+        "class_name": "UserApiKey",
+        "rel": "has_many",
+        "field": "user_api_keys"
+      },
+      {
+        "class_name": "Topic",
+        "rel": "has_many",
+        "field": "topics"
+      },
+      {
+        "class_name": "UserOpenId",
+        "rel": "has_many",
+        "field": "user_open_ids"
+      },
+      {
+        "class_name": "UserAction",
+        "rel": "has_many",
+        "field": "user_actions"
+      },
+      {
+        "class_name": "PostAction",
+        "rel": "has_many",
+        "field": "post_actions"
+      },
+      {
+        "class_name": "UserBadge",
+        "rel": "has_many",
+        "field": "user_badges"
+      },
+      {
+        "class_name": "Badge",
+        "rel": "has_many",
+        "field": "badges"
+      },
+      {
+        "class_name": "EmailLog",
+        "rel": "has_many",
+        "field": "email_logs"
+      },
+      {
+        "class_name": "IncomingEmail",
+        "rel": "has_many",
+        "field": "incoming_emails"
+      },
+      {
+        "class_name": "PostTiming",
+        "rel": "has_many",
+        "field": "post_timings"
+      },
+      {
+        "class_name": "TopicAllowedUser",
+        "rel": "has_many",
+        "field": "topic_allowed_users"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "topics_allowed"
+      },
+      {
+        "class_name": "EmailToken",
+        "rel": "has_many",
+        "field": "email_tokens"
+      },
+      {
+        "class_name": "UserVisit",
+        "rel": "has_many",
+        "field": "user_visits"
+      },
+      {
+        "class_name": "Invite",
+        "rel": "has_many",
+        "field": "invites"
+      },
+      {
+        "class_name": "TopicLink",
+        "rel": "has_many",
+        "field": "topic_links"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "has_many",
+        "field": "uploads"
+      },
+      {
+        "class_name": "UserWarning",
+        "rel": "has_many",
+        "field": "user_warnings"
+      },
+      {
+        "class_name": "UserArchivedMessage",
+        "rel": "has_many",
+        "field": "user_archived_messages"
+      },
+      {
+        "class_name": "EmailChangeRequest",
+        "rel": "has_many",
+        "field": "email_change_requests"
+      },
+      {
+        "class_name": "DirectoryItem",
+        "rel": "has_many",
+        "field": "directory_items"
+      },
+      {
+        "class_name": "UserAuthToken",
+        "rel": "has_many",
+        "field": "user_auth_tokens"
+      },
+      {
+        "class_name": "UserAuthTokenLog",
+        "rel": "has_many",
+        "field": "user_auth_token_logs"
+      },
+      {
+        "class_name": "GroupUser",
+        "rel": "has_many",
+        "field": "group_users"
+      },
+      {
+        "class_name": "Group",
+        "rel": "has_many",
+        "field": "groups"
+      },
+      {
+        "class_name": "GroupRequest",
+        "rel": "has_many",
+        "field": "group_requests"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_many",
+        "field": "secure_categories"
+      },
+      {
+        "class_name": "UserUpload",
+        "rel": "has_many",
+        "field": "user_uploads"
+      },
+      {
+        "class_name": "UserEmail",
+        "rel": "has_many",
+        "field": "user_emails"
+      },
+      {
+        "class_name": "UserEmail",
+        "rel": "has_one",
+        "field": "primary_email"
+      },
+      {
+        "class_name": "UserOption",
+        "rel": "has_one",
+        "field": "user_option"
+      },
+      {
+        "class_name": "UserAvatar",
+        "rel": "has_one",
+        "field": "user_avatar"
+      },
+      {
+        "class_name": "UserAssociatedAccount",
+        "rel": "has_many",
+        "field": "user_associated_accounts"
+      },
+      {
+        "class_name": "GithubUserInfo",
+        "rel": "has_one",
+        "field": "github_user_info"
+      },
+      {
+        "class_name": "Oauth2UserInfo",
+        "rel": "has_many",
+        "field": "oauth2_user_infos"
+      },
+      {
+        "class_name": "InstagramUserInfo",
+        "rel": "has_one",
+        "field": "instagram_user_info"
+      },
+      {
+        "class_name": "UserSecondFactor",
+        "rel": "has_many",
+        "field": "user_second_factors"
+      },
+      {
+        "class_name": "UserSecondFactor",
+        "rel": "has_many",
+        "field": "totps"
+      },
+      {
+        "class_name": "UserSecurityKey",
+        "rel": "has_many",
+        "field": "security_keys"
+      },
+      {
+        "class_name": "AnonymousUser",
+        "rel": "has_one",
+        "field": "anonymous_user_master"
+      },
+      {
+        "class_name": "AnonymousUser",
+        "rel": "has_one",
+        "field": "anonymous_user_shadow"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_one",
+        "field": "master_user"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_one",
+        "field": "shadow_user"
+      },
+      {
+        "class_name": "UserStat",
+        "rel": "has_one",
+        "field": "user_stat"
+      },
+      {
+        "class_name": "UserProfile",
+        "rel": "has_one",
+        "field": "user_profile"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_one",
+        "field": "profile_background_upload"
+      },
+      {
+        "class_name": "User",
+        "rel": "has_one",
+        "field": "card_background_upload"
+      },
+      {
+        "class_name": "SingleSignOnRecord",
+        "rel": "has_one",
+        "field": "single_sign_on_record"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "approved_by"
+      },
+      {
+        "class_name": "Group",
+        "rel": "belongs_to",
+        "field": "primary_group"
+      },
+      {
+        "class_name": "MutedUser",
+        "rel": "has_many",
+        "field": "muted_user_records"
+      },
+      {
+        "class_name": "MutedUser",
+        "rel": "has_many",
+        "field": "muted_users"
+      },
+      {
+        "class_name": "ApiKey",
+        "rel": "has_one",
+        "field": "api_key"
+      },
+      {
+        "class_name": "PushSubscription",
+        "rel": "has_many",
+        "field": "push_subscriptions"
+      },
+      {
+        "class_name": "Upload",
+        "rel": "belongs_to",
+        "field": "uploaded_avatar"
+      },
+      {
+        "class_name": "GroupHistory",
+        "rel": "has_many",
+        "field": "acting_group_histories"
+      },
+      {
+        "class_name": "GroupHistory",
+        "rel": "has_many",
+        "field": "targeted_group_histories"
+      },
+      {
+        "class_name": "ReviewableScore",
+        "rel": "has_many",
+        "field": "reviewable_scores"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "users",
+      "user"
+    ]
+  },
+  "AdminDashboardIndexData": {
+    "fields": {
+      "type": "string"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "AdminDashboardData",
+    "table_name": [
+      "admin_dashboard_index_data",
+      "admin_dashboard_index_datum"
+    ]
+  },
+  "IncomingDomain": {
+    "fields": {
+      "name": "string",
+      "https": "boolean",
+      "port": "integer"
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "incoming_domains",
+      "incoming_domain"
+    ]
+  },
+  "TrustLevel3Requirements": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "trust_level3_requirements",
+      "trust_level3_requirement"
+    ]
+  },
+  "PenaltyCounts": {
+    "fields": {
+    },
+    "associations": [
+
+    ],
+    "extend_class_name": null,
+    "table_name": [
+      "penalty_counts",
+      "penalty_count"
+    ]
+  },
+  "Poll": {
+    "fields": {
+      "name": "string",
+      "close_at": "datetime",
+      "type": "integer",
+      "status": "integer",
+      "results": "integer",
+      "visibility": "integer",
+      "min": "integer",
+      "max": "integer",
+      "step": "integer",
+      "anonymous_voters": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Post",
+        "rel": "belongs_to",
+        "field": "post"
+      },
+      {
+        "class_name": "PollOption",
+        "rel": "has_many",
+        "field": "poll_options"
+      },
+      {
+        "class_name": "PollVote",
+        "rel": "has_many",
+        "field": "poll_votes"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "polls",
+      "poll"
+    ]
+  },
+  "PollOption": {
+    "fields": {
+      "digest": "string",
+      "html": "text",
+      "anonymous_votes": "integer",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "PollVote",
+        "rel": "has_many",
+        "field": "poll_votes"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "poll_options",
+      "poll_option"
+    ]
+  },
+  "PollVote": {
+    "fields": {
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    },
+    "associations": [
+      {
+        "class_name": "Poll",
+        "rel": "belongs_to",
+        "field": "poll"
+      },
+      {
+        "class_name": "PollOption",
+        "rel": "belongs_to",
+        "field": "poll_option"
+      },
+      {
+        "class_name": "User",
+        "rel": "belongs_to",
+        "field": "user"
+      }
+    ],
+    "extend_class_name": "ActiveRecord::Base",
+    "table_name": [
+      "poll_votes",
+      "poll_vote"
+    ]
+  }
+}
